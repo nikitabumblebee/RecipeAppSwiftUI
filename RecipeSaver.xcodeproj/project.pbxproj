@@ -20,6 +20,8 @@
 		3F17FB54279B1AA300A6C375 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB53279B1AA300A6C375 /* RecipeModel.swift */; };
 		3F17FB56279B207900A6C375 /* RecipeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB55279B207900A6C375 /* RecipeCard.swift */; };
 		3F17FB58279B24B800A6C375 /* RecipeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB57279B24B800A6C375 /* RecipeList.swift */; };
+		3F17FB5A279BAF7400A6C375 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB59279BAF7400A6C375 /* RecipeView.swift */; };
+		3F17FB5C279C10D000A6C375 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB5B279C10D000A6C375 /* CategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		3F17FB53279B1AA300A6C375 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		3F17FB55279B207900A6C375 /* RecipeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCard.swift; sourceTree = "<group>"; };
 		3F17FB57279B24B800A6C375 /* RecipeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeList.swift; sourceTree = "<group>"; };
+		3F17FB59279BAF7400A6C375 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
+		3F17FB5B279C10D000A6C375 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 		3F17FB43279B167000A6C375 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				3F17FB59279BAF7400A6C375 /* RecipeView.swift */,
+				3F17FB5B279C10D000A6C375 /* CategoryView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -217,7 +223,9 @@
 				3F17FB4A279B171600A6C375 /* CategoriesView.swift in Sources */,
 				3F17FB4C279B172100A6C375 /* NewRecipeView.swift in Sources */,
 				3F17FB52279B18E000A6C375 /* TabBar.swift in Sources */,
+				3F17FB5C279C10D000A6C375 /* CategoryView.swift in Sources */,
 				3F17FB4E279B173000A6C375 /* FavoritesView.swift in Sources */,
+				3F17FB5A279BAF7400A6C375 /* RecipeView.swift in Sources */,
 				3F17FB58279B24B800A6C375 /* RecipeList.swift in Sources */,
 				3F17FB48279B170100A6C375 /* HomeView.swift in Sources */,
 				3F17FB36279B156D00A6C375 /* ContentView.swift in Sources */,
