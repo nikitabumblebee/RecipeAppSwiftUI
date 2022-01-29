@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F099CF327A4E4050079F4BC /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F099CF227A4E4050079F4BC /* AddRecipeView.swift */; };
+		3F099CF527A4F7020079F4BC /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F099CF427A4F7020079F4BC /* RecipesViewModel.swift */; };
 		3F17FB34279B156D00A6C375 /* RecipeSaverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB33279B156D00A6C375 /* RecipeSaverApp.swift */; };
 		3F17FB36279B156D00A6C375 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB35279B156D00A6C375 /* ContentView.swift */; };
 		3F17FB38279B156F00A6C375 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F17FB37279B156F00A6C375 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F099CF227A4E4050079F4BC /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
+		3F099CF427A4F7020079F4BC /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		3F17FB30279B156D00A6C375 /* RecipeSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F17FB33279B156D00A6C375 /* RecipeSaverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSaverApp.swift; sourceTree = "<group>"; };
 		3F17FB35279B156D00A6C375 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			children = (
 				3F17FB59279BAF7400A6C375 /* RecipeView.swift */,
 				3F17FB5B279C10D000A6C375 /* CategoryView.swift */,
+				3F099CF227A4E4050079F4BC /* AddRecipeView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -136,6 +141,7 @@
 		3F17FB45279B168000A6C375 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				3F099CF427A4F7020079F4BC /* RecipesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -218,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F099CF327A4E4050079F4BC /* AddRecipeView.swift in Sources */,
 				3F17FB50279B173C00A6C375 /* SettingsView.swift in Sources */,
 				3F17FB56279B207900A6C375 /* RecipeCard.swift in Sources */,
 				3F17FB4A279B171600A6C375 /* CategoriesView.swift in Sources */,
@@ -229,6 +236,7 @@
 				3F17FB58279B24B800A6C375 /* RecipeList.swift in Sources */,
 				3F17FB48279B170100A6C375 /* HomeView.swift in Sources */,
 				3F17FB36279B156D00A6C375 /* ContentView.swift in Sources */,
+				3F099CF527A4F7020079F4BC /* RecipesViewModel.swift in Sources */,
 				3F17FB34279B156D00A6C375 /* RecipeSaverApp.swift in Sources */,
 				3F17FB54279B1AA300A6C375 /* RecipeModel.swift in Sources */,
 			);
