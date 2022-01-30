@@ -31,10 +31,11 @@ struct Recipe: Identifiable {
   let category: Category.RawValue
   let datePublished: String
   let url: String
+  var isFavorite: Bool = false
 }
 
 extension Recipe {
-  static let all: [Recipe] = [
+  static var all: [Recipe] = [
     Recipe(
       name: "Crispy Baked Polenta Sticks with Ranch Dip",
       image: "https://www.forksoverknives.com/wp-content/uploads/fly-images/141070/fancy-vegan-meatballs-appetizer-360x270-c.jpg",
@@ -43,7 +44,8 @@ extension Recipe {
       directions: "In a medium saucepan bring milk and 2 cups water to boiling. Gradually whisk in polenta. Reduce heat to low; cook 25 minutes or until thick and creamy, stirring frequently. Add in nutritional yeast, flaxseed meal, 3 teaspoons white wine vinegar, the lemon juice, ½ teaspoon garlic powder, ½ teaspoon sea salt, and ¼ teaspoon black pepper; mix well. Cook and stir 3 minutes more.\nOn a baking sheet spread polenta mixture into an 8×6-inch rectangle that is ½ inch thick. Let cool 5 minutes. Cover and chill for at least 1 and up to 12 hours.\nFor Ranch Dip, in a blender combine the tofu, onion powder, and the remaining 1½ teaspoons each garlic powder and vinegar. Cover and blend until smooth and creamy. Season with salt and pepper to taste, and pulse to combine. Transfer dip to a bowl and stir in parsley, dill, and chives. Chill 1 hour before serving.\nPreheat oven to 350°F. Slice chilled polenta in half lengthwise to make two long rectangles. Slice crosswise to divide each rectangle into 16 half-inch-thick sticks, for a total of 32 sticks.\nPlace bread crumbs in a shallow bowl. Dredge polenta sticks in crumbs until well coated. Arrange sticks on a baking sheet, spacing them at least ½ inch apart. Bake 20 minutes or until polenta sticks are crispy. Serve right away with Ranch Dip.",
       category: "Snack",
       datePublished: "2021-11-09",
-      url: "https://www.forksoverknives.com/recipes/vegan-snacks-appetizers/crispy-baked-polenta-sticks-ranch-dip/"
+      url: "https://www.forksoverknives.com/recipes/vegan-snacks-appetizers/crispy-baked-polenta-sticks-ranch-dip/",
+      isFavorite: false
     ),
     Recipe(
       name: "Sun-Dried Tomato and Caramelized-Onion Focaccia",
@@ -53,7 +55,8 @@ extension Recipe {
       directions: "IFor sponge, in a small bowl stir together ⅔ cup warm water and the date paste. Sprinkle in the yeast and ½ cup of the all-purpose flour; stir to combine. Cover bowl and let stand in a warm place 25 minutes.\nIn a separate bowl stir together potato flour and 1 cup water. Add the remaining 1 cup all-purpose flour, the whole wheat flour, cornmeal, salt, and ⅓ cup warm water. Add the sponge; mix well. Transfer dough to a floured work surface. Form dough into a ball and knead lightly 2 to 3 minutes or until soft and sticky.\nReturn dough to bowl; cover with a damp cloth. Let rise in a warm place 1 hour or until double in size.\nMeanwhile, in a medium saucepan cook onions with ¼ cup water over medium heat about 10 minutes or until starting to turn translucent, stirring frequently and adding water, 1 to 2 Tbsp. at a time, as needed to prevent sticking.\nSoak sun-dried tomatoes in ½ cup water 20 minutes or until soft; drain.\nPreheat oven to 475°F. Line a 13×9-inch baking pan with parchment paper.\nPunch down dough. On a lightly floured surface, roll dough into a ½-inch-thick rectangle. Transfer dough to the prepared baking pan. Top evenly with onions, tomatoes, and, if desired, jalapeños and olives.\nLet focaccia stand 15 minutes. Bake 30 minutes or until golden brown.",
       category: "Main",
       datePublished: "2020-01-07",
-      url: "https://www.forksoverknives.com/recipes/vegan-baked-stuffed/sun-dried-tomato-and-caramelized-onion-focaccia/"
+      url: "https://www.forksoverknives.com/recipes/vegan-baked-stuffed/sun-dried-tomato-and-caramelized-onion-focaccia/",
+      isFavorite: false
     )
   ]
 }

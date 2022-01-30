@@ -25,7 +25,7 @@ struct TabBar: View {
               Label("New", systemImage: "plus")
             }
           
-          FavoritesView()
+          FavoritesView(favoritesVM: FavoritesViewModel(recipes: Recipe.all.filter { $0.isFavorite }))
             .tabItem {
               Label("Favorites", systemImage: "heart")
             }
