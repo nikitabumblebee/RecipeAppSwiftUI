@@ -13,6 +13,5 @@ struct RecipeSaverApp: App {
         WindowGroup {
             ContentView()
         }
-      
     }
 }
