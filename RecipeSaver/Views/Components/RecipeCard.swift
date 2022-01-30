@@ -44,7 +44,7 @@ struct RecipeCard: View {
                 .font(.system(size: 30))
               Image(systemName: "heart")
                 .imageScale(.large)
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.white)
                 .font(.system(size: 30))
             }
           } else {
@@ -56,7 +56,7 @@ struct RecipeCard: View {
                 .font(.system(size: 30))
               Image(systemName: "heart")
                 .imageScale(.large)
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.white)
                 .font(.system(size: 30))
             }
           }
