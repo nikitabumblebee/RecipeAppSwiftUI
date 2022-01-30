@@ -28,4 +28,10 @@ class RecipeCardViewModel: ObservableObject {
       Recipe.all[existedRecipeIndex].isFavorite = false
     }
   }
+  
+  func fetchData() {
+    if let existedRecipeIndex = Recipe.all.firstIndex(where: { $0.name == recipe.name }) {
+      recipe.isFavorite = Recipe.all[existedRecipeIndex].isFavorite
+    }
+  }
 }

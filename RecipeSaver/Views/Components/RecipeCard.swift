@@ -61,6 +61,9 @@ struct RecipeCard: View {
             }
           }
         }
+        .onAppear {
+          self.recipeCardVM.fetchData()
+        }
         .shadow(color: .black, radius: 15, x: 0, y: 0)
         .padding(10)
       }

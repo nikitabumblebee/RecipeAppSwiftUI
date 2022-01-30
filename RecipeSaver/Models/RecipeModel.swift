@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum Category: String, CaseIterable, Identifiable {
   var id: String { self.rawValue }
@@ -59,4 +60,8 @@ extension Recipe {
       isFavorite: false
     )
   ]
+  
+  static func resetFavorites() {
+    Recipe.all.indices.forEach { Recipe.all[$0].isFavorite = false }
+  }
 }
