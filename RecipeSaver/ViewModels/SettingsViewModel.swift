@@ -10,7 +10,7 @@ import SwiftUI
 
 class SettingsViewModel: ObservableObject {  
   var isDarkModeEnabled: Bool = false
-  
+    
   init() {
     
   }
@@ -27,5 +27,11 @@ class SettingsViewModel: ObservableObject {
     Recipe.resetFavorites()
   }
   
+  func selectPhotoToProfile() {
+    
+  }
   
+  private func handlePickedBackgroundImage(_ image: UIImage?) {
+    //profileImage = image?.imageData
+  }
 }

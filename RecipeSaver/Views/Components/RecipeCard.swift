@@ -36,29 +36,15 @@ struct RecipeCard: View {
             recipeCardVM.addRecipeToFavorite()
           }
         } label: {
-          if recipeCardVM.recipe.isFavorite {
-            ZStack {
-              Image(systemName: "heart.fill")
-                .imageScale(.large)
-                .foregroundColor(Color.red)
-                .font(.system(size: 30))
-              Image(systemName: "heart")
-                .imageScale(.large)
-                .foregroundColor(Color.white)
-                .font(.system(size: 30))
-            }
-          } else {
-            ZStack {
-              Image(systemName: "heart.fill")
-                .imageScale(.large)
-                .foregroundColor(Color.white)
-                .opacity(0.8)
-                .font(.system(size: 30))
-              Image(systemName: "heart")
-                .imageScale(.large)
-                .foregroundColor(Color.white)
-                .font(.system(size: 30))
-            }
+          ZStack {
+            Image(systemName: "heart.fill")
+              .imageScale(.large)
+              .foregroundColor(recipeCardVM.recipe.isFavorite ? Color.red : Color.white.opacity(0.8))
+              .font(.system(size: 30))
+            Image(systemName: "heart")
+              .imageScale(.large)
+              .foregroundColor(Color.white)
+              .font(.system(size: 30))
           }
         }
         .onAppear {

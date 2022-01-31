@@ -14,6 +14,9 @@
 		3F099CFB27A6B1250079F4BC /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F099CFA27A6B1250079F4BC /* SettingsViewModel.swift */; };
 		3F099CFE27A6BBFC0079F4BC /* InternalColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F099CFD27A6BBFC0079F4BC /* InternalColorScheme.swift */; };
 		3F099D0127A6BC530079F4BC /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F099D0027A6BC530079F4BC /* PreferencesStore.swift */; };
+		3F14E43627A82EA700AF8239 /* PhotoLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43527A82EA700AF8239 /* PhotoLibrary.swift */; };
+		3F14E43927A82F7900AF8239 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43827A82F7900AF8239 /* UtilityExtensions.swift */; };
+		3F14E43B27A831DE00AF8239 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43A27A831DE00AF8239 /* PhotoPicker.swift */; };
 		3F17FB34279B156D00A6C375 /* RecipeSaverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB33279B156D00A6C375 /* RecipeSaverApp.swift */; };
 		3F17FB36279B156D00A6C375 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB35279B156D00A6C375 /* ContentView.swift */; };
 		3F17FB38279B156F00A6C375 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F17FB37279B156F00A6C375 /* Assets.xcassets */; };
@@ -39,6 +42,9 @@
 		3F099CFA27A6B1250079F4BC /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		3F099CFD27A6BBFC0079F4BC /* InternalColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalColorScheme.swift; sourceTree = "<group>"; };
 		3F099D0027A6BC530079F4BC /* PreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
+		3F14E43527A82EA700AF8239 /* PhotoLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibrary.swift; sourceTree = "<group>"; };
+		3F14E43827A82F7900AF8239 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
+		3F14E43A27A831DE00AF8239 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		3F17FB30279B156D00A6C375 /* RecipeSaver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeSaver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F17FB33279B156D00A6C375 /* RecipeSaverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeSaverApp.swift; sourceTree = "<group>"; };
 		3F17FB35279B156D00A6C375 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				3F099CFD27A6BBFC0079F4BC /* InternalColorScheme.swift */,
+				3F14E43527A82EA700AF8239 /* PhotoLibrary.swift */,
+				3F14E43A27A831DE00AF8239 /* PhotoPicker.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -82,6 +90,14 @@
 				3F099D0027A6BC530079F4BC /* PreferencesStore.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		3F14E43727A82F6400AF8239 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3F14E43827A82F7900AF8239 /* UtilityExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3F17FB27279B156D00A6C375 = {
@@ -103,6 +119,7 @@
 		3F17FB32279B156D00A6C375 /* RecipeSaver */ = {
 			isa = PBXGroup;
 			children = (
+				3F14E43727A82F6400AF8239 /* Extensions */,
 				3F099CFF27A6BC390079F4BC /* Managers */,
 				3F099CFC27A6BBE60079F4BC /* Helpers */,
 				3F17FB33279B156D00A6C375 /* RecipeSaverApp.swift */,
@@ -259,6 +276,7 @@
 				3F099CF327A4E4050079F4BC /* AddRecipeView.swift in Sources */,
 				3F17FB50279B173C00A6C375 /* SettingsView.swift in Sources */,
 				3F099CF727A68AFD0079F4BC /* RecipeCardViewModel.swift in Sources */,
+				3F14E43627A82EA700AF8239 /* PhotoLibrary.swift in Sources */,
 				3F17FB56279B207900A6C375 /* RecipeCard.swift in Sources */,
 				3F17FB4A279B171600A6C375 /* CategoriesView.swift in Sources */,
 				3F099CFE27A6BBFC0079F4BC /* InternalColorScheme.swift in Sources */,
@@ -267,11 +285,13 @@
 				3F099CF927A6A0540079F4BC /* FavoritesViewModel.swift in Sources */,
 				3F17FB5C279C10D000A6C375 /* CategoryView.swift in Sources */,
 				3F17FB4E279B173000A6C375 /* FavoritesView.swift in Sources */,
+				3F14E43B27A831DE00AF8239 /* PhotoPicker.swift in Sources */,
 				3F17FB5A279BAF7400A6C375 /* RecipeView.swift in Sources */,
 				3F17FB58279B24B800A6C375 /* RecipeList.swift in Sources */,
 				3F17FB48279B170100A6C375 /* HomeView.swift in Sources */,
 				3F17FB36279B156D00A6C375 /* ContentView.swift in Sources */,
 				3F099CF527A4F7020079F4BC /* RecipesViewModel.swift in Sources */,
+				3F14E43927A82F7900AF8239 /* UtilityExtensions.swift in Sources */,
 				3F17FB34279B156D00A6C375 /* RecipeSaverApp.swift in Sources */,
 				3F17FB54279B1AA300A6C375 /* RecipeModel.swift in Sources */,
 				3F099CFB27A6B1250079F4BC /* SettingsViewModel.swift in Sources */,
