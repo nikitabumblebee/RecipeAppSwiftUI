@@ -11,10 +11,13 @@ import SwiftUI
 class SettingsViewModel: ObservableObject {  
   var isDarkModeEnabled: Bool = false
   
+  var userName: String
+  
   var userSettings: UserSettings
       
   init() {
     userSettings = UserSettings.shared
+    userName = userSettings.userName
   }
   
   func turnOnDarkMode() {
@@ -31,5 +34,10 @@ class SettingsViewModel: ObservableObject {
   
   func selectPhotoToProfile() {
     
+  }
+  
+  func updateUserName(name: String) {
+    userName = name
+    userSettings.userName = name
   }
 }

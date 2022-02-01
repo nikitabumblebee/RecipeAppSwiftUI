@@ -14,12 +14,31 @@ struct SettingsView: View {
   @State private var isDarkModeOn = UserSettings.shared.isDarkModeOn
   @State private var showingImagePicker = false
   @State private var avatarImage = UserSettings.shared.image!
-  
+    
   var body: some View {
     NavigationView {
       VStack(alignment: .leading) {
         ProfileImageView(avatarImage: $avatarImage, showingImagePicker: $showingImagePicker, isDarkModeOn: $isDarkModeOn)
           .padding(.bottom, 20.0)
+        
+        HStack {
+          Text("Name: \(settingsVM.userName)")
+          
+          Spacer()
+          
+          Button {
+            isAlertShow = true
+          } label: {
+            Text("Edit")
+          }
+          .alert(isPresented: $isAlertShow, TextAlert(title: "Edit name", message: "Enter your name") { result in
+            if result != nil {
+              settingsVM.updateUserName(name: result!)
+            }
+          })
+          .frame(width: 40)
+        }
+        .frame(height: 30)
         
         Divider()
         
@@ -65,6 +84,12 @@ struct SettingsView: View {
     .sheet(isPresented: $showingImagePicker) {
       PhotoPicker(image: self.$avatarImage)
     }
+  }
+}
+
+extension View {
+  public func alert(isPresented: Binding<Bool>, _ alert: TextAlert) -> some View {
+    AlertWrapper(isPresented: isPresented, alert: alert, content: self)
   }
 }
 

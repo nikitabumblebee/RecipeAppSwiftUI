@@ -15,6 +15,8 @@ class UserSettings {
   /// User's image
   var image = UIImage(systemName: "person.fill")
   
+  var userName: String = ""
+  
   /// Is user switch on dark mode in the app
   var isDarkModeOn = false
   
