@@ -18,8 +18,11 @@ struct SettingsView: View {
   var body: some View {
     NavigationView {
       VStack(alignment: .leading) {
+        Text("User Info")
+          .font(.system(size: 25))
+          .font(.headline)
+        
         ProfileImageView(avatarImage: $avatarImage, showingImagePicker: $showingImagePicker, isDarkModeOn: $isDarkModeOn)
-          .padding(.bottom, 20.0)
         
         HStack {
           Text("Name: \(settingsVM.userName)")
@@ -41,6 +44,10 @@ struct SettingsView: View {
         .frame(height: 30)
         
         Divider()
+        
+        Text("Preferences")
+          .font(.system(size: 25))
+          .font(.headline)
         
         Toggle(isOn: $isDarkModeOn) {
           Text("Dark Mode")
