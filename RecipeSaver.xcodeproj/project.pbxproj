@@ -16,6 +16,7 @@
 		3F099D0127A6BC530079F4BC /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F099D0027A6BC530079F4BC /* PreferencesStore.swift */; };
 		3F0BDA5927A954BE0060067D /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BDA5827A954BE0060067D /* TextAlert.swift */; };
 		3F0BDA5C27A9552B0060067D /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BDA5B27A9552B0060067D /* AlertWrapper.swift */; };
+		3F0BDA5E27A97DB40060067D /* EditSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BDA5D27A97DB40060067D /* EditSettingsView.swift */; };
 		3F14E43927A82F7900AF8239 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43827A82F7900AF8239 /* UtilityExtensions.swift */; };
 		3F14E43B27A831DE00AF8239 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43A27A831DE00AF8239 /* PhotoPicker.swift */; };
 		3F14E43D27A8E52300AF8239 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43C27A8E52300AF8239 /* ProfileImageView.swift */; };
@@ -47,6 +48,7 @@
 		3F099D0027A6BC530079F4BC /* PreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
 		3F0BDA5827A954BE0060067D /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
 		3F0BDA5B27A9552B0060067D /* AlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWrapper.swift; sourceTree = "<group>"; };
+		3F0BDA5D27A97DB40060067D /* EditSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsView.swift; sourceTree = "<group>"; };
 		3F14E43827A82F7900AF8239 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		3F14E43A27A831DE00AF8239 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		3F14E43C27A8E52300AF8239 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				3F17FB59279BAF7400A6C375 /* RecipeView.swift */,
 				3F17FB5B279C10D000A6C375 /* CategoryView.swift */,
 				3F099CF227A4E4050079F4BC /* AddRecipeView.swift */,
+				3F0BDA5D27A97DB40060067D /* EditSettingsView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				3F0BDA5C27A9552B0060067D /* AlertWrapper.swift in Sources */,
 				3F17FB56279B207900A6C375 /* RecipeCard.swift in Sources */,
 				3F17FB4A279B171600A6C375 /* CategoriesView.swift in Sources */,
+				3F0BDA5E27A97DB40060067D /* EditSettingsView.swift in Sources */,
 				3F099CFE27A6BBFC0079F4BC /* InternalColorScheme.swift in Sources */,
 				3F17FB4C279B172100A6C375 /* NewRecipeView.swift in Sources */,
 				3F17FB52279B18E000A6C375 /* TabBar.swift in Sources */,

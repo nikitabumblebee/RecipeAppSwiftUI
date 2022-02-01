@@ -13,11 +13,14 @@ class SettingsViewModel: ObservableObject {
   
   var userName: String
   
+  var userNickName: String
+  
   var userSettings: UserSettings
       
   init() {
     userSettings = UserSettings.shared
     userName = userSettings.userName
+    userNickName = userSettings.userNickName
   }
   
   func turnOnDarkMode() {
