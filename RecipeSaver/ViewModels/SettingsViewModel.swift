@@ -10,9 +10,11 @@ import SwiftUI
 
 class SettingsViewModel: ObservableObject {  
   var isDarkModeEnabled: Bool = false
-    
+  
+  var userSettings: UserSettings
+      
   init() {
-    
+    userSettings = UserSettings.shared
   }
   
   func turnOnDarkMode() {
@@ -29,9 +31,5 @@ class SettingsViewModel: ObservableObject {
   
   func selectPhotoToProfile() {
     
-  }
-  
-  private func handlePickedBackgroundImage(_ image: UIImage?) {
-    //profileImage = image?.imageData
   }
 }

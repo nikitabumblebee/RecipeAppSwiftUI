@@ -10,10 +10,10 @@ import SwiftUI
 struct SettingsView: View {
   @ObservedObject var settingsVM: SettingsViewModel
       
-  @State var isAlertShow = false
-  @State var isDarkModeOn = false
+  @State private var isAlertShow = false
+  @State private var isDarkModeOn = UserSettings.shared.isDarkModeOn
   @State private var showingImagePicker = false
-  @State private var avatarImage = UIImage(systemName: "person.fill")!
+  @State private var avatarImage = UserSettings.shared.image!
   
   var body: some View {
     NavigationView {
@@ -51,11 +51,7 @@ struct SettingsView: View {
             } label: {
               Text("Reset")
             }
-            Button {
-              
-            } label: {
-              Text("Cancel")
-            }
+            Button("Cancel", action: {})
           }
           .foregroundColor(Color.red)
           
