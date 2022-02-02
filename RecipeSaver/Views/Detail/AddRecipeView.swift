@@ -113,5 +113,6 @@ extension AddRecipeView {
     let recipe = Recipe(name: name, image: name, description: description, ingredients: ingredients, directions: description, category: selectedCategory.rawValue, datePublished: datePublished, url: "")
     
     recipesVM.addRecipe(recipe: recipe)
+    Recipe.addRecipe(recipe: recipe)
   }
 }

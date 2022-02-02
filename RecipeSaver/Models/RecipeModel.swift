@@ -64,4 +64,7 @@ extension Recipe {
   static func resetFavorites() {
     Recipe.all.indices.forEach { Recipe.all[$0].isFavorite = false }
   }
+  static func addRecipe(recipe: Recipe) {
+    Recipe.all.append(recipe)
+  }
 }

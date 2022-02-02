@@ -6,15 +6,11 @@
 //
 
 import Foundation
-import SwiftUI
 
 class SettingsViewModel: ObservableObject {  
   var isDarkModeEnabled: Bool = false
-  
   var userName: String
-  
   var userNickName: String
-  
   var userSettings: UserSettings
       
   init() {

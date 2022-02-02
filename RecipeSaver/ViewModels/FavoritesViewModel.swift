@@ -8,7 +8,6 @@
 import Foundation
 
 class FavoritesViewModel: ObservableObject {
-  
   @Published private(set) var recipes: [Recipe]
   
   init(recipes: [Recipe]) {

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import SwiftUI
 
 class RecipeCardViewModel: ObservableObject {
   @Published private(set) var recipe: Recipe
@@ -29,7 +28,7 @@ class RecipeCardViewModel: ObservableObject {
     }
   }
   
-  func fetchData() {
+  func fetchData() {    
     if let existedRecipeIndex = Recipe.all.firstIndex(where: { $0.name == recipe.name }) {
       recipe.isFavorite = Recipe.all[existedRecipeIndex].isFavorite
     }
