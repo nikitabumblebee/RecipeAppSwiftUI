@@ -16,12 +16,25 @@ struct AddRecipeView: View {
   @State private var ingredients: String = ""
   @State private var directions: String = ""
   @State private var navigateToRecipe = false
+  @State private var recipeImage = UIImage(systemName: "photo")!
+  @State private var showingImagePicker = false
   
   @Environment(\.dismiss) var dismiss
   
   var body: some View {
     NavigationView {
       Form {
+        Section(header: Text("Image")) {
+          HStack {
+            Image(uiImage: recipeImage)
+              .resizable()
+              .aspectRatio(contentMode: recipeImage == UIImage(systemName: "photo") ? .fit : .fill)
+              .frame(height: 100)
+            Spacer()
+            Button(action: { showingImagePicker = true }) { Text("Select Image") }
+          }
+        }
+        
         Section(header: Text("Name")) {
           TextField("Recipe Name", text: $name)
         }
@@ -53,7 +66,6 @@ struct AddRecipeView: View {
               .labelStyle(.iconOnly)
           }
         }
-        
         ToolbarItem {
           NavigationLink(isActive: $navigateToRecipe) {
             RecipeView(recipe: recipesVM.recipes.sorted { $0.datePublished > $1.datePublished }[0])
@@ -72,6 +84,9 @@ struct AddRecipeView: View {
       })
       .navigationTitle("New Recipe")
       .navigationBarTitleDisplayMode(.inline)
+      .sheet(isPresented: $showingImagePicker) {
+        PhotoPicker(image: self.$recipeImage)
+      }
     }
     .navigationViewStyle(.stack)
   }
@@ -92,7 +107,10 @@ extension AddRecipeView {
     
     let datePublished = dateFormatter.string(from: now)
     
-    let recipe = Recipe(name: name, image: "", description: description, ingredients: ingredients, directions: description, category: selectedCategory.rawValue, datePublished: datePublished, url: "")
+    let imageLoader = ImageLoader()
+    imageLoader.saveImage(imageName: name, image: recipeImage)
+    
+    let recipe = Recipe(name: name, image: name, description: description, ingredients: ingredients, directions: description, category: selectedCategory.rawValue, datePublished: datePublished, url: "")
     
     recipesVM.addRecipe(recipe: recipe)
   }

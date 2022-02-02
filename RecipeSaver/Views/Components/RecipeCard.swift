@@ -17,12 +17,19 @@ struct RecipeCard: View {
           .resizable()
           .aspectRatio(contentMode: .fill)
       } placeholder: {
-        Image(systemName: "photo")
-          .resizable()
-          .scaledToFit()
-          .frame(width: 40, height: 40, alignment: .center)
-          .foregroundColor(.white.opacity(0.7))
-          .frame(maxWidth: .infinity, maxHeight: .infinity)
+        if recipeCardVM.recipe.image != recipeCardVM.recipe.name {
+          Image(systemName: "photo")
+            .resizable()
+            .scaledToFit()
+            .frame(width: 40, height: 40, alignment: .center)
+            .foregroundColor(.white.opacity(0.7))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        } else {
+          let imageLoader = ImageLoader()
+          Image(uiImage: imageLoader.loadImageFromDiskWith(fileName: recipeCardVM.recipe.image)!)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+        }
       }
       .overlay(alignment: .bottomTrailing) {
         RecipeTextName(name: recipeCardVM.recipe.name)

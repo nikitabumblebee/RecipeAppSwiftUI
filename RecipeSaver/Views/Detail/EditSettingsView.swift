@@ -18,23 +18,21 @@ struct EditSettingsView: View {
   @State private var navigateToSettingsView = false
   
   var body: some View {
-    VStack {
-      VStack(alignment: .leading) {
-        ProfileImageView(avatarImage: $avatarImage, showingImagePicker: $showingImagePicker, isDarkModeOn: $isDarkModeOn)
-          .padding(-5)
-        TextField(UserSettings.shared.userName, text: $name)
-        TextField(UserSettings.shared.userNickName, text: $nickName)
-        Spacer()
-      }
-      .padding()
-      .navigationBarBackButtonHidden(true)
-      .navigationBarItems(
-        leading: Button(action: { self.presentationMode.wrappedValue.dismiss() }) { Text("Cancel") },
-        trailing: Button(action: { self.commitDataEntry() }) { Text("Save") })
-      .onAppear(perform: loadStateVariables)
-      .sheet(isPresented: $showingImagePicker) {
-        PhotoPicker(image: self.$avatarImage)
-      }
+    VStack(alignment: .leading) {
+      ProfileImageView(avatarImage: $avatarImage, showingImagePicker: $showingImagePicker, isDarkModeOn: $isDarkModeOn)
+        .padding(-5)
+      TextField(UserSettings.shared.userName, text: $name)
+      TextField(UserSettings.shared.userNickName, text: $nickName)
+      Spacer()
+    }
+    .padding()
+    .navigationBarBackButtonHidden(true)
+    .navigationBarItems(
+      leading: Button(action: { self.presentationMode.wrappedValue.dismiss() }) { Text("Cancel") },
+      trailing: Button(action: { self.commitDataEntry() }) { Text("Save") })
+    .onAppear(perform: loadStateVariables)
+    .sheet(isPresented: $showingImagePicker) {
+      PhotoPicker(image: self.$avatarImage)
     }
   }
 }
