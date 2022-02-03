@@ -69,9 +69,10 @@ struct RecipeView: View {
       .padding(.horizontal)
     }
     .onAppear {
-      if let existedRecipe = Recipe.all.firstIndex(where: { $0.id == recipe.id }) {
+      if let existedRecipeIndex = Recipe.all.firstIndex(where: { $0.id == recipe.id }) {
         let imageLoader = ImageLoader()
-        self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: Recipe.all[existedRecipe].image)
+        self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: Recipe.all[existedRecipeIndex].image)
+        self.recipe = Recipe.all[existedRecipeIndex]
       }
     }
     .toolbar {
