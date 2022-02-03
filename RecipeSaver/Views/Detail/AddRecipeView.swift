@@ -69,7 +69,9 @@ struct AddRecipeView: View {
     .navigationBarBackButtonHidden(true)
     .navigationBarItems(
       leading: Button(action: { self.presentationMode.wrappedValue.dismiss() }) { Text("Cancel") },
-      trailing: Button(action: { self.saveRecipe() }) { Text("Save") })
+      trailing: Button(action: { self.saveRecipe() }) { Text("Save") }
+        .disabled(isEdit ? false : recipe.name.isEmpty)
+    )
   }
 }
 
