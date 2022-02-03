@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct RecipeView: View {  
-  var recipe: Recipe
+  @State var recipe: Recipe
+  //@State private var recipeImage = UIImage(systemName: "photo")!
+  @State private var showAddRecipe = false
+  @State private var isEdit = true
   
   var body: some View {
     ScrollView {
@@ -65,6 +68,16 @@ struct RecipeView: View {
         .frame(width: .infinity, alignment: .leading)
       }
       .padding(.horizontal)
+    }
+    .toolbar {
+      if recipe.isUserRecipe {
+        Button("Edit") {
+          showAddRecipe = true
+        }
+      }
+    }
+    .sheet(isPresented: $showAddRecipe) {
+      AddRecipeView(recipe: $recipe, isEdit: $isEdit)
     }
     .ignoresSafeArea(.container, edges: .top)
   }

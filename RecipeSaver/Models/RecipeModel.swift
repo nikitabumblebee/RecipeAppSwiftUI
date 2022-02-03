@@ -24,15 +24,16 @@ enum Category: String, CaseIterable, Identifiable {
 
 struct Recipe: Identifiable {
   let id = UUID()
-  let name: String
+  var name: String
   var image: String
-  let description: String
-  let ingredients: String
-  let directions: String
-  let category: Category.RawValue
-  let datePublished: String
-  let url: String
+  var description: String
+  var ingredients: String
+  var directions: String
+  var category: Category.RawValue
+  var datePublished: String = ""
+  var url: String = ""
   var isFavorite: Bool = false
+  let isUserRecipe: Bool
 }
 
 extension Recipe {
@@ -46,7 +47,8 @@ extension Recipe {
       category: "Snack",
       datePublished: "2021-11-09",
       url: "https://www.forksoverknives.com/recipes/vegan-snacks-appetizers/crispy-baked-polenta-sticks-ranch-dip/",
-      isFavorite: false
+      isFavorite: false,
+      isUserRecipe: false
     ),
     Recipe(
       name: "Sun-Dried Tomato and Caramelized-Onion Focaccia",
@@ -57,7 +59,8 @@ extension Recipe {
       category: "Main",
       datePublished: "2020-01-07",
       url: "https://www.forksoverknives.com/recipes/vegan-baked-stuffed/sun-dried-tomato-and-caramelized-onion-focaccia/",
-      isFavorite: false
+      isFavorite: false,
+      isUserRecipe: false
     )
   ]
   

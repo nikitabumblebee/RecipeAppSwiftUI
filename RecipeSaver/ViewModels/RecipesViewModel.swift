@@ -17,4 +17,10 @@ class RecipesViewModel: ObservableObject {
   func addRecipe(recipe: Recipe) {
     recipes.append(recipe)
   }
+  
+  func updateRecipe(recipe: Recipe) {
+    if let row = recipes.firstIndex(where: {$0.id == recipe.id} ) {
+      recipes[row] = recipe
+    }
+  }
 }
