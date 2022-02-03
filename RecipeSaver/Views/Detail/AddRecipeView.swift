@@ -10,6 +10,9 @@ import SwiftUI
 struct AddRecipeView: View {
   @EnvironmentObject var recipesVM: RecipesViewModel
   
+  @Environment(\.presentationMode) var presentationMode
+  @Environment(\.dismiss) var dismiss
+  
   @Binding var recipe: Recipe
   @Binding var isEdit: Bool
   
@@ -17,10 +20,8 @@ struct AddRecipeView: View {
   @State private var recipeImage = UIImage(systemName: "photo")!
   @State private var showingImagePicker = false
   
-  @Environment(\.dismiss) var dismiss
-  
   var body: some View {
-    NavigationView {
+    VStack {
       Form {
         Section(header: Text("Image")) {
           HStack {
@@ -33,7 +34,6 @@ struct AddRecipeView: View {
             Button(action: { showingImagePicker = true }) { Text("Select Image") }
           }
         }
-        
         Section(header: Text("Name")) {
           TextField(recipe.name, text: $recipe.name)
         }
@@ -56,31 +56,6 @@ struct AddRecipeView: View {
           TextEditor(text: $recipe.directions)
         }
       }
-      .toolbar(content: {
-        ToolbarItem(placement: .navigationBarLeading) {
-          Button {
-            dismiss()
-          } label: {
-            Label("Cancel", systemImage: "xmark")
-              .labelStyle(.iconOnly)
-          }
-        }
-        ToolbarItem {
-          NavigationLink(isActive: $navigateToRecipe) {
-            RecipeView(recipe: recipesVM.recipes.sorted { $0.datePublished > $1.datePublished }[0])
-              .navigationBarBackButtonHidden(true)
-          } label: {
-            Button {
-              saveRecipe()
-              navigateToRecipe = true
-            } label: {
-              Label("Done", systemImage: "checkmark")
-                .labelStyle(.iconOnly)
-            }
-          }
-          .disabled(isEdit ? false : recipe.name.isEmpty)
-        }
-      })
       .navigationTitle(isEdit ? recipe.name : "New Recipe")
       .navigationBarTitleDisplayMode(.inline)
       .onAppear {
@@ -91,6 +66,10 @@ struct AddRecipeView: View {
       }
     }
     .navigationViewStyle(.stack)
+    .navigationBarBackButtonHidden(true)
+    .navigationBarItems(
+      leading: Button(action: { self.presentationMode.wrappedValue.dismiss() }) { Text("Cancel") },
+      trailing: Button(action: { self.saveRecipe() }) { Text("Save") })
   }
 }
 
@@ -131,6 +110,7 @@ extension AddRecipeView {
       recipesVM.addRecipe(recipe: newRecipe)
       Recipe.addRecipe(recipe: newRecipe)
     }
+    self.presentationMode.wrappedValue.dismiss()
   }
   
   func loadStateVariables() {

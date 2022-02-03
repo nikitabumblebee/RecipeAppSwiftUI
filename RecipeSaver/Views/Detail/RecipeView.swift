@@ -9,9 +9,9 @@ import SwiftUI
 
 struct RecipeView: View {  
   @State var recipe: Recipe
-  //@State private var recipeImage = UIImage(systemName: "photo")!
   @State private var showAddRecipe = false
   @State private var isEdit = true
+  @State private var recipeImage = UIImage(systemName: "photo")
   
   var body: some View {
     ScrollView {
@@ -28,8 +28,7 @@ struct RecipeView: View {
             .foregroundColor(.white.opacity(0.7))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
-          let imageLoader = ImageLoader()
-          Image(uiImage: imageLoader.loadImageFromDiskWith(fileName: recipe.image)!)
+          Image(uiImage: recipeImage!)
             .resizable()
         }
       }
@@ -69,15 +68,18 @@ struct RecipeView: View {
       }
       .padding(.horizontal)
     }
-    .toolbar {
-      if recipe.isUserRecipe {
-        Button("Edit") {
-          showAddRecipe = true
-        }
+    .onAppear {
+      if let existedRecipe = Recipe.all.firstIndex(where: { $0.id == recipe.id }) {
+        let imageLoader = ImageLoader()
+        self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: Recipe.all[existedRecipe].image)
       }
     }
-    .sheet(isPresented: $showAddRecipe) {
-      AddRecipeView(recipe: $recipe, isEdit: $isEdit)
+    .toolbar {
+      if recipe.isUserRecipe {
+        NavigationLink(destination: AddRecipeView(recipe: $recipe, isEdit: $isEdit)) {
+          Text("Edit")
+        }
+      }
     }
     .ignoresSafeArea(.container, edges: .top)
   }

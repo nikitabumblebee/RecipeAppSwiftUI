@@ -15,15 +15,12 @@ struct NewRecipeView: View {
   
   var body: some View {
     NavigationView {
-      Button("Add recipe manually") {
-        showAddRecipe = true
+      NavigationLink(destination: AddRecipeView(recipe: self.$recipe, isEdit: self.$isEdit)) {
+        Text("Add recipe manually")
       }
       .navigationTitle("New Recipe")
     }
     .navigationViewStyle(.stack)
-    .sheet(isPresented: $showAddRecipe) {
-      AddRecipeView(recipe: self.$recipe, isEdit: $isEdit)
-    }
   }
 }
 
