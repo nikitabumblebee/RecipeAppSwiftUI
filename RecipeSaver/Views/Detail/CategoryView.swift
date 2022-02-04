@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CategoryView: View {
-  @EnvironmentObject var recipesVM: RecipesViewModel
+  @EnvironmentObject var recipesVM: RecipeListPresenter
   
   var category: Category
   
@@ -19,7 +19,7 @@ struct CategoryView: View {
   
     var body: some View {
       ScrollView {
-        RecipeList(recipes: recipes)
+        RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: recipes)))
       }
       .navigationTitle(category.rawValue + "s")
     }
@@ -28,6 +28,6 @@ struct CategoryView: View {
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
       CategoryView(category: Category.main)
-        .environmentObject(RecipesViewModel())
+        .environmentObject(RecipeListPresenter(interactor: RecipeListInteractor(recipes: Recipe.all)))
     }
 }

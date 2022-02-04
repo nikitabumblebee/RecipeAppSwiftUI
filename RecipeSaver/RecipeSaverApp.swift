@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct RecipeSaverApp: App {
-  @StateObject var recipeViewModel = RecipesViewModel()
+  @StateObject var recipePresenter = RecipeListPresenter(interactor: RecipeListInteractor(recipes: Recipe.all))
   
   var body: some Scene {
     WindowGroup {
       ContentView()
-        .environmentObject(recipeViewModel)
+        .environmentObject(recipePresenter)
     }
   }
 }

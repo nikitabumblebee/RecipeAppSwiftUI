@@ -14,7 +14,7 @@ struct FavoritesView: View {
     NavigationView {
       ScrollView {
         if favoritesVM.recipes.count > 0 {
-          RecipeList(recipes: favoritesVM.recipes)
+          RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: favoritesVM.recipes)))
         }
         else {
           Text("You haven't saved any recipe to your favorites yet.")

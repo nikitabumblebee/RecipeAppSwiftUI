@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddRecipeView: View {
-  @EnvironmentObject var recipesVM: RecipesViewModel
+  @EnvironmentObject var presenter: RecipeListPresenter
   
   @Environment(\.presentationMode) var presentationMode
   @Environment(\.dismiss) var dismiss
@@ -103,13 +103,13 @@ extension AddRecipeView {
         existedRecipe.directions = recipe.directions
         existedRecipe.category = recipe.category
         existedRecipe.datePublished = datePublished
-        recipesVM.updateRecipe(recipe: existedRecipe)
+        presenter.updateRecipe(recipe: existedRecipe)
         Recipe.all[row] = existedRecipe
       }
     }
     else {
       let newRecipe = Recipe(name: recipe.name, image: recipe.name, description: recipe.description, ingredients: recipe.ingredients, directions: recipe.directions, category: recipe.category, datePublished: datePublished, url: "", isUserRecipe: true)
-      recipesVM.addRecipe(recipe: newRecipe)
+      presenter.addRecipe(recipe: newRecipe)
       Recipe.addRecipe(recipe: newRecipe)
     }
     self.presentationMode.wrappedValue.dismiss()

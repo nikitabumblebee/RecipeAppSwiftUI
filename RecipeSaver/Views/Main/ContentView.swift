@@ -16,7 +16,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-        .environmentObject(RecipesViewModel())
+        .environmentObject(RecipeListPresenter(interactor: RecipeListInteractor(recipes: Recipe.all)))
         .preferredColorScheme(UserSettings.shared.isDarkModeOn ? .dark : .light)
     }
 }
