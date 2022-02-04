@@ -1,22 +1,21 @@
 //
-//  SettingsViewModel.swift
+//  SettingsInteractor.swift
 //  RecipeSaver
 //
-//  Created by nikita.shmelev on 30.01.2022.
+//  Created by nikita.shmelev on 04.02.2022.
 //
 
 import Foundation
 
-class SettingsViewModel: ObservableObject {  
-  var isDarkModeEnabled: Bool = false
-  var userName: String
-  var userNickName: String
-  var userSettings: UserSettings
-      
+class SettingsInteractor {
+  private let userSettings: UserSettings
+  private var isDarkModeEnabled: Bool
+  private var userName: String
+
   init() {
-    userSettings = UserSettings.shared
-    userName = userSettings.userName
-    userNickName = userSettings.userNickName
+    self.userSettings = UserSettings.shared
+    self.isDarkModeEnabled = false
+    self.userName = userSettings.userName
   }
   
   func turnOnDarkMode() {

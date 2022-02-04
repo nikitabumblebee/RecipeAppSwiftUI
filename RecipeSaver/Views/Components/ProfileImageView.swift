@@ -9,15 +9,14 @@ import SwiftUI
 
 struct ProfileImageView: View {
   @Binding var avatarImage: UIImage
-  @Binding var showingImagePicker: Bool
   @Binding var isDarkModeOn: Bool
+  @Binding var isShowingImagePicker: Bool
   
   var body: some View {
     HStack {
       Spacer()
-      
       Button() {
-        showingImagePicker = true
+        isShowingImagePicker = true
       } label: {
         Image(uiImage: avatarImage)
           .resizable()
@@ -31,7 +30,6 @@ struct ProfileImageView: View {
           .overlay(Circle().stroke(isDarkModeOn ? Color.white : Color.black, lineWidth: 4))
           .padding()
       }
-      
       Spacer()
     }
   }
@@ -40,9 +38,9 @@ struct ProfileImageView: View {
 struct ProfileImageView_Previews: PreviewProvider {
   static var previews: some View {
     @State var avatarImage = UIImage(systemName: "person.fill")!
-    @State var showingImagePicker = false
     @State var isDarkModeOn = false
+    @State var isShowingImagePicker = false
     
-    return ProfileImageView(avatarImage: $avatarImage, showingImagePicker: $showingImagePicker, isDarkModeOn: $isDarkModeOn)
+    return ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $isShowingImagePicker)
   }
 }

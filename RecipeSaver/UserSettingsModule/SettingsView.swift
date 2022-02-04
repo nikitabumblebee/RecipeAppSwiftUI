@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct SettingsView: View {
-  @ObservedObject var settingsVM: SettingsViewModel
+  @ObservedObject var presenter: SettingsPresenter
   
   @State private var isAlertShow = false
   @State private var isDarkModeOn = UserSettings.shared.isDarkModeOn
-  @State private var showingImagePicker = false
+  @State private var isShowingImagePicker = false
   @State private var avatarImage = UserSettings.shared.image!
   @State private var userName = UserSettings.shared.userName
   @State private var userNickName = UserSettings.shared.userNickName
@@ -20,14 +20,9 @@ struct SettingsView: View {
   var body: some View {
     NavigationView {
       VStack {
-        NavigationLink(destination: EditSettingsView()) {
-          HStack {
-            Spacer()
-            Text("Edit")
-          }
-        }
-        .padding(.trailing)
-        ProfileImageView(avatarImage: $avatarImage, showingImagePicker: $showingImagePicker, isDarkModeOn: $isDarkModeOn)
+        presenter.routeToEditSettingsView()
+          .padding(.trailing)
+        ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $isShowingImagePicker)
           .padding(-5)
         HStack {
           Spacer()
@@ -46,11 +41,7 @@ struct SettingsView: View {
               Text("Dark Mode")
             }
             .onChange(of: isDarkModeOn) { value in
-              if value == true {
-                settingsVM.turnOffDarkMode()
-              } else {
-                settingsVM.turnOnDarkMode()
-              }
+              presenter.switchDarkMode(isDarkModeEnabled: value)
             }
           }
           
@@ -63,7 +54,7 @@ struct SettingsView: View {
             }
             .alert("Reset all favorites?", isPresented: $isAlertShow) {
               Button {
-                settingsVM.resetFavorites()
+                presenter.resetFavorites()
               } label: {
                 Text("Reset")
               }
@@ -94,6 +85,6 @@ extension View {
 
 struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {
-    SettingsView(settingsVM: SettingsViewModel())
+    SettingsView(presenter: SettingsPresenter(interactor: SettingsInteractor()))
   }
 }

@@ -30,7 +30,7 @@ struct TabBar: View {
               Label("Favorites", systemImage: "heart")
             }
           
-          SettingsView(settingsVM: SettingsViewModel())
+          SettingsView(presenter: SettingsPresenter(interactor: SettingsInteractor()))
             .tabItem {
               Label("Settings", systemImage: "gear")
             }

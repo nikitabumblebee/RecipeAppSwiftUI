@@ -19,7 +19,7 @@ struct EditSettingsView: View {
   
   var body: some View {
     VStack(alignment: .leading) {
-      ProfileImageView(avatarImage: $avatarImage, showingImagePicker: $showingImagePicker, isDarkModeOn: $isDarkModeOn)
+      ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $showingImagePicker)
         .padding(-5)
       TextField(UserSettings.shared.userName, text: $name)
       TextField(UserSettings.shared.userNickName, text: $nickName)
