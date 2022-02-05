@@ -42,6 +42,8 @@ extension EditSettingsView {
     UserSettings.shared.image = self.avatarImage
     UserSettings.shared.userName = self.name
     UserSettings.shared.userNickName = self.nickName
+    let imageLoader = ImageLoader()
+    imageLoader.saveImage(imageName: "userImage", image: avatarImage)
     self.presentationMode.wrappedValue.dismiss()
   }
   

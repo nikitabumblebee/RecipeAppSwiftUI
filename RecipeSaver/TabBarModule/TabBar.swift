@@ -1,0 +1,49 @@
+//
+//  TabBar.swift
+//  RecipeSaver
+//
+//  Created by nikita.shmelev on 21.01.2022.
+//
+
+import SwiftUI
+
+struct TabBar: View {
+  @EnvironmentObject var model: DataModel
+  
+  var body: some View {
+    TabView {
+      HomeView()
+        .tabItem {
+          Label("Home", systemImage: "house")
+        }
+      
+      CategoriesView()
+        .tabItem {
+          Label("Categories", systemImage: "square.fill.text.grid.1x2")
+        }
+      
+      NewRecipeView()
+        .tabItem {
+          Label("New", systemImage: "plus")
+        }
+      
+      FavoritesView(presenter: FavoritesPresenter(interactor: FavoritesInteractor(model: model)))
+        .tabItem {
+          Label("Favorites", systemImage: "heart")
+        }
+      
+      SettingsView(presenter: SettingsPresenter(interactor: SettingsInteractor()))
+        .tabItem {
+          Label("Settings", systemImage: "gear")
+        }
+    }
+  }
+}
+
+struct TabBar_Previews: PreviewProvider {
+  static var previews: some View {
+    let model = DataModel.sample
+    TabBar()
+      .environmentObject(model)
+  }
+}

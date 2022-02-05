@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct CategoryView: View {
-  @EnvironmentObject var recipesVM: RecipeListPresenter
+  @EnvironmentObject var model: DataModel
   
   var category: Category
   
   // Computed property
   var recipes: [Recipe] {
-    return recipesVM.recipes.filter { $0.category == category.rawValue }
+    return model.recipes.filter { $0.category == category.rawValue }
   }
   
     var body: some View {
       ScrollView {
-        RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: recipes)))
+        RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: recipes, model: model)))
       }
       .navigationTitle(category.rawValue + "s")
     }
@@ -27,7 +27,8 @@ struct CategoryView: View {
 
 struct CategoryView_Previews: PreviewProvider {
     static var previews: some View {
+      let model = DataModel.sample
       CategoryView(category: Category.main)
-        .environmentObject(RecipeListPresenter(interactor: RecipeListInteractor(recipes: Recipe.all)))
+        .environmentObject(model)
     }
 }

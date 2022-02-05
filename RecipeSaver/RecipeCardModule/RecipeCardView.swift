@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-struct RecipeCard: View {
-  @ObservedObject var recipeCardVM: RecipeCardViewModel
+struct RecipeCardView: View {
+  @ObservedObject var presenter: RecipeCardPresenter
+  @EnvironmentObject var model: DataModel
   
   var body: some View {
     VStack {
-      AsyncImage(url: URL(string: recipeCardVM.recipe.image)) { image in
+      AsyncImage(url: URL(string: presenter.recipe.image)) { image in
         image
           .resizable()
           .aspectRatio(contentMode: .fill)
       } placeholder: {
-        if recipeCardVM.recipe.image != recipeCardVM.recipe.name {
+        if presenter.recipe.image != presenter.recipe.name {
           Image(systemName: "photo")
             .resizable()
             .scaledToFit()
@@ -26,27 +27,27 @@ struct RecipeCard: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
           let imageLoader = ImageLoader()
-          Image(uiImage: imageLoader.loadImageFromDiskWith(fileName: recipeCardVM.recipe.image)!)
+          Image(uiImage: imageLoader.loadImageFromDiskWith(fileName: presenter.recipe.image)!)
             .resizable()
             .aspectRatio(contentMode: .fill)
         }
       }
       .overlay(alignment: .bottomTrailing) {
-        RecipeTextName(name: recipeCardVM.recipe.name)
+        RecipeTextName(name: presenter.recipe.name)
       }
       .overlay(alignment: .topTrailing) {
         Button {
-          if recipeCardVM.recipe.isFavorite {
-            recipeCardVM.removeRecipeFromFavorite()
+          if presenter.recipe.isFavorite {
+            presenter.removeRecipeFromFavorite()
           }
           else {
-            recipeCardVM.addRecipeToFavorite()
+            presenter.addRecipeToFavorite()
           }
         } label: {
           ZStack {
             Image(systemName: "heart.fill")
               .imageScale(.large)
-              .foregroundColor(recipeCardVM.recipe.isFavorite ? Color.red : Color.white.opacity(0.8))
+              .foregroundColor(presenter.recipe.isFavorite ? Color.red : Color.white.opacity(0.8))
               .font(.system(size: 30))
             Image(systemName: "heart")
               .imageScale(.large)
@@ -55,7 +56,7 @@ struct RecipeCard: View {
           }
         }
         .onAppear {
-          self.recipeCardVM.fetchData()
+          self.presenter.fetchData()
         }
         .shadow(color: .black, radius: 15, x: 0, y: 0)
         .padding(10)
@@ -82,6 +83,7 @@ struct RecipeTextName: View {
 
 struct RecipeCard_Previews: PreviewProvider {
   static var previews: some View {
-    RecipeCard(recipeCardVM: RecipeCardViewModel(recipe: Recipe.all[0]))
+    let model = DataModel.sample
+    RecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: model, recipe: model.recipes[0])))
   }
 }

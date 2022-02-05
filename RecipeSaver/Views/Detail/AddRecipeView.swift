@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct AddRecipeView: View {
-  @EnvironmentObject var presenter: RecipeListPresenter
-  
   @Environment(\.presentationMode) var presentationMode
   @Environment(\.dismiss) var dismiss
+  
+  @EnvironmentObject var model: DataModel
   
   @Binding var recipe: Recipe
   @Binding var isEdit: Bool
@@ -75,15 +75,6 @@ struct AddRecipeView: View {
   }
 }
 
-struct AddRecipeView_Previews: PreviewProvider {
-  static var previews: some View {
-    @State var recipe = Recipe.all[0]
-    @State var isEdit = false
-    @State var recipeImage = UIImage(systemName: "photo")!
-    return AddRecipeView(recipe: $recipe, isEdit: $isEdit)
-  }
-}
-
 extension AddRecipeView {
   private func saveRecipe() {
     let now = Date()
@@ -94,8 +85,8 @@ extension AddRecipeView {
     let imageLoader = ImageLoader()
     imageLoader.saveImage(imageName: recipe.name, image: recipeImage)
     if isEdit {
-      if let row = Recipe.all.firstIndex(where: { $0.id == recipe.id }) {
-        var existedRecipe = Recipe.all[row]
+      if let row = model.recipes.firstIndex(where: { $0.id == recipe.id }) {
+        let existedRecipe = model.recipes[row]
         existedRecipe.name = recipe.name
         existedRecipe.image = recipe.name
         existedRecipe.description = recipe.description
@@ -103,14 +94,13 @@ extension AddRecipeView {
         existedRecipe.directions = recipe.directions
         existedRecipe.category = recipe.category
         existedRecipe.datePublished = datePublished
-        presenter.updateRecipe(recipe: existedRecipe)
-        Recipe.all[row] = existedRecipe
+        model.updateRecipe(recipe: existedRecipe)
+        model.recipes[row] = existedRecipe
       }
     }
     else {
       let newRecipe = Recipe(name: recipe.name, image: recipe.name, description: recipe.description, ingredients: recipe.ingredients, directions: recipe.directions, category: recipe.category, datePublished: datePublished, url: "", isUserRecipe: true)
-      presenter.addRecipe(recipe: newRecipe)
-      Recipe.addRecipe(recipe: newRecipe)
+      model.addNewRecipe(recipe: newRecipe)
     }
     self.presentationMode.wrappedValue.dismiss()
   }
@@ -120,5 +110,14 @@ extension AddRecipeView {
     if isEdit {
       recipeImage = imageLoader.loadImageFromDiskWith(fileName: recipe.name)!
     }
+  }
+}
+
+struct AddRecipeView_Previews: PreviewProvider {
+  static var previews: some View {
+    @State var recipe = DataModel.sample.recipes[0]
+    @State var isEdit = false
+    @State var recipeImage = UIImage(systemName: "photo")!
+    return AddRecipeView(recipe: $recipe, isEdit: $isEdit)
   }
 }

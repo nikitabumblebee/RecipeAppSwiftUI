@@ -15,6 +15,6 @@ class FavoritesViewModel: ObservableObject {
   }
   
   func fetchData() {
-    recipes = Recipe.all.filter { $0.isFavorite }
+    //recipes = Recipe.all.filter { $0.isFavorite }
   }
 }

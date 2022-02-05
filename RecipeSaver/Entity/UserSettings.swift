@@ -10,7 +10,7 @@ import UIKit
 
 
 /// Provides user settings in single instance (singleton pattern)
-class UserSettings {
+final class UserSettings {
   
   /// User's image
   var image = UIImage(systemName: "person.fill")
@@ -23,7 +23,6 @@ class UserSettings {
   var isDarkModeOn = false
   
   static var shared: UserSettings = {
-    
     let instance = UserSettings()
     return instance
   }()

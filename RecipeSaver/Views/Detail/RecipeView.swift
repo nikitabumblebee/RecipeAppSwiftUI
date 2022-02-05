@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-struct RecipeView: View {  
+struct RecipeView: View {
+  @EnvironmentObject var model: DataModel
   @State var recipe: Recipe
   @State private var showAddRecipe = false
   @State private var isEdit = true
@@ -69,10 +70,10 @@ struct RecipeView: View {
       .padding(.horizontal)
     }
     .onAppear {
-      if let existedRecipeIndex = Recipe.all.firstIndex(where: { $0.id == recipe.id }) {
+      if let existedRecipeIndex = model.recipes.firstIndex(where: { $0.id == recipe.id }) {
         let imageLoader = ImageLoader()
-        self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: Recipe.all[existedRecipeIndex].image)
-        self.recipe = Recipe.all[existedRecipeIndex]
+        self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: model.recipes[existedRecipeIndex].image)
+        self.recipe = model.recipes[existedRecipeIndex]
       }
     }
     .toolbar {
@@ -88,6 +89,7 @@ struct RecipeView: View {
 
 struct RecipeView_Previews: PreviewProvider {
   static var previews: some View {
-    RecipeView(recipe: Recipe.all[0])
+    let model = DataModel.sample
+    RecipeView(recipe: model.recipes[0])
   }
 }

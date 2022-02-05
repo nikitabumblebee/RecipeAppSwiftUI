@@ -27,7 +27,7 @@ class SettingsInteractor {
   }
   
   func resetFavorites() {
-    Recipe.resetFavorites()
+    //Recipe.resetFavorites()
   }
   
   func selectPhotoToProfile() {

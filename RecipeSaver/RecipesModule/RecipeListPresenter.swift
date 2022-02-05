@@ -8,17 +8,16 @@
 import SwiftUI
 import Combine
 
-class RecipeListPresenter: ObservableObject {
+class RecipeListPresenter: ObservableObject {  
   private let interactor: RecipeListInteractor
   private var cancallables = Set<AnyCancellable>()
   private let router: RecipeListRouter
-  
+    
   @Published private(set) var recipes: [Recipe] = []
   
   init(interactor: RecipeListInteractor) {
     self.interactor = interactor
     self.router = RecipeListRouter()
-    recipes = Recipe.all
     
     interactor.$recipes
       .assign(to: \.recipes, on: self)
@@ -38,8 +37,7 @@ class RecipeListPresenter: ObservableObject {
   func routeToRecipe(recipe: Recipe) -> some View {
     let destination = router.moveToRecipe(recipe: recipe)
     return NavigationLink(destination: destination) {
-      RecipeCard(recipeCardVM: RecipeCardViewModel(recipe: recipe))
+      RecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: interactor.model, recipe: recipe)))
     }
-    
   }
 }

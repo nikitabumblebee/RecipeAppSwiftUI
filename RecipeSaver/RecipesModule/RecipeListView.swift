@@ -35,7 +35,8 @@ struct RecipeListView: View {
 struct RecipeList_Previews: PreviewProvider {
   static var previews: some View {
     ScrollView {
-      let presenter = RecipeListPresenter(interactor: RecipeListInteractor(recipes: Recipe.all))
+      let model = DataModel.sample
+      let presenter = RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.recipes, model: model))
       RecipeListView(presenter: presenter)
     }
   }

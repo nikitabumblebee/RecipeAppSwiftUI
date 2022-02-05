@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct FavoritesView: View {
-  @ObservedObject var favoritesVM: FavoritesViewModel
+  @ObservedObject var presenter: FavoritesPresenter
+  @EnvironmentObject var model: DataModel
   
   var body: some View {
     NavigationView {
       ScrollView {
-        if favoritesVM.recipes.count > 0 {
-          RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: favoritesVM.recipes)))
+        if presenter.favoriteRecipes.count > 0 {
+          RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: presenter.favoriteRecipes, model: model)))
         }
         else {
           Text("You haven't saved any recipe to your favorites yet.")
@@ -25,13 +26,16 @@ struct FavoritesView: View {
     }
     .navigationViewStyle(.stack)
     .onAppear {
-      self.favoritesVM.fetchData()
+      self.presenter.fetchData()
     }
+    .environmentObject(model)
   }
 }
 
 struct FavoritesView_Previews: PreviewProvider {
   static var previews: some View {
-    FavoritesView(favoritesVM: FavoritesViewModel(recipes: Recipe.all.filter { $0.isFavorite }))
+    let model = DataModel.sample
+    let presenter = FavoritesPresenter(interactor: FavoritesInteractor(model: model))
+    FavoritesView(presenter: presenter)
   }
 }

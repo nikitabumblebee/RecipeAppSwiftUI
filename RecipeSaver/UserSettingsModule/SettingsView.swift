@@ -70,6 +70,7 @@ struct SettingsView: View {
         self.avatarImage = UserSettings.shared.image!
         self.userName = UserSettings.shared.userName
         self.userNickName = UserSettings.shared.userNickName
+        
       }
     }
     .navigationViewStyle(.stack)

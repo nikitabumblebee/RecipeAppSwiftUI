@@ -8,15 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        TabBar()
-    }
+  var model = DataModel()
+  var body: some View {
+    model.load()
+    return TabBar()
+      .environmentObject(model)
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-        .environmentObject(RecipeListPresenter(interactor: RecipeListInteractor(recipes: Recipe.all)))
-        .preferredColorScheme(UserSettings.shared.isDarkModeOn ? .dark : .light)
-    }
+  static var previews: some View {
+    let model = DataModel.sample
+    ContentView()
+      .environmentObject(model)
+      .preferredColorScheme(UserSettings.shared.isDarkModeOn ? .dark : .light)
+  }
 }
