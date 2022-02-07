@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import UIKit
-
+import SwiftUI
 
 /// Provides user settings in single instance (singleton pattern)
 final class UserSettings {

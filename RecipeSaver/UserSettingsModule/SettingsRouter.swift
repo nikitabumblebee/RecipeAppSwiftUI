@@ -9,6 +9,6 @@ import SwiftUI
 
 class SettingsRouter {
   func editProfile() -> some View {
-    return EditSettingsView()
+    return EditSettingsView(presenter: EditSettingsPresenter(interactor: EditSettingsInteractor()))
   }
 }

@@ -16,13 +16,14 @@ struct SettingsView: View {
   @State private var avatarImage = UserSettings.shared.image!
   @State private var userName = UserSettings.shared.userName
   @State private var userNickName = UserSettings.shared.userNickName
+  @State private var isEditMode = false
   
   var body: some View {
     NavigationView {
       VStack {
         presenter.routeToEditSettingsView()
           .padding(.trailing)
-        ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $isShowingImagePicker)
+        ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $isShowingImagePicker, isEditMode: $isEditMode)
           .padding(-5)
         HStack {
           Spacer()
@@ -67,10 +68,10 @@ struct SettingsView: View {
       }
       .navigationTitle("Settings")
       .onAppear {
-        self.avatarImage = UserSettings.shared.image!
+        let imageLoader = ImageLoader()
+        self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
         self.userName = UserSettings.shared.userName
         self.userNickName = UserSettings.shared.userNickName
-        
       }
     }
     .navigationViewStyle(.stack)

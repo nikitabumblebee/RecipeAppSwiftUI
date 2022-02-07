@@ -12,9 +12,13 @@ class SettingsPresenter: ObservableObject {
   
   private let router: SettingsRouter
   
+  @State var avatarImage: UIImage
+  
   init(interactor: SettingsInteractor) {
     self.interactor = interactor
     self.router = SettingsRouter()
+    let imageLoader = ImageLoader()
+    self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!// UserSettings.shared.image!
   }
   
   func switchDarkMode(isDarkModeEnabled: Bool) {
@@ -23,14 +27,6 @@ class SettingsPresenter: ObservableObject {
     } else {
       interactor.turnOffDarkMode()
     }
-  }
-  
-  func turnOffDarkMode() {
-    interactor.turnOffDarkMode()
-  }
-  
-  func turnOnDarkMode() {
-    interactor.turnOnDarkMode()
   }
   
   func resetFavorites() {

@@ -55,6 +55,8 @@
 		3FF80EBD27B0D42100C434F9 /* NewRecipePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EBC27B0D42100C434F9 /* NewRecipePresenter.swift */; };
 		3FF80EBF27B0D43A00C434F9 /* NewRecipeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EBE27B0D43A00C434F9 /* NewRecipeRouter.swift */; };
 		3FF80EC127B0D6E900C434F9 /* NewRecipeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC027B0D6E900C434F9 /* NewRecipeInteractor.swift */; };
+		3FF80EC527B0FFB600C434F9 /* EditSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC427B0FFB600C434F9 /* EditSettingsPresenter.swift */; };
+		3FF80EC727B0FFE700C434F9 /* EditSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC627B0FFE700C434F9 /* EditSettingsInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +109,8 @@
 		3FF80EBC27B0D42100C434F9 /* NewRecipePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipePresenter.swift; sourceTree = "<group>"; };
 		3FF80EBE27B0D43A00C434F9 /* NewRecipeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeRouter.swift; sourceTree = "<group>"; };
 		3FF80EC027B0D6E900C434F9 /* NewRecipeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeInteractor.swift; sourceTree = "<group>"; };
+		3FF80EC427B0FFB600C434F9 /* EditSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsPresenter.swift; sourceTree = "<group>"; };
+		3FF80EC627B0FFE700C434F9 /* EditSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +201,7 @@
 		3F17FB32279B156D00A6C375 /* RecipeSaver */ = {
 			isa = PBXGroup;
 			children = (
+				3FF80EC327B0FF9100C434F9 /* EditSettingsModule */,
 				3FF80EB327B0BF0400C434F9 /* AddRecipeModule */,
 				3FF80EB227B0BEA900C434F9 /* NewRecipeModule */,
 				3FF80EB127B0BE7A00C434F9 /* CategoriesModule */,
@@ -241,8 +246,8 @@
 		3F17FB42279B166700A6C375 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				3F17FB35279B156D00A6C375 /* ContentView.swift */,
 				3F17FB47279B170100A6C375 /* HomeView.swift */,
+				3F17FB35279B156D00A6C375 /* ContentView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -251,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				3F17FB5B279C10D000A6C375 /* CategoryView.swift */,
-				3F0BDA5D27A97DB40060067D /* EditSettingsView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -351,6 +355,16 @@
 			path = AddRecipeModule;
 			sourceTree = "<group>";
 		};
+		3FF80EC327B0FF9100C434F9 /* EditSettingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				3F0BDA5D27A97DB40060067D /* EditSettingsView.swift */,
+				3FF80EC427B0FFB600C434F9 /* EditSettingsPresenter.swift */,
+				3FF80EC627B0FFE700C434F9 /* EditSettingsInteractor.swift */,
+			);
+			path = EditSettingsModule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -441,6 +455,8 @@
 				3FF80E9A27AE690F00C434F9 /* Recipe.swift in Sources */,
 				3F17FB56279B207900A6C375 /* RecipeCardView.swift in Sources */,
 				3F17FB4A279B171600A6C375 /* CategoriesView.swift in Sources */,
+				3FF80EC727B0FFE700C434F9 /* EditSettingsInteractor.swift in Sources */,
+				3FF80EC527B0FFB600C434F9 /* EditSettingsPresenter.swift in Sources */,
 				3F0BDA5E27A97DB40060067D /* EditSettingsView.swift in Sources */,
 				3FF80EBF27B0D43A00C434F9 /* NewRecipeRouter.swift in Sources */,
 				3F099CFE27A6BBFC0079F4BC /* InternalColorScheme.swift in Sources */,
