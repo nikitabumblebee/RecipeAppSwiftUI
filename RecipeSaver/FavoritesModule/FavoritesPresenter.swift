@@ -20,7 +20,5 @@ class FavoritesPresenter: ObservableObject {
     interactor.model.$favoritesRecipes
       .assign(to: \.favoriteRecipes, on: self)
       .store(in: &cancellables)
-    
-    print(favoriteRecipes.count)
   }
 }

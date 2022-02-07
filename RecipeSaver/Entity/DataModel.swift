@@ -41,7 +41,6 @@ final class DataModel {
       recipes[existedRecipeIndex].isFavorite = recipe.isFavorite
     }
     favoritesRecipes = recipes.filter { $0.isFavorite }
-    print("Favorites: \(recipes.filter { $0.isFavorite }.count)")
   }
   
   func removeRecipe(recipe: Recipe) {
