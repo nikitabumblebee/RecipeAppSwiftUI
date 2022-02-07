@@ -18,15 +18,11 @@ class RecipeCardInteractor {
   
   func addRecipeToFavorite() {
     recipe.isFavorite = true
-    if let existedRecipeIndex = model.recipes.firstIndex(where: { $0.name == recipe.name }) {
-      model.recipes[existedRecipeIndex].isFavorite = true
-    }
+    model.updateRecipe(recipe: recipe)
   }
   
   func removeRecipeFromFavorite() {
     recipe.isFavorite = false
-    if let existedRecipeIndex = model.recipes.firstIndex(where: { $0.name == recipe.name }) {
-      model.recipes[existedRecipeIndex].isFavorite = false
-    }
+    model.updateRecipe(recipe: recipe)
   }
 }

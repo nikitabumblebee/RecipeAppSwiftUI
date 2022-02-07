@@ -28,17 +28,10 @@ class RecipeCardPresenter: ObservableObject {
   func addRecipeToFavorite() {
     interactor.addRecipeToFavorite()
     recipe.isFavorite = true
-    
   }
   
   func removeRecipeFromFavorite() {
     interactor.removeRecipeFromFavorite()
     recipe.isFavorite = false
-  }
-  
-  func fetchData() {    
-//    if let existedRecipeIndex = Recipe.all.firstIndex(where: { $0.name == recipe.name }) {
-//      recipe.isFavorite = Recipe.all[existedRecipeIndex].isFavorite
-//    }
   }
 }

@@ -13,6 +13,4 @@ class RecipeDescriptionInteractor {
   init(model: DataModel) {
     self.model = model
   }
-  
-  
 }

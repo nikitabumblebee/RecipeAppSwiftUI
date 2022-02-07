@@ -10,7 +10,6 @@ import SwiftUI
 struct RecipeView: View {
   @EnvironmentObject var model: DataModel
   @State var recipe: Recipe
-  @State private var showAddRecipe = false
   @State private var isEdit = true
   @State private var recipeImage = UIImage(systemName: "photo")
   

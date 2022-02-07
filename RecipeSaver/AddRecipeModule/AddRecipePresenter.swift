@@ -11,18 +11,16 @@ import Combine
 
 class AddRecipePresenter: ObservableObject {
   @Published var recipe: Recipe
-  @Published var isEdit: Bool = false
   @Published var recipeImage: UIImage
   
   private let interactor: AddRecipeInteractor
   
   private var cancellables = Set<AnyCancellable>()
   
-  init(interactor: AddRecipeInteractor, recipe: Recipe, isEdit: Bool, recipeImage: UIImage) {
+  init(interactor: AddRecipeInteractor, recipe: Recipe, recipeImage: UIImage) {
     self.interactor = interactor
     self.recipe = recipe
     self.recipeImage = recipeImage
-    self.isEdit = isEdit
   }
   
   func saveRecipe(recipeImage: UIImage) {

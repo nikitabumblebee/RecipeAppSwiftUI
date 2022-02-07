@@ -11,6 +11,7 @@ import Combine
 final class DataModel {
   
   @Published var recipes: [Recipe] = []
+  @Published var favoritesRecipes: [Recipe] = []
   
   private var persistence: Persistence = Persistence()
   private var cancellables = Set<AnyCancellable>()
@@ -36,7 +37,11 @@ final class DataModel {
   }
   
   func updateRecipe(recipe: Recipe) {
-    
+    if let existedRecipeIndex = recipes.firstIndex(where: { $0.name == recipe.name }) {
+      recipes[existedRecipeIndex].isFavorite = recipe.isFavorite
+    }
+    favoritesRecipes = recipes.filter { $0.isFavorite }
+    print("Favorites: \(recipes.filter { $0.isFavorite }.count)")
   }
   
   func removeRecipe(recipe: Recipe) {

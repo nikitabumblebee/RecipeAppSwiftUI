@@ -15,7 +15,7 @@ struct FavoritesView: View {
     NavigationView {
       ScrollView {
         if presenter.favoriteRecipes.count > 0 {
-          RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: presenter.favoriteRecipes, model: model)))
+          RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.recipes.filter { $0.isFavorite }, model: model)))
         }
         else {
           Text("You haven't saved any recipe to your favorites yet.")
@@ -25,9 +25,6 @@ struct FavoritesView: View {
       .navigationTitle("Favorites")
     }
     .navigationViewStyle(.stack)
-    .onAppear {
-      self.presenter.fetchData()
-    }
     .environmentObject(model)
   }
 }
@@ -35,7 +32,7 @@ struct FavoritesView: View {
 struct FavoritesView_Previews: PreviewProvider {
   static var previews: some View {
     let model = DataModel.sample
-    let presenter = FavoritesPresenter(interactor: FavoritesInteractor(model: model))
+    let presenter = FavoritesPresenter(interactor: FavoritesInteractor(model: model, recipes: model.recipes.filter { $0.isFavorite }))
     FavoritesView(presenter: presenter)
   }
 }

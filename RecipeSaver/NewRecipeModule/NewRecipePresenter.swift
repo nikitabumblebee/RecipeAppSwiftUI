@@ -15,7 +15,7 @@ class NewRecipePresenter: ObservableObject {
   init(interactor: NewRecipeInteractor) {
     self.interactor = interactor
   }
-
+  
   func makeNewRecipe() -> some View {
     NavigationLink(destination: router.makeNewRecipe(model: interactor.model)) {
       Text("Add recipe manually")

@@ -27,7 +27,7 @@ struct TabBar: View {
           Label("New", systemImage: "plus")
         }
       
-      FavoritesView(presenter: FavoritesPresenter(interactor: FavoritesInteractor(model: model)))
+      FavoritesView(presenter: FavoritesPresenter(interactor: FavoritesInteractor(model: model, recipes: model.recipes.filter { $0.isFavorite })))
         .tabItem {
           Label("Favorites", systemImage: "heart")
         }

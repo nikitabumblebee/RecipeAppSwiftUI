@@ -10,11 +10,12 @@ import Combine
 
 class FavoritesInteractor {
   let model: DataModel
+  private var cancellables = Set<AnyCancellable>()
   
-  var favoriteRecipes: [Recipe] = []
+  @Published var favoriteRecipes: [Recipe] = []
   
-  init(model: DataModel) {
+  init(model: DataModel, recipes: [Recipe]) {
     self.model = model
-    favoriteRecipes = model.recipes.filter { $0.isFavorite }
+    self.favoriteRecipes = recipes
   }
 }

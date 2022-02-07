@@ -89,7 +89,7 @@ struct AddRecipeView_Previews: PreviewProvider {
     @State var recipeImage = UIImage(systemName: "photo")!
     
     let interactor = AddRecipeInteractor(model: DataModel.sample)
-    let presenter = AddRecipePresenter(interactor: interactor, recipe: recipe, isEdit: true, recipeImage: recipeImage)
+    let presenter = AddRecipePresenter(interactor: interactor, recipe: recipe, recipeImage: recipeImage)
     
     return AddRecipeView(presenter: presenter, recipe: $recipe, isEdit: $isEdit)
   }
