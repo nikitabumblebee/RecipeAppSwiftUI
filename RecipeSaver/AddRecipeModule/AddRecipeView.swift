@@ -11,12 +11,11 @@ struct AddRecipeView: View {
   @Environment(\.presentationMode) var presentationMode
   @Environment(\.dismiss) var dismiss
   
-  @EnvironmentObject var model: DataModel
+  @ObservedObject var presenter: AddRecipePresenter
   
   @Binding var recipe: Recipe
   @Binding var isEdit: Bool
   
-  @State private var navigateToRecipe = false
   @State private var recipeImage = UIImage(systemName: "photo")!
   @State private var showingImagePicker = false
   
@@ -59,7 +58,9 @@ struct AddRecipeView: View {
       .navigationTitle(isEdit ? recipe.name : "New Recipe")
       .navigationBarTitleDisplayMode(.inline)
       .onAppear {
-        loadStateVariables()
+        if isEdit {
+          recipeImage = presenter.loadRecipeImage()
+        }
       }
       .sheet(isPresented: $showingImagePicker) {
         PhotoPicker(image: self.$recipeImage)
@@ -69,47 +70,15 @@ struct AddRecipeView: View {
     .navigationBarBackButtonHidden(true)
     .navigationBarItems(
       leading: Button(action: { self.presentationMode.wrappedValue.dismiss() }) { Text("Cancel") },
-      trailing: Button(action: { self.saveRecipe() }) { Text("Save") }
+      trailing: Button(action: {
+        if isEdit {
+          self.presenter.updateRecipe(recipeImage: recipeImage)
+        } else {
+          self.presenter.saveRecipe(recipeImage: recipeImage)
+        }
+        self.presentationMode.wrappedValue.dismiss() }) { Text("Save") }
         .disabled(isEdit ? false : recipe.name.isEmpty)
     )
-  }
-}
-
-extension AddRecipeView {
-  private func saveRecipe() {
-    let now = Date()
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-mm-dd"
-    let datePublished = dateFormatter.string(from: now)
-    
-    let imageLoader = ImageLoader()
-    imageLoader.saveImage(imageName: recipe.name, image: recipeImage)
-    if isEdit {
-      if let row = model.recipes.firstIndex(where: { $0.id == recipe.id }) {
-        let existedRecipe = model.recipes[row]
-        existedRecipe.name = recipe.name
-        existedRecipe.image = recipe.name
-        existedRecipe.description = recipe.description
-        existedRecipe.ingredients = recipe.ingredients
-        existedRecipe.directions = recipe.directions
-        existedRecipe.category = recipe.category
-        existedRecipe.datePublished = datePublished
-        model.updateRecipe(recipe: existedRecipe)
-        model.recipes[row] = existedRecipe
-      }
-    }
-    else {
-      let newRecipe = Recipe(name: recipe.name, image: recipe.name, description: recipe.description, ingredients: recipe.ingredients, directions: recipe.directions, category: recipe.category, datePublished: datePublished, url: "", isUserRecipe: true)
-      model.addNewRecipe(recipe: newRecipe)
-    }
-    self.presentationMode.wrappedValue.dismiss()
-  }
-  
-  func loadStateVariables() {
-    let imageLoader = ImageLoader()
-    if isEdit {
-      recipeImage = imageLoader.loadImageFromDiskWith(fileName: recipe.name)!
-    }
   }
 }
 
@@ -118,6 +87,10 @@ struct AddRecipeView_Previews: PreviewProvider {
     @State var recipe = DataModel.sample.recipes[0]
     @State var isEdit = false
     @State var recipeImage = UIImage(systemName: "photo")!
-    return AddRecipeView(recipe: $recipe, isEdit: $isEdit)
+    
+    let interactor = AddRecipeInteractor(model: DataModel.sample)
+    let presenter = AddRecipePresenter(interactor: interactor, recipe: recipe, isEdit: true, recipeImage: recipeImage)
+    
+    return AddRecipeView(presenter: presenter, recipe: $recipe, isEdit: $isEdit)
   }
 }

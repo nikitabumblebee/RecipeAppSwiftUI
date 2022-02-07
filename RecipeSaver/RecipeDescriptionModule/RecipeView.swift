@@ -14,6 +14,8 @@ struct RecipeView: View {
   @State private var isEdit = true
   @State private var recipeImage = UIImage(systemName: "photo")
   
+  @ObservedObject var presenter: RecipeDescriptionPresenter
+  
   var body: some View {
     ScrollView {
       AsyncImage(url: URL(string: recipe.image)) { image in
@@ -78,9 +80,7 @@ struct RecipeView: View {
     }
     .toolbar {
       if recipe.isUserRecipe {
-        NavigationLink(destination: AddRecipeView(recipe: $recipe, isEdit: $isEdit)) {
-          Text("Edit")
-        }
+        presenter.moveToEdit(for: $recipe, isEdit: $isEdit)
       }
     }
     .ignoresSafeArea(.container, edges: .top)
@@ -90,6 +90,6 @@ struct RecipeView: View {
 struct RecipeView_Previews: PreviewProvider {
   static var previews: some View {
     let model = DataModel.sample
-    RecipeView(recipe: model.recipes[0])
+    RecipeView(recipe: model.recipes[0], presenter: RecipeDescriptionPresenter(interactor: RecipeDescriptionInteractor(model: model)))
   }
 }

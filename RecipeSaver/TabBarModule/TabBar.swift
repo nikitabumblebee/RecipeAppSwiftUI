@@ -22,7 +22,7 @@ struct TabBar: View {
           Label("Categories", systemImage: "square.fill.text.grid.1x2")
         }
       
-      NewRecipeView()
+      NewRecipeView(presenter: NewRecipePresenter(interactor: NewRecipeInteractor(model: model)))
         .tabItem {
           Label("New", systemImage: "plus")
         }
