@@ -9,10 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
   var model = DataModel()
+  var utilities = Utilities()
+  
+  @AppStorage("selectedAppearance") var selectedAppearance = UserDefaults.standard.integer(forKey: "selectedAppearance")
+  
   var body: some View {
     model.load()
     return TabBar()
       .environmentObject(model)
+      .onAppear {
+        utilities.overrideDisplayMode()
+      }
+      .onChange(of: selectedAppearance, perform: { value in
+        utilities.overrideDisplayMode()
+        UserDefaults.standard.set(selectedAppearance, forKey: "selectedAppearance")
+      })
   }
 }
 

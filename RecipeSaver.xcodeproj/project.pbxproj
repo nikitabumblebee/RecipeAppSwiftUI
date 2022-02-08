@@ -18,6 +18,7 @@
 		3F0C7DC927AD225000F23ADF /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0C7DC827AD225000F23ADF /* SettingsPresenter.swift */; };
 		3F0C7DCB27AD227300F23ADF /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0C7DCA27AD227300F23ADF /* SettingsInteractor.swift */; };
 		3F0C7DCD27AD24BC00F23ADF /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0C7DCC27AD24BC00F23ADF /* SettingsRouter.swift */; };
+		3F0EECC527B291F000FF184C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EECC427B291F000FF184C /* Utilities.swift */; };
 		3F14E43927A82F7900AF8239 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43827A82F7900AF8239 /* UtilityExtensions.swift */; };
 		3F14E43B27A831DE00AF8239 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43A27A831DE00AF8239 /* PhotoPicker.swift */; };
 		3F14E43D27A8E52300AF8239 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43C27A8E52300AF8239 /* ProfileImageView.swift */; };
@@ -71,6 +72,7 @@
 		3F0C7DC827AD225000F23ADF /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		3F0C7DCA27AD227300F23ADF /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		3F0C7DCC27AD24BC00F23ADF /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		3F0EECC427B291F000FF184C /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		3F14E43827A82F7900AF8239 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		3F14E43A27A831DE00AF8239 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		3F14E43C27A8E52300AF8239 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,14 @@
 			path = UserSettingsModule;
 			sourceTree = "<group>";
 		};
+		3F0EECC327B291DC00FF184C /* Uitilities */ = {
+			isa = PBXGroup;
+			children = (
+				3F0EECC427B291F000FF184C /* Utilities.swift */,
+			);
+			path = Uitilities;
+			sourceTree = "<group>";
+		};
 		3F14E43727A82F6400AF8239 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +211,7 @@
 		3F17FB32279B156D00A6C375 /* RecipeSaver */ = {
 			isa = PBXGroup;
 			children = (
+				3F0EECC327B291DC00FF184C /* Uitilities */,
 				3FF80EC327B0FF9100C434F9 /* EditSettingsModule */,
 				3FF80EB327B0BF0400C434F9 /* AddRecipeModule */,
 				3FF80EB227B0BEA900C434F9 /* NewRecipeModule */,
@@ -442,6 +453,7 @@
 				3FF80EAB27AE8F0C00C434F9 /* RecipeCardInteractor.swift in Sources */,
 				3FF80E9527AE62B500C434F9 /* DataModel.swift in Sources */,
 				3F099D0127A6BC530079F4BC /* PreferencesStore.swift in Sources */,
+				3F0EECC527B291F000FF184C /* Utilities.swift in Sources */,
 				3FF80EAE27B0BACE00C434F9 /* RecipeDescriptionPresenter.swift in Sources */,
 				3F099CF327A4E4050079F4BC /* AddRecipeView.swift in Sources */,
 				3FF80E8E27AD377700C434F9 /* RecipeListInteractor.swift in Sources */,

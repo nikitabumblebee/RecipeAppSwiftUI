@@ -11,7 +11,7 @@ struct SettingsView: View {
   @ObservedObject var presenter: SettingsPresenter
   
   @State private var isAlertShow = false
-  @State private var isDarkModeOn = UserSettings.shared.isDarkModeOn
+  @State private var isDarkModeOn = (UserDefaults.standard.integer(forKey: "selectedAppearance") == 2) ? true : false
   @State private var isShowingImagePicker = false
   @State private var avatarImage = UserSettings.shared.image!
   @State private var userName = UserSettings.shared.userName
@@ -75,7 +75,6 @@ struct SettingsView: View {
       }
     }
     .navigationViewStyle(.stack)
-    .preferredColorScheme(isDarkModeOn ? .dark : .light)
   }
 }
 

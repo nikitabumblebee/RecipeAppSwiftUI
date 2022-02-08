@@ -18,7 +18,7 @@ class SettingsPresenter: ObservableObject {
     self.interactor = interactor
     self.router = SettingsRouter()
     let imageLoader = ImageLoader()
-    self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!// UserSettings.shared.image!
+    self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
   }
   
   func switchDarkMode(isDarkModeEnabled: Bool) {

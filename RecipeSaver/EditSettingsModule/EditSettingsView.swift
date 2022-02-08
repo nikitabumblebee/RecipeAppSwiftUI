@@ -14,13 +14,16 @@ struct EditSettingsView: View {
   @State private var avatarImage: UIImage = UserSettings.shared.image!
   @State private var showingImagePicker = false
   @State private var isEditMode = true
+  @State private var isDarkModeOn = false
   
   var body: some View {
     VStack(alignment: .leading) {
-      ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $presenter.isDarkModeOn, isShowingImagePicker: $showingImagePicker, isEditMode: $isEditMode)
+      ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $showingImagePicker, isEditMode: $isEditMode)
         .padding(-5)
-      TextField(presenter.name, text: $presenter.name)
-      TextField(presenter.nickName, text: $presenter.nickName)
+      Form {
+        TextField(presenter.name, text: $presenter.name)
+        TextField(presenter.nickName, text: $presenter.nickName)
+      }
       Spacer()
     }
     .padding()
@@ -34,6 +37,7 @@ struct EditSettingsView: View {
     .onAppear {
       let imageLoader = ImageLoader()
       self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
+      self.isDarkModeOn = UserSettings.shared.isDarkModeOn
     }
     .sheet(isPresented: $showingImagePicker) {
       PhotoPicker(image: self.$avatarImage)

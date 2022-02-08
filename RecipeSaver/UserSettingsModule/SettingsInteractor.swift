@@ -9,33 +9,26 @@ import Foundation
 
 class SettingsInteractor {
   private let userSettings: UserSettings
-  private var isDarkModeEnabled: Bool
-  private var userName: String
 
   init() {
     self.userSettings = UserSettings.shared
-    self.isDarkModeEnabled = false
-    self.userName = userSettings.userName
   }
   
   func turnOnDarkMode() {
-    isDarkModeEnabled = true
+    userSettings.darkModeAppearance = 2
+    UserDefaults.standard.set(userSettings.darkModeAppearance, forKey: "selectedAppearance")
   }
   
   func turnOffDarkMode() {
-    isDarkModeEnabled = false
+    userSettings.darkModeAppearance = 1
+    UserDefaults.standard.set(userSettings.darkModeAppearance, forKey: "selectedAppearance")
   }
   
   func resetFavorites() {
     //Recipe.resetFavorites()
   }
   
-  func selectPhotoToProfile() {
-    
-  }
-  
   func updateUserName(name: String) {
-    userName = name
     userSettings.userName = name
   }
 }

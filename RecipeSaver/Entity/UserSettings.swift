@@ -21,6 +21,8 @@ final class UserSettings {
   /// Is user switch on dark mode in the app
   var isDarkModeOn = false
   
+  var darkModeAppearance = 1
+  
   static var shared: UserSettings = {
     let instance = UserSettings()
     return instance
