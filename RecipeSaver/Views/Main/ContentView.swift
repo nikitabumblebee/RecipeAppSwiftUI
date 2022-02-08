@@ -22,7 +22,6 @@ struct ContentView: View {
       }
       .onChange(of: selectedAppearance, perform: { value in
         utilities.overrideDisplayMode()
-        UserDefaults.standard.set(selectedAppearance, forKey: "selectedAppearance")
       })
   }
 }
