@@ -67,6 +67,9 @@ struct SettingsView: View {
                             Spacer()
                         }
                     }
+                    .onAppear {
+                        UITableView.appearance().backgroundColor = .clear
+                    }
                 }
             }
             .navigationTitle("Settings")

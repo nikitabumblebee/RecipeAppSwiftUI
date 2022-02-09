@@ -24,9 +24,9 @@ struct CategoriesView: View {
                             .listRowBackground(Color.green.opacity(0.2))
                     }
                 }
-                .cornerRadius(20)
-                .listStyle(PlainListStyle())
-                .frame(height: CGFloat(Category.allCases.count) * 44)
+                .onAppear {
+                    UITableView.appearance().backgroundColor = .clear
+                }
                 .padding()
                 .navigationTitle("Categories")
             }

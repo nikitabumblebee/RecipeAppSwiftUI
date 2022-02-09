@@ -17,38 +17,42 @@ struct EditSettingsView: View {
     @State private var isDarkModeOn = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $showingImagePicker, isEditMode: $isEditMode)
-                .padding(-5)
-            Form {
-                HStack {
-                    Text("Name:")
-                        .frame(width: 100, alignment: .leading)
-                    TextField(presenter.name, text: $presenter.name)
-                }
-                HStack {
-                    Text("Nickname:")
-                        .frame(width: 100, alignment: .leading)
-                    TextField(presenter.nickName, text: $presenter.nickName)
-                }
-            }
+        ZStack {
+            ApplicationBackgroundColor()
             Spacer()
-        }
-        .padding()
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(
-            leading: Button(action: { self.presentationMode.wrappedValue.dismiss() }) { Text("Cancel") },
-            trailing: Button(action: {
-                self.presenter.updateSettings(avatarImage: avatarImage)
-                self.presentationMode.wrappedValue.dismiss()
-            }) { Text("Save") })
-        .onAppear {
-            let imageLoader = ImageLoader()
-            self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
-            self.isDarkModeOn = UserSettings.shared.isDarkModeOn
-        }
-        .sheet(isPresented: $showingImagePicker) {
-            PhotoPicker(image: self.$avatarImage)
+            VStack(alignment: .leading) {
+                ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $showingImagePicker, isEditMode: $isEditMode)
+                    .padding(-5)
+                Form {
+                    HStack {
+                        Text("Name:")
+                            .frame(width: 100, alignment: .leading)
+                        TextField(presenter.name, text: $presenter.name)
+                    }
+                    HStack {
+                        Text("Nickname:")
+                            .frame(width: 100, alignment: .leading)
+                        TextField(presenter.nickName, text: $presenter.nickName)
+                    }
+                }
+                Spacer()
+            }
+            .padding()
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(
+                leading: Button(action: { self.presentationMode.wrappedValue.dismiss() }) { Text("Cancel") },
+                trailing: Button(action: {
+                    self.presenter.updateSettings(avatarImage: avatarImage)
+                    self.presentationMode.wrappedValue.dismiss()
+                }) { Text("Save") })
+            .onAppear {
+                let imageLoader = ImageLoader()
+                self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
+                self.isDarkModeOn = UserSettings.shared.isDarkModeOn
+            }
+            .sheet(isPresented: $showingImagePicker) {
+                PhotoPicker(image: self.$avatarImage)
+            }
         }
     }
 }
