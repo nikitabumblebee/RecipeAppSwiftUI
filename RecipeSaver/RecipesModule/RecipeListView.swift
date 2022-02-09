@@ -17,9 +17,9 @@ struct RecipeListView: View {
                     .font(.headline)
                     .fontWeight(.medium)
                     .opacity(0.7)
-                
                 Spacer()
             }
+            .padding(.top, 10.0)
             
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 15)], spacing: 15) {
                 ForEach(presenter.recipes) { recipe in
