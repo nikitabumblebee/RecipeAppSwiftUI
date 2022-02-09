@@ -14,14 +14,11 @@ class EditSettingsPresenter: ObservableObject {
   @Published var name: String
   @Published var nickName: String
   @Published var isDarkModeOn: Bool
-  @Published var avatarImage: UIImage
   
   init(interactor: EditSettingsInteractor) {
     self.name = UserSettings.shared.userName
     self.nickName = UserSettings.shared.userNickName
     self.isDarkModeOn = UserSettings.shared.isDarkModeOn
-    let imageLoader = ImageLoader()
-    self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
     self.interactor = interactor
   }
   

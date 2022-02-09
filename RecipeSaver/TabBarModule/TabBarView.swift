@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabBar: View {
+struct TabBarView: View {
   @EnvironmentObject var model: DataModel
   
   var body: some View {
@@ -17,7 +17,7 @@ struct TabBar: View {
           Label("Home", systemImage: "house")
         }
       
-      CategoriesView()
+      CategoriesView(presenter: CategoriesPresenter())
         .tabItem {
           Label("Categories", systemImage: "square.fill.text.grid.1x2")
         }
@@ -43,7 +43,7 @@ struct TabBar: View {
 struct TabBar_Previews: PreviewProvider {
   static var previews: some View {
     let model = DataModel.sample
-    TabBar()
+    TabBarView()
       .environmentObject(model)
   }
 }

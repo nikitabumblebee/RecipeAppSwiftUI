@@ -21,8 +21,16 @@ struct EditSettingsView: View {
       ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $showingImagePicker, isEditMode: $isEditMode)
         .padding(-5)
       Form {
-        TextField(presenter.name, text: $presenter.name)
-        TextField(presenter.nickName, text: $presenter.nickName)
+        HStack {
+          Text("Name:")
+            .frame(width: 100, alignment: .leading)
+          TextField(presenter.name, text: $presenter.name)
+        }
+        HStack {
+          Text("Nickname:")
+            .frame(width: 100, alignment: .leading)
+          TextField(presenter.nickName, text: $presenter.nickName)
+        }
       }
       Spacer()
     }

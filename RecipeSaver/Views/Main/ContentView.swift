@@ -15,7 +15,7 @@ struct ContentView: View {
   
   var body: some View {
     model.load()
-    return TabBar()
+    return TabBarView()
       .environmentObject(model)
       .onAppear {
         utilities.overrideDisplayMode()

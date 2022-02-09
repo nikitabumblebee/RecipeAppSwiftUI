@@ -13,16 +13,22 @@ struct FavoritesView: View {
   
   var body: some View {
     NavigationView {
-      ScrollView {
-        if presenter.favoriteRecipes.count > 0 {
-          RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.favoritesRecipes, model: model)))
-        }
-        else {
-          Text("You haven't saved any recipe to your favorites yet.")
-            .padding()
+      ZStack {
+        ApplicationBackgroundColor()
+        VStack {
+          NavigationHeaderView()
+          ScrollView {
+            if presenter.favoriteRecipes.count > 0 {
+              RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.favoritesRecipes, model: model)))
+            }
+            else {
+              Text("You haven't saved any recipe to your favorites yet.")
+                .padding()
+            }
+          }
+          .navigationTitle("Favorites")
         }
       }
-      .navigationTitle("Favorites")
     }
     .navigationViewStyle(.stack)
     .environmentObject(model)

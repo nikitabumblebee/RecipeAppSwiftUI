@@ -12,10 +12,17 @@ struct HomeView: View {
   
   var body: some View {
     NavigationView {
-      ScrollView {
-        RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.recipes, model: model)))
+      ZStack {
+        ApplicationBackgroundColor()
+        VStack {
+          NavigationHeaderView()
+          ScrollView {
+            RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.recipes, model: model)))
+          }
+          .navigationTitle("My Recipes")
+        }
       }
-      .navigationTitle("My Recipes")
+      
     }
     .navigationViewStyle(.stack)
   }

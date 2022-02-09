@@ -8,18 +8,24 @@
 import SwiftUI
 
 struct CategoriesView: View {
+  @ObservedObject var presenter: CategoriesPresenter
+  
   var body: some View {
     NavigationView {
-      List {
-        ForEach(Category.allCases) { category in
-          NavigationLink {
-            CategoryView(category: category)
-          } label: {
-            Text(category.rawValue + "s")
+      ZStack {
+        ApplicationBackgroundColor()
+        VStack {
+          NavigationHeaderView()
+          Spacer()
+          List {
+            ForEach(Category.allCases) { category in
+              presenter.selectCategory(category: category)
+                .listRowBackground(Color.green.opacity(0.2))
+            }
           }
+          .navigationTitle("Categories")
         }
       }
-      .navigationTitle("Categories")
     }
     .navigationViewStyle(.stack)
   }
@@ -27,6 +33,6 @@ struct CategoriesView: View {
 
 struct CategoriesView_Previews: PreviewProvider {
   static var previews: some View {
-    CategoriesView()
+    CategoriesView(presenter: CategoriesPresenter())
   }
 }

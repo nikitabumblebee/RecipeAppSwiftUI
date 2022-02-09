@@ -20,65 +20,74 @@ struct AddRecipeView: View {
   @State private var showingImagePicker = false
   
   var body: some View {
-    VStack {
-      Form {
-        Section(header: Text("Image")) {
-          HStack {
-            Image(uiImage: recipeImage)
-              .resizable()
-              .aspectRatio(contentMode: recipeImage == UIImage(systemName: "photo") ? .fit : .fill)
-              .frame(height: 100)
-            
-            Spacer()
-            Button(action: { showingImagePicker = true }) { Text("Select Image") }
-          }
-        }
-        Section(header: Text("Name")) {
-          TextField(recipe.name, text: $recipe.name)
-        }
-        Section(header: Text("Category")) {
-          Picker("Category", selection: $recipe.category) {
-            ForEach(Category.allCases) { category in
-              Text(category.rawValue)
-                .tag(category)
+    ZStack {
+      ApplicationBackgroundColor()
+      VStack {
+        NavigationHeaderView()
+        
+        VStack {
+          Form {
+            Section(header: Text("Image")) {
+              HStack {
+                Image(uiImage: recipeImage)
+                  .resizable()
+                  .aspectRatio(contentMode: recipeImage == UIImage(systemName: "photo") ? .fit : .fill)
+                  .frame(height: 100)
+                
+                Spacer()
+                Button(action: { showingImagePicker = true }) { Text("Select Image") }
+              }
+            }
+            Section(header: Text("Name")) {
+              TextField(recipe.name, text: $recipe.name)
+            }
+            Section(header: Text("Category")) {
+              Picker("Category", selection: $recipe.category) {
+                ForEach(Category.allCases) { category in
+                  Text(category.rawValue)
+                    .tag(category)
+                }
+              }
+              .pickerStyle(.menu)
+            }
+            Section(header: Text("Description")) {
+              TextEditor(text: $recipe.description)
+            }
+            Section(header: Text("Ingredients")) {
+              TextEditor(text: $recipe.ingredients)
+            }
+            Section(header: Text("Directions")) {
+              TextEditor(text: $recipe.directions)
             }
           }
-          .pickerStyle(.menu)
+          .navigationTitle(isEdit ? recipe.name : "New Recipe")
+          .navigationBarTitleDisplayMode(.inline)
+          .onAppear {
+            if isEdit {
+              recipeImage = presenter.loadRecipeImage()
+            }
+          }
+          .sheet(isPresented: $showingImagePicker) {
+            PhotoPicker(image: self.$recipeImage)
+          }
         }
-        Section(header: Text("Description")) {
-          TextEditor(text: $recipe.description)
-        }
-        Section(header: Text("Ingredients")) {
-          TextEditor(text: $recipe.ingredients)
-        }
-        Section(header: Text("Directions")) {
-          TextEditor(text: $recipe.directions)
-        }
-      }
-      .navigationTitle(isEdit ? recipe.name : "New Recipe")
-      .navigationBarTitleDisplayMode(.inline)
-      .onAppear {
-        if isEdit {
-          recipeImage = presenter.loadRecipeImage()
-        }
-      }
-      .sheet(isPresented: $showingImagePicker) {
-        PhotoPicker(image: self.$recipeImage)
+        .navigationViewStyle(.stack)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(
+          leading: Button(action: { self.presentationMode.wrappedValue.dismiss() }) { Text("Cancel") },
+          trailing: Button(action: {
+            if isEdit {
+              self.presenter.updateRecipe(recipeImage: recipeImage)
+            } else {
+              self.presenter.saveRecipe(recipeImage: recipeImage)
+            }
+            self.presentationMode.wrappedValue.dismiss() }) { Text("Save") }
+            .disabled(isEdit ? false : recipe.name.isEmpty)
+        )
       }
     }
-    .navigationViewStyle(.stack)
-    .navigationBarBackButtonHidden(true)
-    .navigationBarItems(
-      leading: Button(action: { self.presentationMode.wrappedValue.dismiss() }) { Text("Cancel") },
-      trailing: Button(action: {
-        if isEdit {
-          self.presenter.updateRecipe(recipeImage: recipeImage)
-        } else {
-          self.presenter.saveRecipe(recipeImage: recipeImage)
-        }
-        self.presentationMode.wrappedValue.dismiss() }) { Text("Save") }
-        .disabled(isEdit ? false : recipe.name.isEmpty)
-    )
+    
+    
   }
 }
 

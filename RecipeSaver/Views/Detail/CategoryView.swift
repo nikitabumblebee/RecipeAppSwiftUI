@@ -17,18 +17,26 @@ struct CategoryView: View {
     return model.recipes.filter { $0.category == category.rawValue }
   }
   
-    var body: some View {
+  var body: some View {
+    ZStack {
+      ApplicationBackgroundColor()
+      VStack {
+        NavigationHeaderView()
+        Spacer()
+      }
       ScrollView {
         RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: recipes, model: model)))
       }
       .navigationTitle(category.rawValue + "s")
     }
+    
+  }
 }
 
 struct CategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-      let model = DataModel.sample
-      CategoryView(category: Category.main)
-        .environmentObject(model)
-    }
+  static var previews: some View {
+    let model = DataModel.sample
+    CategoryView(category: Category.main)
+      .environmentObject(model)
+  }
 }

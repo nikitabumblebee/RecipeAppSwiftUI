@@ -13,8 +13,15 @@ struct NewRecipeView: View {
   
   var body: some View {
     NavigationView {
-      presenter.makeNewRecipe()
-        .navigationTitle("New Recipe")
+      ZStack {
+        ApplicationBackgroundColor()
+        VStack {
+          NavigationHeaderView()
+          Spacer()
+        }
+        presenter.makeNewRecipe()
+          .navigationTitle("New Recipe")
+      }
     }
     .navigationViewStyle(.stack)
   }

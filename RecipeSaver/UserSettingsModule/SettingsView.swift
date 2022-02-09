@@ -20,49 +20,52 @@ struct SettingsView: View {
   
   var body: some View {
     NavigationView {
-      VStack {
-        presenter.routeToEditSettingsView()
-          .padding(.trailing)
-        ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $isShowingImagePicker, isEditMode: $isEditMode)
-          .padding(-5)
-        HStack {
-          Spacer()
-          Text(userName)
-            .font(.system(size: 25))
-          Spacer()
-        }
-        HStack {
-          Spacer()
-          Text(userNickName)
-          Spacer()
-        }
-        Form {
-          Section {
-            Toggle(isOn: $isDarkModeOn) {
-              Text("Dark Mode")
-            }
-            .onChange(of: isDarkModeOn) { value in
-              presenter.switchDarkMode(isDarkModeEnabled: value)
-            }
-          }
-          
+      ZStack {
+        ApplicationBackgroundColor()
+        VStack {
+          NavigationHeaderView()
+          presenter.routeToEditSettingsView()
+            .padding(.trailing)
+          ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $isShowingImagePicker, isEditMode: $isEditMode)
+            .padding(-5)
           HStack {
             Spacer()
-            Button {
-              isAlertShow = true
-            } label: {
-              Text("Reset Favorites")
-            }
-            .alert("Reset all favorites?", isPresented: $isAlertShow) {
-              Button {
-                presenter.resetFavorites()
-              } label: {
-                Text("Reset")
-              }
-              Button("Cancel", action: {})
-            }
-            .foregroundColor(Color.red)
+            Text(userName)
+              .font(.system(size: 25))
             Spacer()
+          }
+          HStack {
+            Spacer()
+            Text(userNickName)
+            Spacer()
+          }
+          Form {
+            Section {
+              Toggle(isOn: $isDarkModeOn) {
+                Text("Dark Mode")
+              }
+              .onChange(of: isDarkModeOn) { value in
+                presenter.switchDarkMode(isDarkModeEnabled: value)
+              }
+            }
+            HStack {
+              Spacer()
+              Button {
+                isAlertShow = true
+              } label: {
+                Text("Reset Favorites")
+              }
+              .alert("Reset all favorites?", isPresented: $isAlertShow) {
+                Button {
+                  presenter.resetFavorites()
+                } label: {
+                  Text("Reset")
+                }
+                Button("Cancel", action: {})
+              }
+              .foregroundColor(Color.red)
+              Spacer()
+            }
           }
         }
       }
