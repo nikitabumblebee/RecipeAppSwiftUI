@@ -41,7 +41,11 @@ struct SettingsView: View {
                     Form {
                         Section {
                             Toggle(isOn: $isDarkModeOn) {
-                                Text("Dark Mode")
+                                HStack {
+                                    Image(systemName: "paintpalette")
+                                        .foregroundColor(Color.green)
+                                    Text("Dark Mode")
+                                }
                             }
                             .onChange(of: isDarkModeOn) { value in
                                 presenter.switchDarkMode(isDarkModeEnabled: value)
