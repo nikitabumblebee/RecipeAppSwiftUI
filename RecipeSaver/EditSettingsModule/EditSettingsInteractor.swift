@@ -8,15 +8,15 @@
 import Foundation
 
 class EditSettingsInteractor {
-  let userSettings: UserSettings
-  
-  init() {
-    self.userSettings = UserSettings.shared
-  }
-  
-  func updateSetting(name: String, nickName: String, isDarkModeOn: Bool) {
-    userSettings.userName = name
-    userSettings.userNickName = nickName
-    userSettings.isDarkModeOn = isDarkModeOn
-  }
+    let userSettings: UserSettings
+    
+    init() {
+        self.userSettings = UserSettings.shared
+    }
+    
+    func updateSetting(name: String, nickName: String, isDarkModeOn: Bool) {
+        userSettings.userName = name
+        userSettings.userNickName = nickName
+        userSettings.isDarkModeOn = isDarkModeOn
+    }
 }

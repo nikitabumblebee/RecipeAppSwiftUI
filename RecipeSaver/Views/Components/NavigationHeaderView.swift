@@ -9,9 +9,9 @@ import SwiftUI
 
 struct NavigationHeaderView: View {
     var body: some View {
-      RadialGradient(colors: [.green.opacity(0.3), .blue.opacity(0.5)], center: .bottomTrailing, startRadius: 0, endRadius: 300)
-        .ignoresSafeArea()
-        .frame(height: 0)
+        RadialGradient(colors: [.green.opacity(0.3), .blue.opacity(0.5)], center: .bottomTrailing, startRadius: 0, endRadius: 300)
+            .ignoresSafeArea()
+            .frame(height: 0)
     }
 }
 

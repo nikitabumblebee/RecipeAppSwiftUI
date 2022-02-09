@@ -9,12 +9,12 @@ import Foundation
 import Combine
 
 class RecipeListInteractor {
-  var model: DataModel
-  
-  @Published var recipes: [Recipe] = []
-  
-  init(recipes: [Recipe], model: DataModel) {
-    self.recipes = recipes
-    self.model = model
-  }
+    var model: DataModel
+    
+    @Published var recipes: [Recipe] = []
+    
+    init(recipes: [Recipe], model: DataModel) {
+        self.recipes = recipes
+        self.model = model
+    }
 }

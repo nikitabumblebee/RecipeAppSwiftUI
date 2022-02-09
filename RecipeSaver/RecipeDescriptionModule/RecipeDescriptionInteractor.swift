@@ -8,9 +8,9 @@
 import Foundation
 
 class RecipeDescriptionInteractor {
-  let model: DataModel
-  
-  init(model: DataModel) {
-    self.model = model
-  }
+    let model: DataModel
+    
+    init(model: DataModel) {
+        self.model = model
+    }
 }

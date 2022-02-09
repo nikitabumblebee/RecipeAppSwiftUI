@@ -8,7 +8,7 @@
 import SwiftUI
 
 class CategoriesRouter {
-  func selectCategory(category: Category) -> some View {
-    return CategoryView(category: category)
-  }
+    func selectCategory(category: Category) -> some View {
+        return CategoryView(category: category)
+    }
 }

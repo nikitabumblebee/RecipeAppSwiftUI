@@ -8,9 +8,9 @@
 import Foundation
 
 class NewRecipeInteractor {
-  var model: DataModel
-  
-  init(model: DataModel) {
-    self.model = model
-  }
+    var model: DataModel
+    
+    init(model: DataModel) {
+        self.model = model
+    }
 }

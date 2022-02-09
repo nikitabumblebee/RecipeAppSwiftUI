@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		3F099CF327A4E4050079F4BC /* AddRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F099CF227A4E4050079F4BC /* AddRecipeView.swift */; };
 		3F099CF727A68AFD0079F4BC /* RecipeCardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F099CF627A68AFD0079F4BC /* RecipeCardPresenter.swift */; };
-		3F099CFE27A6BBFC0079F4BC /* InternalColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F099CFD27A6BBFC0079F4BC /* InternalColorScheme.swift */; };
-		3F099D0127A6BC530079F4BC /* PreferencesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F099D0027A6BC530079F4BC /* PreferencesStore.swift */; };
 		3F0BDA5927A954BE0060067D /* TextAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BDA5827A954BE0060067D /* TextAlert.swift */; };
 		3F0BDA5C27A9552B0060067D /* AlertWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BDA5B27A9552B0060067D /* AlertWrapper.swift */; };
 		3F0BDA5E27A97DB40060067D /* EditSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0BDA5D27A97DB40060067D /* EditSettingsView.swift */; };
@@ -68,8 +66,6 @@
 /* Begin PBXFileReference section */
 		3F099CF227A4E4050079F4BC /* AddRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeView.swift; sourceTree = "<group>"; };
 		3F099CF627A68AFD0079F4BC /* RecipeCardPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardPresenter.swift; sourceTree = "<group>"; };
-		3F099CFD27A6BBFC0079F4BC /* InternalColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalColorScheme.swift; sourceTree = "<group>"; };
-		3F099D0027A6BC530079F4BC /* PreferencesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesStore.swift; sourceTree = "<group>"; };
 		3F0BDA5827A954BE0060067D /* TextAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAlert.swift; sourceTree = "<group>"; };
 		3F0BDA5B27A9552B0060067D /* AlertWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWrapper.swift; sourceTree = "<group>"; };
 		3F0BDA5D27A97DB40060067D /* EditSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsView.swift; sourceTree = "<group>"; };
@@ -139,21 +135,12 @@
 		3F099CFC27A6BBE60079F4BC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3F099CFD27A6BBFC0079F4BC /* InternalColorScheme.swift */,
 				3F14E43A27A831DE00AF8239 /* PhotoPicker.swift */,
 				3F0BDA5F27AA32D70060067D /* ImageLoader.swift */,
 				3FF80EA227AE831200C434F9 /* SceneDelegate.swift */,
 				3F0EECC627B36FE500FF184C /* UserRepository.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		3F099CFF27A6BC390079F4BC /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				3F099D0027A6BC530079F4BC /* PreferencesStore.swift */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		3F0BDA5A27A9551A0060067D /* Wrappers */ = {
@@ -237,7 +224,6 @@
 				3F0BDA5A27A9551A0060067D /* Wrappers */,
 				3F14E43E27A8F6E000AF8239 /* Entity */,
 				3F14E43727A82F6400AF8239 /* Extensions */,
-				3F099CFF27A6BC390079F4BC /* Managers */,
 				3F099CFC27A6BBE60079F4BC /* Helpers */,
 				3F17FB41279B165700A6C375 /* Views */,
 				3F17FB37279B156F00A6C375 /* Assets.xcassets */,
@@ -467,7 +453,6 @@
 				3F0BDA5927A954BE0060067D /* TextAlert.swift in Sources */,
 				3FF80EAB27AE8F0C00C434F9 /* RecipeCardInteractor.swift in Sources */,
 				3FF80E9527AE62B500C434F9 /* DataModel.swift in Sources */,
-				3F099D0127A6BC530079F4BC /* PreferencesStore.swift in Sources */,
 				3F0EECC527B291F000FF184C /* UserAppearance.swift in Sources */,
 				3FF80EAE27B0BACE00C434F9 /* RecipeDescriptionPresenter.swift in Sources */,
 				3F099CF327A4E4050079F4BC /* AddRecipeView.swift in Sources */,
@@ -488,7 +473,6 @@
 				3FF80EC527B0FFB600C434F9 /* EditSettingsPresenter.swift in Sources */,
 				3F0BDA5E27A97DB40060067D /* EditSettingsView.swift in Sources */,
 				3FF80EBF27B0D43A00C434F9 /* NewRecipeRouter.swift in Sources */,
-				3F099CFE27A6BBFC0079F4BC /* InternalColorScheme.swift in Sources */,
 				3FF80E9F27AE71DE00C434F9 /* FavoritesPresenter.swift in Sources */,
 				3F0C7DCD27AD24BC00F23ADF /* SettingsRouter.swift in Sources */,
 				3F0EECCF27B3927700FF184C /* CategoriesRouter.swift in Sources */,

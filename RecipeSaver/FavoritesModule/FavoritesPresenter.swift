@@ -9,16 +9,16 @@ import SwiftUI
 import Combine
 
 class FavoritesPresenter: ObservableObject {
-  private let interactor: FavoritesInteractor
-  private var cancellables = Set<AnyCancellable>()
-  
-  @Published private(set) var favoriteRecipes: [Recipe] = []
-  
-  init(interactor: FavoritesInteractor) {
-    self.interactor = interactor
+    private let interactor: FavoritesInteractor
+    private var cancellables = Set<AnyCancellable>()
+    
+    @Published private(set) var favoriteRecipes: [Recipe] = []
+    
+    init(interactor: FavoritesInteractor) {
+        self.interactor = interactor
         
-    interactor.model.$favoritesRecipes
-      .assign(to: \.favoriteRecipes, on: self)
-      .store(in: &cancellables)
-  }
+        interactor.model.$favoritesRecipes
+            .assign(to: \.favoriteRecipes, on: self)
+            .store(in: &cancellables)
+    }
 }

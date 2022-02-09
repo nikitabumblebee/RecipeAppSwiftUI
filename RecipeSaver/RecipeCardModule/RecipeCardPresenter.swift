@@ -10,28 +10,28 @@ import SwiftUI
 import Combine
 
 class RecipeCardPresenter: ObservableObject {
-  @Published private(set) var recipe: Recipe
-  @Published private(set) var isFavorite: Bool = false
-  
-  private var cancellables = Set<AnyCancellable>()
-  private var interactor: RecipeCardInteractor
-  
-  init(interactor: RecipeCardInteractor) {
-    self.interactor = interactor
-    self.recipe = interactor.recipe
+    @Published private(set) var recipe: Recipe
+    @Published private(set) var isFavorite: Bool = false
     
-    interactor.recipe.$isFavorite
-      .assign(to: \.isFavorite, on: self)
-      .store(in: &cancellables)
-  }
-  
-  func addRecipeToFavorite() {
-    interactor.addRecipeToFavorite()
-    recipe.isFavorite = true
-  }
-  
-  func removeRecipeFromFavorite() {
-    interactor.removeRecipeFromFavorite()
-    recipe.isFavorite = false
-  }
+    private var cancellables = Set<AnyCancellable>()
+    private var interactor: RecipeCardInteractor
+    
+    init(interactor: RecipeCardInteractor) {
+        self.interactor = interactor
+        self.recipe = interactor.recipe
+        
+        interactor.recipe.$isFavorite
+            .assign(to: \.isFavorite, on: self)
+            .store(in: &cancellables)
+    }
+    
+    func addRecipeToFavorite() {
+        interactor.addRecipeToFavorite()
+        recipe.isFavorite = true
+    }
+    
+    func removeRecipeFromFavorite() {
+        interactor.removeRecipeFromFavorite()
+        recipe.isFavorite = false
+    }
 }

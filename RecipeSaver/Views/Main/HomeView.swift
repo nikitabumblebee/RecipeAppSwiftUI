@@ -8,30 +8,30 @@
 import SwiftUI
 
 struct HomeView: View {
-  @EnvironmentObject var model: DataModel
-  
-  var body: some View {
-    NavigationView {
-      ZStack {
-        ApplicationBackgroundColor()
-        VStack {
-          NavigationHeaderView()
-          ScrollView {
-            RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.recipes, model: model)))
-          }
-          .navigationTitle("My Recipes")
+    @EnvironmentObject var model: DataModel
+    
+    var body: some View {
+        NavigationView {
+            ZStack {
+                ApplicationBackgroundColor()
+                VStack {
+                    NavigationHeaderView()
+                    ScrollView {
+                        RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.recipes, model: model)))
+                    }
+                    .navigationTitle("My Recipes")
+                }
+            }
+            
         }
-      }
-      
+        .navigationViewStyle(.stack)
     }
-    .navigationViewStyle(.stack)
-  }
 }
 
 struct HomeView_Previews: PreviewProvider {
-  static var previews: some View {
-    let model = DataModel.sample
-    HomeView()
-      .environmentObject(model)
-  }
+    static var previews: some View {
+        let model = DataModel.sample
+        HomeView()
+            .environmentObject(model)
+    }
 }

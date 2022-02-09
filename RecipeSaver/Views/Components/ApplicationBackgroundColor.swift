@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ApplicationBackgroundColor: View {
     var body: some View {
-      Color.green
-        .opacity(0.1)
-        .ignoresSafeArea()
+        Color.green
+            .opacity(0.1)
+            .ignoresSafeArea()
     }
 }
 

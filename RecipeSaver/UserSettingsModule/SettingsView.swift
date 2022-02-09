@@ -8,87 +8,87 @@
 import SwiftUI
 
 struct SettingsView: View {
-  @ObservedObject var presenter: SettingsPresenter
-  
-  @State private var isAlertShow = false
-  @State private var isDarkModeOn = (UserDefaults.standard.integer(forKey: "selectedAppearance") == 2) ? true : false
-  @State private var isShowingImagePicker = false
-  @State private var avatarImage = UserSettings.shared.image!
-  @State private var userName = UserSettings.shared.userName
-  @State private var userNickName = UserSettings.shared.userNickName
-  @State private var isEditMode = false
-  
-  var body: some View {
-    NavigationView {
-      ZStack {
-        ApplicationBackgroundColor()
-        VStack {
-          NavigationHeaderView()
-          presenter.routeToEditSettingsView()
-            .padding(.trailing)
-          ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $isShowingImagePicker, isEditMode: $isEditMode)
-            .padding(-5)
-          HStack {
-            Spacer()
-            Text(userName)
-              .font(.system(size: 25))
-            Spacer()
-          }
-          HStack {
-            Spacer()
-            Text(userNickName)
-            Spacer()
-          }
-          Form {
-            Section {
-              Toggle(isOn: $isDarkModeOn) {
-                Text("Dark Mode")
-              }
-              .onChange(of: isDarkModeOn) { value in
-                presenter.switchDarkMode(isDarkModeEnabled: value)
-              }
-            }
-            HStack {
-              Spacer()
-              Button {
-                isAlertShow = true
-              } label: {
-                Text("Reset Favorites")
-              }
-              .alert("Reset all favorites?", isPresented: $isAlertShow) {
-                Button {
-                  presenter.resetFavorites()
-                } label: {
-                  Text("Reset")
+    @ObservedObject var presenter: SettingsPresenter
+    
+    @State private var isAlertShow = false
+    @State private var isDarkModeOn = (UserDefaults.standard.integer(forKey: "selectedAppearance") == 2) ? true : false
+    @State private var isShowingImagePicker = false
+    @State private var avatarImage = UserSettings.shared.image!
+    @State private var userName = UserSettings.shared.userName
+    @State private var userNickName = UserSettings.shared.userNickName
+    @State private var isEditMode = false
+    
+    var body: some View {
+        NavigationView {
+            ZStack {
+                ApplicationBackgroundColor()
+                VStack {
+                    NavigationHeaderView()
+                    presenter.routeToEditSettingsView()
+                        .padding(.trailing)
+                    ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $isShowingImagePicker, isEditMode: $isEditMode)
+                        .padding(-5)
+                    HStack {
+                        Spacer()
+                        Text(userName)
+                            .font(.system(size: 25))
+                        Spacer()
+                    }
+                    HStack {
+                        Spacer()
+                        Text(userNickName)
+                        Spacer()
+                    }
+                    Form {
+                        Section {
+                            Toggle(isOn: $isDarkModeOn) {
+                                Text("Dark Mode")
+                            }
+                            .onChange(of: isDarkModeOn) { value in
+                                presenter.switchDarkMode(isDarkModeEnabled: value)
+                            }
+                        }
+                        HStack {
+                            Spacer()
+                            Button {
+                                isAlertShow = true
+                            } label: {
+                                Text("Reset Favorites")
+                            }
+                            .alert("Reset all favorites?", isPresented: $isAlertShow) {
+                                Button {
+                                    presenter.resetFavorites()
+                                } label: {
+                                    Text("Reset")
+                                }
+                                Button("Cancel", action: {})
+                            }
+                            .foregroundColor(Color.red)
+                            Spacer()
+                        }
+                    }
                 }
-                Button("Cancel", action: {})
-              }
-              .foregroundColor(Color.red)
-              Spacer()
             }
-          }
+            .navigationTitle("Settings")
+            .onAppear {
+                let imageLoader = ImageLoader()
+                self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
+                self.userName = UserSettings.shared.userName
+                self.userNickName = UserSettings.shared.userNickName
+            }
         }
-      }
-      .navigationTitle("Settings")
-      .onAppear {
-        let imageLoader = ImageLoader()
-        self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
-        self.userName = UserSettings.shared.userName
-        self.userNickName = UserSettings.shared.userNickName
-      }
+        .navigationViewStyle(.stack)
     }
-    .navigationViewStyle(.stack)
-  }
 }
 
 extension View {
-  public func alert(isPresented: Binding<Bool>, _ alert: TextAlert) -> some View {
-    AlertWrapper(isPresented: isPresented, alert: alert, content: self)
-  }
+    public func alert(isPresented: Binding<Bool>, _ alert: TextAlert) -> some View {
+        AlertWrapper(isPresented: isPresented, alert: alert, content: self)
+    }
 }
 
 struct SettingsView_Previews: PreviewProvider {
-  static var previews: some View {
-    SettingsView(presenter: SettingsPresenter(interactor: SettingsInteractor(model: DataModel.sample)))
-  }
+    static var previews: some View {
+        SettingsView(presenter: SettingsPresenter(interactor: SettingsInteractor(model: DataModel.sample)))
+    }
 }

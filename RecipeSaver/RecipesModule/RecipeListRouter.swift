@@ -8,8 +8,8 @@
 import SwiftUI
 
 class RecipeListRouter {
-  func moveToRecipe(recipe: Recipe, model: DataModel) -> some View {
-    let presenter = RecipeDescriptionPresenter(interactor: RecipeDescriptionInteractor(model: model))
-    return RecipeView(recipe: recipe, presenter: presenter)
-  }
+    func moveToRecipe(recipe: Recipe, model: DataModel) -> some View {
+        let presenter = RecipeDescriptionPresenter(interactor: RecipeDescriptionInteractor(model: model))
+        return RecipeView(recipe: recipe, presenter: presenter)
+    }
 }

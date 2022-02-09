@@ -8,36 +8,36 @@
 import SwiftUI
 
 struct RecipeListView: View {
-  @ObservedObject var presenter: RecipeListPresenter
-  
-  var body: some View {
-    VStack {
-      HStack {
-        Text("\(presenter.recipes.count) \(presenter.recipes.count > 1 ? "recipes" : "recipe")")
-          .font(.headline)
-          .fontWeight(.medium)
-          .opacity(0.7)
-        
-        Spacer()
-      }
-      
-      LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 15)], spacing: 15) {
-        ForEach(presenter.recipes) { recipe in
-          presenter.routeToRecipe(recipe: recipe)
+    @ObservedObject var presenter: RecipeListPresenter
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Text("\(presenter.recipes.count) \(presenter.recipes.count > 1 ? "recipes" : "recipe")")
+                    .font(.headline)
+                    .fontWeight(.medium)
+                    .opacity(0.7)
+                
+                Spacer()
+            }
+            
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 160), spacing: 15)], spacing: 15) {
+                ForEach(presenter.recipes) { recipe in
+                    presenter.routeToRecipe(recipe: recipe)
+                }
+            }
+            .padding(.top)
         }
-      }
-      .padding(.top)
+        .padding(.horizontal)
     }
-    .padding(.horizontal)
-  }
 }
 
 struct RecipeList_Previews: PreviewProvider {
-  static var previews: some View {
-    ScrollView {
-      let model = DataModel.sample
-      let presenter = RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.recipes, model: model))
-      RecipeListView(presenter: presenter)
+    static var previews: some View {
+        ScrollView {
+            let model = DataModel.sample
+            let presenter = RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.recipes, model: model))
+            RecipeListView(presenter: presenter)
+        }
     }
-  }
 }
