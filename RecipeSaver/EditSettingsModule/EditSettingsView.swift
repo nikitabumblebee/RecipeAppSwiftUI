@@ -46,7 +46,12 @@ struct EditSettingsView: View {
                 }) { Text("Save") })
             .onAppear {
                 let imageLoader = ImageLoader()
-                self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
+                if imageLoader.loadImageFromDiskWith(fileName: "userImage") == nil {
+                    self.avatarImage = UIImage(systemName: "person.fill")!
+                } else {
+                    self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
+                }
+                
                 self.isDarkModeOn = UserSettings.shared.isDarkModeOn
             }
             .sheet(isPresented: $showingImagePicker) {

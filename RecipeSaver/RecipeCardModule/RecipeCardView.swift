@@ -27,9 +27,19 @@ struct RecipeCardView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
                     let imageLoader = ImageLoader()
-                    Image(uiImage: imageLoader.loadImageFromDiskWith(fileName: presenter.recipe.image)!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
+                    if imageLoader.loadImageFromDiskWith(fileName: presenter.recipe.image) == nil {
+                        Image(systemName: "photo")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 40, height: 40, alignment: .center)
+                            .foregroundColor(.white.opacity(0.7))
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    } else {
+                        Image(uiImage: imageLoader.loadImageFromDiskWith(fileName: presenter.recipe.image)!)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                    }
+                    
                 }
             }
             .overlay(alignment: .bottomTrailing) {

@@ -26,7 +26,7 @@ struct RecipeView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                     } placeholder: {
-                        if recipe.image != recipe.name {
+                        if recipe.image != recipe.name || recipeImage == nil {
                             Image(systemName: "photo")
                                 .resizable()
                                 .scaledToFit()
@@ -75,10 +75,19 @@ struct RecipeView: View {
                 }
                 .ignoresSafeArea(.container, edges: .top)
                 .onAppear {
-                    if let existedRecipeIndex = model.recipes.firstIndex(where: { $0.id == recipe.id }) {
-                        let imageLoader = ImageLoader()
-                        self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: model.recipes[existedRecipeIndex].image)
-                        self.recipe = model.recipes[existedRecipeIndex]
+                    // TODO: - Refactor
+                    if isEdit {
+                        if let existedRecipeIndex = model.myRecipes.firstIndex(where: { $0.id == recipe.id }) {
+                            let imageLoader = ImageLoader()
+                            self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: model.recipes[existedRecipeIndex].image)
+                            self.recipe = model.recipes[existedRecipeIndex]
+                        }
+                    } else {
+                        if let existedRecipeIndex = model.recipes.firstIndex(where: { $0.id == recipe.id }) {
+                            let imageLoader = ImageLoader()
+                            self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: model.recipes[existedRecipeIndex].image)
+                            self.recipe = model.recipes[existedRecipeIndex]
+                        }
                     }
                 }
                 .toolbar {

@@ -21,7 +21,6 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                //ApplicationBackgroundColor()
                 VStack {
                     NavigationHeaderView()
                     presenter.routeToEditSettingsView()
@@ -67,15 +66,16 @@ struct SettingsView: View {
                             Spacer()
                         }
                     }
-                    .onAppear {
-                        //UITableView.appearance().backgroundColor = .clear
-                    }
                 }
             }
             .navigationTitle("Settings")
             .onAppear {
                 let imageLoader = ImageLoader()
-                self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
+                if imageLoader.loadImageFromDiskWith(fileName: "userImage") == nil {
+                    self.avatarImage = UIImage(systemName: "person.fill")!
+                } else {
+                    self.avatarImage = imageLoader.loadImageFromDiskWith(fileName: "userImage")!
+                }
                 self.userName = UserSettings.shared.userName
                 self.userNickName = UserSettings.shared.userNickName
             }

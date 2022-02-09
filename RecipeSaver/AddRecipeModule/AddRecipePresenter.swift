@@ -31,7 +31,11 @@ class AddRecipePresenter: ObservableObject {
     
     func loadRecipeImage() -> UIImage {
         let imageLoader = ImageLoader()
-        return imageLoader.loadImageFromDiskWith(fileName: recipe.name)!
+        if imageLoader.loadImageFromDiskWith(fileName: recipe.name) == nil {
+            return UIImage(systemName: "photo")!
+        } else {
+            return imageLoader.loadImageFromDiskWith(fileName: recipe.name)!
+        }
     }
     
     func updateRecipe(recipeImage: UIImage) {
