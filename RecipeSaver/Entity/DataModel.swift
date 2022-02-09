@@ -12,6 +12,7 @@ final class DataModel {
     
     @Published var recipes: [Recipe] = []
     @Published var favoritesRecipes: [Recipe] = []
+    @Published var myRecipes: [Recipe] = []
     
     private var persistence: Persistence = Persistence()
     private var cancellables = Set<AnyCancellable>()
@@ -34,11 +35,13 @@ final class DataModel {
     
     func addNewRecipe(recipe: Recipe) {
         recipes.insert(recipe, at: 0)
+        myRecipes.insert(recipe, at: 0)
     }
     
     func updateRecipe(recipe: Recipe) {
         if let existedRecipeIndex = recipes.firstIndex(where: { $0.name == recipe.name }) {
-            recipes[existedRecipeIndex].isFavorite = recipe.isFavorite
+            recipes[existedRecipeIndex] = recipe
+            myRecipes[existedRecipeIndex] = recipe
         }
         favoritesRecipes = recipes.filter { $0.isFavorite }
     }

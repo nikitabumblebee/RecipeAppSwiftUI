@@ -12,7 +12,7 @@ struct TabBarView: View {
     
     var body: some View {
         TabView {
-            HomeView()
+            HomeView(presenter: HomePresenter(interactor: RecipeListInteractor(recipes: model.recipes, model: model)))
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
@@ -22,9 +22,9 @@ struct TabBarView: View {
                     Label("Categories", systemImage: "square.fill.text.grid.1x2")
                 }
             
-            NewRecipeView(presenter: NewRecipePresenter(interactor: NewRecipeInteractor(model: model)))
+            MyRecipesView(presenter: MyRecipesPresenter(interactor: MyRecipesInteractor(recipes: model.recipes, model: model)))
                 .tabItem {
-                    Label("New", systemImage: "plus")
+                    Label("My Recipes", systemImage: "book.fill")
                 }
             
             FavoritesView(presenter: FavoritesPresenter(interactor: FavoritesInteractor(model: model, recipes: model.recipes.filter { $0.isFavorite })))

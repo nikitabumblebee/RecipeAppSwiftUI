@@ -19,7 +19,6 @@ struct RecipeView: View {
     
     var body: some View {
         ZStack {
-            //ApplicationBackgroundColor()
             VStack {
                 ScrollView(showsIndicators: true) {
                     AsyncImage(url: URL(string: recipe.image)) { image in
