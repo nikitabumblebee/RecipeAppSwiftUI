@@ -20,9 +20,10 @@ struct HomeView: View {
                         RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.recipes, model: model)))
                     }
                     .navigationTitle("My Recipes")
+                    Rectangle()
+                        .frame(height: 0)
                 }
             }
-            
         }
         .navigationViewStyle(.stack)
     }

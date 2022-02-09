@@ -24,7 +24,6 @@ struct AddRecipeView: View {
             ApplicationBackgroundColor()
             VStack {
                 NavigationHeaderView()
-                
                 VStack {
                     Form {
                         Section(header: Text("Image")) {
@@ -66,6 +65,7 @@ struct AddRecipeView: View {
                         if isEdit {
                             recipeImage = presenter.loadRecipeImage()
                         }
+                        UITableView.appearance().backgroundColor = .clear
                     }
                     .sheet(isPresented: $showingImagePicker) {
                         PhotoPicker(image: self.$recipeImage)
