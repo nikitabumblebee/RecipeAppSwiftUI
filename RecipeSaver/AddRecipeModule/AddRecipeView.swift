@@ -21,7 +21,7 @@ struct AddRecipeView: View {
     
     var body: some View {
         ZStack {
-            ApplicationBackgroundColor()
+            //ApplicationBackgroundColor()
             VStack {
                 NavigationHeaderView()
                 VStack {

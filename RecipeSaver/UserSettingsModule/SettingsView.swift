@@ -21,7 +21,7 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                ApplicationBackgroundColor()
+                //ApplicationBackgroundColor()
                 VStack {
                     NavigationHeaderView()
                     presenter.routeToEditSettingsView()
@@ -68,7 +68,7 @@ struct SettingsView: View {
                         }
                     }
                     .onAppear {
-                        UITableView.appearance().backgroundColor = .clear
+                        //UITableView.appearance().backgroundColor = .clear
                     }
                 }
             }

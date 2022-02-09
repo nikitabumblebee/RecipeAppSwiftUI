@@ -14,7 +14,7 @@ struct FavoritesView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                ApplicationBackgroundColor()
+                //ApplicationBackgroundColor()
                 VStack {
                     NavigationHeaderView()
                     ScrollView {

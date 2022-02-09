@@ -13,22 +13,22 @@ struct CategoriesView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                ApplicationBackgroundColor()
+                //ApplicationBackgroundColor()
                 VStack {
                     NavigationHeaderView()
-                    Spacer()
-                }
-                List {
-                    ForEach(Category.allCases) { category in
-                        presenter.selectCategory(category: category)
-                            .listRowBackground(Color.green.opacity(0.2))
+                    List {
+                        ForEach(Category.allCases) { category in
+                            presenter.selectCategory(category: category)
+                                //.listRowBackground(Color.gray.opacity(0.2))
+                        }
                     }
+                    .padding(.top, -7.5)
+                    .onAppear {
+                        //UITableView.appearance().backgroundColor = .clear
+                    }
+                    .navigationTitle("Categories")
                 }
-                .onAppear {
-                    UITableView.appearance().backgroundColor = .clear
-                }
-                .padding()
-                .navigationTitle("Categories")
+                
             }
         }
         .navigationViewStyle(.stack)

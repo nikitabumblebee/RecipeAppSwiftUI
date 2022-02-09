@@ -19,7 +19,7 @@ struct CategoryView: View {
     
     var body: some View {
         ZStack {
-            ApplicationBackgroundColor()
+            //ApplicationBackgroundColor()
             VStack {
                 NavigationHeaderView()
                 Spacer()
