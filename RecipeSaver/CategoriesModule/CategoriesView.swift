@@ -17,14 +17,18 @@ struct CategoriesView: View {
         VStack {
           NavigationHeaderView()
           Spacer()
-          List {
-            ForEach(Category.allCases) { category in
-              presenter.selectCategory(category: category)
-                .listRowBackground(Color.green.opacity(0.2))
-            }
-          }
-          .navigationTitle("Categories")
         }
+        List {
+          ForEach(Category.allCases) { category in
+            presenter.selectCategory(category: category)
+              .listRowBackground(Color.green.opacity(0.2))
+          }
+        }
+        .cornerRadius(20)
+        .listStyle(PlainListStyle())
+        .frame(height: CGFloat(Category.allCases.count) * 44)
+        .padding()
+        .navigationTitle("Categories")
       }
     }
     .navigationViewStyle(.stack)
