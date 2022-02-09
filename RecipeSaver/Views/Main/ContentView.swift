@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
   var model = DataModel()
-  var utilities = Utilities()
+  var utilities = UserAppearance()
   
   @AppStorage("selectedAppearance") var selectedAppearance = UserDefaults.standard.integer(forKey: "selectedAppearance")
   

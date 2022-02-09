@@ -9,9 +9,11 @@ import Foundation
 
 class SettingsInteractor {
   private let userSettings: UserSettings
+  private let model: DataModel
 
-  init() {
+  init(model: DataModel) {
     self.userSettings = UserSettings.shared
+    self.model = model
   }
   
   func turnOnDarkMode() {
@@ -25,7 +27,7 @@ class SettingsInteractor {
   }
   
   func resetFavorites() {
-    //Recipe.resetFavorites()
+    model.resetFavorites()
   }
   
   func updateUserName(name: String) {

@@ -8,8 +8,7 @@
 import Foundation
 import SwiftUI
 
-class Utilities {
-  
+class UserAppearance {
   @AppStorage("selectedAppearance") var selectedAppearance = 0
   var userInterfaceStyle: ColorScheme? = .dark
   

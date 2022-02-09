@@ -86,6 +86,6 @@ extension View {
 
 struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {
-    SettingsView(presenter: SettingsPresenter(interactor: SettingsInteractor()))
+    SettingsView(presenter: SettingsPresenter(interactor: SettingsInteractor(model: DataModel.sample)))
   }
 }

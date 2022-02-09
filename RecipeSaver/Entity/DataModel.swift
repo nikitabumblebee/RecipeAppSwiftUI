@@ -49,6 +49,7 @@ final class DataModel {
   
   func resetFavorites() {
     recipes.indices.forEach { recipes[$0].isFavorite = false }
+    favoritesRecipes = []
   }
 }
 
