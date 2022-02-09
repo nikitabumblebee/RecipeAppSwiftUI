@@ -66,7 +66,6 @@ struct RecipeView: View {
             }
           }
         }
-        .frame(width: .infinity, alignment: .leading)
       }
       .padding(.horizontal)
     }
