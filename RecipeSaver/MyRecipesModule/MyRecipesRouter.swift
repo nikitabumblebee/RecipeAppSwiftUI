@@ -9,8 +9,8 @@ import SwiftUI
 
 class MyRecipesRouter {
     func moveToRecipe(recipe: Recipe, model: DataModel) -> some View {
-        let presenter = RecipeDescriptionPresenter(interactor: RecipeDescriptionInteractor(model: model))
-        return RecipeView(recipe: recipe, presenter: presenter)
+        let presenter = RecipeDescriptionPresenter(interactor: RecipeDescriptionInteractor(model: model), recipe: recipe)
+        return RecipeDescriptionView(presenter: presenter)
     }
     
     func makeNewRecipe(model: DataModel) -> some View {

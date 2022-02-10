@@ -7,13 +7,10 @@
 
 import SwiftUI
 
-struct RecipeView: View {
+struct RecipeDescriptionView: View {
     @EnvironmentObject var model: DataModel
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentationMode) var presentationMode
-    @State var recipe: Recipe
-    @State private var isEdit = true
-    @State private var recipeImage = UIImage(systemName: "photo")
     
     @ObservedObject var presenter: RecipeDescriptionPresenter
     
@@ -21,12 +18,12 @@ struct RecipeView: View {
         ZStack {
             VStack {
                 ScrollView(showsIndicators: true) {
-                    AsyncImage(url: URL(string: recipe.image)) { image in
+                    AsyncImage(url: URL(string: presenter.imageName)) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                     } placeholder: {
-                        if recipe.image != recipe.name || recipeImage == nil {
+                        if presenter.imageName != presenter.recipeName || presenter.recipeImage == nil {
                             Image(systemName: "photo")
                                 .resizable()
                                 .scaledToFit()
@@ -34,7 +31,7 @@ struct RecipeView: View {
                                 .foregroundColor(.white.opacity(0.7))
                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                         } else {
-                            Image(uiImage: recipeImage!)
+                            Image(uiImage: presenter.recipeImage!)
                                 .resizable()
                         }
                     }
@@ -42,31 +39,29 @@ struct RecipeView: View {
                     .background(LinearGradient(gradient: Gradient(colors: [Color(.gray).opacity(0.3), Color(.gray)]), startPoint: .top, endPoint: .bottom))
                     
                     VStack(spacing: 30) {
-                        Text(recipe.name)
+                        Text(presenter.recipeName)
                             .font(.largeTitle)
                             .bold()
                             .multilineTextAlignment(.center)
                         
                         VStack(alignment: .leading, spacing: 30) {
-                            if !recipe.description.isEmpty {
-                                Text(recipe.description)
+                            if !presenter.description.isEmpty {
+                                Text(presenter.description)
                             }
                             
-                            if !recipe.ingredients.isEmpty {
+                            if !presenter.ingredients.isEmpty {
                                 VStack(alignment: .leading, spacing: 20) {
                                     Text("Ingredients")
                                         .font(.headline)
-                                    
-                                    Text(recipe.ingredients)
+                                    Text(presenter.ingredients)
                                 }
                             }
                             
-                            if !recipe.directions.isEmpty {
+                            if !presenter.directions.isEmpty {
                                 VStack(alignment: .leading, spacing: 20) {
                                     Text("Directions")
                                         .font(.headline)
-                                    
-                                    Text(recipe.directions)
+                                    Text(presenter.directions)
                                 }
                             }
                         }
@@ -74,25 +69,11 @@ struct RecipeView: View {
                     .padding(.horizontal)
                 }
                 .ignoresSafeArea(.container, edges: .top)
-                .onAppear {
-                    // TODO: - Refactor
-                    if isEdit {
-                        if let existedRecipeIndex = model.recipes.filter({ $0.isUserRecipe }).firstIndex(where: { $0.id == recipe.id }) {
-                            let imageLoader = ImageLoader()
-                            self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: model.recipes[existedRecipeIndex].image)
-                            self.recipe = model.recipes[existedRecipeIndex]
-                        }
-                    } else {
-                        if let existedRecipeIndex = model.recipes.firstIndex(where: { $0.id == recipe.id }) {
-                            let imageLoader = ImageLoader()
-                            self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: model.recipes[existedRecipeIndex].image)
-                            self.recipe = model.recipes[existedRecipeIndex]
-                        }
-                    }
-                }
                 .toolbar {
-                    if recipe.isUserRecipe {
-                        presenter.moveToEdit(for: $recipe, isEdit: $isEdit)
+                    if presenter.isUserRecipe {
+                        let recipe = Binding(get: { return presenter.recipe }, set: {_ in })
+                        let isEdit = Binding(get: { return true }, set: { _ in })
+                        presenter.moveToEdit(for: recipe, isEdit: isEdit)
                     }
                 }
                 Rectangle()
@@ -105,6 +86,6 @@ struct RecipeView: View {
 struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {
         let model = DataModel.sample
-        RecipeView(recipe: model.recipes[0], presenter: RecipeDescriptionPresenter(interactor: RecipeDescriptionInteractor(model: model)))
+        RecipeDescriptionView(presenter: RecipeDescriptionPresenter(interactor: RecipeDescriptionInteractor(model: model), recipe: model.recipes[0]))
     }
 }
