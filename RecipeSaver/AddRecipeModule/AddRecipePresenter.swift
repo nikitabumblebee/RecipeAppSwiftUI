@@ -17,10 +17,15 @@ class AddRecipePresenter: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(interactor: AddRecipeInteractor, recipe: Recipe, recipeImage: UIImage) {
+    init(interactor: AddRecipeInteractor, recipe: Recipe) {
         self.interactor = interactor
         self.recipe = recipe
-        self.recipeImage = recipeImage
+        let imageLoader = ImageLoader()
+        if imageLoader.loadImageFromDiskWith(fileName: recipe.name) != nil {
+            self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: recipe.name)!
+        } else {
+            self.recipeImage = UIImage(systemName: "photo")!
+        }
     }
     
     func saveRecipe(recipeImage: UIImage) {

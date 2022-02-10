@@ -10,7 +10,7 @@ import SwiftUI
 class RecipeDescriptionRouter {  
     func editRecipe(for recipe: Binding<Recipe>, isEdit: Binding<Bool>, model: DataModel) -> some View {
         let interactor = AddRecipeInteractor(model: model)
-        let presenter = AddRecipePresenter(interactor: interactor, recipe: recipe.wrappedValue, recipeImage: UIImage(systemName: "photo")!)
-        return AddRecipeView(presenter: presenter, recipe: recipe, isEdit: isEdit)
+        let presenter = AddRecipePresenter(interactor: interactor, recipe: recipe.wrappedValue)
+        return AddRecipeView(presenter: presenter, isEdit: isEdit)
     }
 }
