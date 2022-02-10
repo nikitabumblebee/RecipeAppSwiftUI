@@ -16,7 +16,6 @@
 		3F0C7DC927AD225000F23ADF /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0C7DC827AD225000F23ADF /* SettingsPresenter.swift */; };
 		3F0C7DCB27AD227300F23ADF /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0C7DCA27AD227300F23ADF /* SettingsInteractor.swift */; };
 		3F0C7DCD27AD24BC00F23ADF /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0C7DCC27AD24BC00F23ADF /* SettingsRouter.swift */; };
-		3F0EECC527B291F000FF184C /* UserAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EECC427B291F000FF184C /* UserAppearance.swift */; };
 		3F0EECC727B36FE500FF184C /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EECC627B36FE500FF184C /* UserRepository.swift */; };
 		3F0EECC927B3872600FF184C /* NavigationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EECC827B3872600FF184C /* NavigationHeaderView.swift */; };
 		3F0EECCB27B38E0900FF184C /* ApplicationBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EECCA27B38E0900FF184C /* ApplicationBackgroundColor.swift */; };
@@ -40,7 +39,6 @@
 		3F17FB4C279B172100A6C375 /* NewRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB4B279B172100A6C375 /* NewRecipeView.swift */; };
 		3F17FB4E279B173000A6C375 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB4D279B173000A6C375 /* FavoritesView.swift */; };
 		3F17FB50279B173C00A6C375 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB4F279B173C00A6C375 /* SettingsView.swift */; };
-		3F17FB52279B18E000A6C375 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB51279B18E000A6C375 /* TabBarView.swift */; };
 		3F17FB56279B207900A6C375 /* RecipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB55279B207900A6C375 /* RecipeCardView.swift */; };
 		3F17FB58279B24B800A6C375 /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB57279B24B800A6C375 /* RecipeListView.swift */; };
 		3F17FB5A279BAF7400A6C375 /* RecipeDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB59279BAF7400A6C375 /* RecipeDescriptionView.swift */; };
@@ -67,6 +65,8 @@
 		3FF80EC527B0FFB600C434F9 /* EditSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC427B0FFB600C434F9 /* EditSettingsPresenter.swift */; };
 		3FF80EC727B0FFE700C434F9 /* EditSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC627B0FFE700C434F9 /* EditSettingsInteractor.swift */; };
 		3FFC046327B4FA0B005590D7 /* MultiComponentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC046227B4FA0B005590D7 /* MultiComponentPicker.swift */; };
+		3FFC046B27B52484005590D7 /* UserAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC046A27B52484005590D7 /* UserAppearance.swift */; };
+		3FFC046D27B52496005590D7 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC046C27B52495005590D7 /* TabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,7 +79,6 @@
 		3F0C7DC827AD225000F23ADF /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		3F0C7DCA27AD227300F23ADF /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		3F0C7DCC27AD24BC00F23ADF /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
-		3F0EECC427B291F000FF184C /* UserAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAppearance.swift; sourceTree = "<group>"; };
 		3F0EECC627B36FE500FF184C /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		3F0EECC827B3872600FF184C /* NavigationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeaderView.swift; sourceTree = "<group>"; };
 		3F0EECCA27B38E0900FF184C /* ApplicationBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationBackgroundColor.swift; sourceTree = "<group>"; };
@@ -104,7 +103,6 @@
 		3F17FB4B279B172100A6C375 /* NewRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeView.swift; sourceTree = "<group>"; };
 		3F17FB4D279B173000A6C375 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		3F17FB4F279B173C00A6C375 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		3F17FB51279B18E000A6C375 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		3F17FB55279B207900A6C375 /* RecipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardView.swift; sourceTree = "<group>"; };
 		3F17FB57279B24B800A6C375 /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
 		3F17FB59279BAF7400A6C375 /* RecipeDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionView.swift; sourceTree = "<group>"; };
@@ -131,6 +129,8 @@
 		3FF80EC427B0FFB600C434F9 /* EditSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsPresenter.swift; sourceTree = "<group>"; };
 		3FF80EC627B0FFE700C434F9 /* EditSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsInteractor.swift; sourceTree = "<group>"; };
 		3FFC046227B4FA0B005590D7 /* MultiComponentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiComponentPicker.swift; sourceTree = "<group>"; };
+		3FFC046A27B52484005590D7 /* UserAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAppearance.swift; sourceTree = "<group>"; };
+		3FFC046C27B52495005590D7 /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,7 +177,7 @@
 		3F0EECC327B291DC00FF184C /* Uitilities */ = {
 			isa = PBXGroup;
 			children = (
-				3F0EECC427B291F000FF184C /* UserAppearance.swift */,
+				3FFC046A27B52484005590D7 /* UserAppearance.swift */,
 			);
 			path = Uitilities;
 			sourceTree = "<group>";
@@ -344,7 +344,7 @@
 		3FF80EA427AE85E700C434F9 /* TabBarModule */ = {
 			isa = PBXGroup;
 			children = (
-				3F17FB51279B18E000A6C375 /* TabBarView.swift */,
+				3FFC046C27B52495005590D7 /* TabBarView.swift */,
 			);
 			path = TabBarModule;
 			sourceTree = "<group>";
@@ -486,8 +486,8 @@
 				3F14E43D27A8E52300AF8239 /* ProfileImageView.swift in Sources */,
 				3F0BDA5927A954BE0060067D /* TextAlert.swift in Sources */,
 				3FF80EAB27AE8F0C00C434F9 /* RecipeCardInteractor.swift in Sources */,
+				3FFC046D27B52496005590D7 /* TabBarView.swift in Sources */,
 				3FF80E9527AE62B500C434F9 /* DataModel.swift in Sources */,
-				3F0EECC527B291F000FF184C /* UserAppearance.swift in Sources */,
 				3FF80EAE27B0BACE00C434F9 /* RecipeDescriptionPresenter.swift in Sources */,
 				3F0EECDB27B41FAB00FF184C /* HomePresenter.swift in Sources */,
 				3F099CF327A4E4050079F4BC /* AddRecipeView.swift in Sources */,
@@ -516,7 +516,6 @@
 				3F0EECCF27B3927700FF184C /* CategoriesRouter.swift in Sources */,
 				3FF80EBB27B0CDB400C434F9 /* RecipeDescriptionInteractor.swift in Sources */,
 				3F17FB4C279B172100A6C375 /* NewRecipeView.swift in Sources */,
-				3F17FB52279B18E000A6C375 /* TabBarView.swift in Sources */,
 				3FF80EB027B0BAF000C434F9 /* RecipeDescriptionRouter.swift in Sources */,
 				3F0EECC727B36FE500FF184C /* UserRepository.swift in Sources */,
 				3F0EECCB27B38E0900FF184C /* ApplicationBackgroundColor.swift in Sources */,
@@ -534,6 +533,7 @@
 				3F17FB5A279BAF7400A6C375 /* RecipeDescriptionView.swift in Sources */,
 				3F17FB58279B24B800A6C375 /* RecipeListView.swift in Sources */,
 				3F17FB48279B170100A6C375 /* HomeView.swift in Sources */,
+				3FFC046B27B52484005590D7 /* UserAppearance.swift in Sources */,
 				3F0C7DCB27AD227300F23ADF /* SettingsInteractor.swift in Sources */,
 				3F17FB36279B156D00A6C375 /* ContentView.swift in Sources */,
 				3F14E43927A82F7900AF8239 /* UtilityExtensions.swift in Sources */,
