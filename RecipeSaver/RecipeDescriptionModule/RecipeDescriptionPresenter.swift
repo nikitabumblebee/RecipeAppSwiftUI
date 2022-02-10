@@ -26,7 +26,11 @@ class RecipeDescriptionPresenter: ObservableObject {
         self.recipe = recipe
         self.imageName = recipe.image
         self.recipeName = recipe.name
-        self.isUserRecipe = recipe.isUserRecipe
+        if let a = recipe as? UserRecipe {
+            self.isUserRecipe = a.isUserRecipe
+        } else {
+            self.isUserRecipe = false
+        }
         self.description = recipe.description
         self.ingredients = recipe.ingredients
         self.directions = recipe.directions

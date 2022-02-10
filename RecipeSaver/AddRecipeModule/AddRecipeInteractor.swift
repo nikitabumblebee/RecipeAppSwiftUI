@@ -17,7 +17,7 @@ class AddRecipeInteractor {
     
     func saveRecipe(recipe: Recipe) {
         let datePublished = createDate()
-        let newRecipe = Recipe(name: recipe.name, image: recipe.name, description: recipe.description, ingredients: recipe.ingredients, directions: recipe.directions, category: recipe.category, datePublished: datePublished, url: "", cookTime: recipe.cookTime, isUserRecipe: true)
+        let newRecipe = UserRecipe(name: recipe.name, image: recipe.name, description: recipe.description, ingredients: recipe.ingredients, directions: recipe.directions, category: recipe.category, datePublished: datePublished, url: "", cookTime: recipe.cookTime, isUserRecipe: true)
         model.addNewRecipe(recipe: newRecipe)
     }
     

@@ -21,16 +21,22 @@ class MyRecipesPresenter: ObservableObject {
         
         interactor.$recipes
             .map { array in
-                array.filter { $0.isUserRecipe }
+                array.filter {
+                    if let a = $0 as? UserRecipe {
+                       return true
+                    } else {
+                        return false
+                    }
+                }
             }
             .assign(to: \.recipes, on: self)
             .store(in: &cancallables)
     }
     
     func routeToRecipe(recipe: Recipe) -> some View {
-        let destination = router.moveToRecipe(recipe: recipe, model: interactor.model)
+        let destination = router.moveToRecipe(recipe: recipe as! UserRecipe, model: interactor.model)
         return NavigationLink(destination: destination) {
-            RecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: interactor.model, recipe: recipe)))
+            RecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: interactor.model, recipe: recipe as! UserRecipe)))
         }
     }
     

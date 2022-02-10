@@ -21,7 +21,7 @@ class HomePresenter: ObservableObject {
         
         interactor.$recipes
             .map { array in
-                array.filter { $0.isUserRecipe == false }
+                array.filter { ($0 is UserRecipe) == false }
             }
             .assign(to: \.recipes, on: self)
             .store(in: &cancallables)

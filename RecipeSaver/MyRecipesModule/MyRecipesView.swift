@@ -18,7 +18,7 @@ struct MyRecipesView: View {
                     NavigationHeaderView()
                     Spacer()
                 }
-                if model.recipes.filter { $0.isUserRecipe }.count > 0 {
+                if model.recipes.filter { ($0 is UserRecipe) }.count > 0 {
                     ScrollView {
                         RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: presenter.recipes, model: model)))
                     }
