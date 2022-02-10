@@ -50,7 +50,7 @@ struct AddRecipeView: View {
                     Section(content: {
                         HStack {
                             Text("Minutes:")
-                            TextField("", text: $timer)
+                            TextField(presenter.recipe.cookTime, text: $presenter.recipe.cookTime)
                                 .keyboardType(.decimalPad)
                         }
                     }, header: {

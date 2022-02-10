@@ -13,6 +13,7 @@ class RecipeCardPresenter: ObservableObject {
     @Published private(set) var isFavorite: Bool = false
     @Published private(set) var name: String = ""
     @Published private(set) var imagePath: String = ""
+    @Published private(set) var cookTime: String = "0"
     
     private var cancellables = Set<AnyCancellable>()
     private var interactor: RecipeCardInteractor
@@ -30,6 +31,10 @@ class RecipeCardPresenter: ObservableObject {
         
         interactor.recipe.$image
             .assign(to: \.imagePath, on: self)
+            .store(in: &cancellables)
+        
+        interactor.recipe.$cookTime
+            .assign(to: \.cookTime, on: self)
             .store(in: &cancellables)
     }
     

@@ -19,9 +19,10 @@ final class Recipe {
     @Published var url: String
     @Published var isFavorite: Bool
     @Published var isUserRecipe: Bool
+    @Published var cookTime: String
     let id: UUID
     
-    init(name: String, image: String, description: String, ingredients: String, directions: String, category: String, datePublished: String, url: String, isFavorite: Bool = false, isUserRecipe: Bool) {
+    init(name: String, image: String, description: String, ingredients: String, directions: String, category: String, datePublished: String, url: String, cookTime: String, isFavorite: Bool = false, isUserRecipe: Bool) {
         id = UUID()
         self.name = name
         self.image = image
@@ -31,6 +32,7 @@ final class Recipe {
         self.category = category
         self.datePublished = datePublished
         self.url = url
+        self.cookTime = cookTime
         self.isFavorite = isFavorite
         self.isUserRecipe = isUserRecipe
     }
@@ -45,6 +47,7 @@ final class Recipe {
         category = try container.decode(String.self, forKey: .category)
         datePublished = try container.decode(String.self, forKey: .datePublished)
         url = try container.decode(String.self, forKey: .url)
+        cookTime = try container.decode(String.self, forKey: .cookTime)
         isFavorite = try container.decode(Bool.self, forKey: .isFavorite)
         isUserRecipe = try container.decode(Bool.self, forKey: .isUserRecipe)
         id = try container.decode(UUID.self, forKey: .id)
@@ -61,6 +64,7 @@ extension Recipe: Codable {
         case category
         case datePublished
         case url
+        case cookTime
         case isFavorite
         case isUserRecipe
         case id
@@ -76,6 +80,7 @@ extension Recipe: Codable {
         try container.encode(category, forKey: .category)
         try container.encode(datePublished, forKey: .datePublished)
         try container.encode(url, forKey: .url)
+        try container.encode(cookTime, forKey: .cookTime)
         try container.encode(isFavorite, forKey: .isFavorite)
         try container.encode(isUserRecipe, forKey: .isUserRecipe)
         try container.encode(id, forKey: .id)

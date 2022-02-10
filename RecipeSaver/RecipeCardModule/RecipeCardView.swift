@@ -17,6 +17,7 @@ struct RecipeCardView: View {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
+                    .frame(width: 160)
             } placeholder: {
                 let imageLoader = ImageLoader()
                 if (presenter.imagePath != presenter.name || imageLoader.loadImageFromDiskWith(fileName: presenter.imagePath) == nil) {
@@ -30,10 +31,24 @@ struct RecipeCardView: View {
                     Image(uiImage: imageLoader.loadImageFromDiskWith(fileName: presenter.imagePath)!)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
+                        .frame(width: 160)
                 }
             }
             .overlay(alignment: .bottomTrailing) {
                 RecipeTextName(name: presenter.name)
+            }
+            .overlay(alignment: .topLeading) {
+                VStack {
+                    Image(systemName: "timer")
+                        .imageScale(.large)
+                    Text("\(presenter.cookTime) mins")
+                        .font(.headline)
+                }
+                .foregroundColor(Color.yellow)
+                .font(.system(size: 20))
+                .shadow(color: .black, radius: 2, x: 0, y: 0)
+                .padding(10)
+
             }
             .overlay(alignment: .topTrailing) {
                 Button {
