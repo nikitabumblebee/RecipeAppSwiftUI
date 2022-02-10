@@ -14,7 +14,6 @@ struct NewRecipeView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                //ApplicationBackgroundColor()
                 VStack {
                     NavigationHeaderView()
                     Spacer()

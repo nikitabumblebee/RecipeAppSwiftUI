@@ -13,19 +13,14 @@ struct CategoriesView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                //ApplicationBackgroundColor()
                 VStack {
                     NavigationHeaderView()
                     List {
                         ForEach(Category.allCases) { category in
                             presenter.selectCategory(category: category)
-                                //.listRowBackground(Color.gray.opacity(0.2))
                         }
                     }
                     .padding(.top, -7.5)
-                    .onAppear {
-                        //UITableView.appearance().backgroundColor = .clear
-                    }
                     .navigationTitle("Categories")
                 }
                 

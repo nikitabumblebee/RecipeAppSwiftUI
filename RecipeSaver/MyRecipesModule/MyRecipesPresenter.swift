@@ -20,6 +20,9 @@ class MyRecipesPresenter: ObservableObject {
         self.router = MyRecipesRouter()
         
         interactor.$recipes
+            .map { array in
+                array.filter { $0.isUserRecipe }
+            }
             .assign(to: \.recipes, on: self)
             .store(in: &cancallables)
     }
