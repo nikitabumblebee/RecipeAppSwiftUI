@@ -56,6 +56,7 @@ struct AddRecipeView: View {
                         TextEditor(text: $presenter.recipe.directions)
                     }
                 }
+                .padding(.top, -7.5)
                 .navigationTitle(isEdit ? presenter.recipe.name : "New Recipe")
                 .navigationBarTitleDisplayMode(.inline)
                 .onAppear {
