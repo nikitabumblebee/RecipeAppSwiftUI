@@ -33,14 +33,6 @@ class RecipeCardPresenter: ObservableObject {
             .store(in: &cancellables)
     }
     
-    func addRecipeToFavorite() {
-        interactor.addRecipeToFavorite()
-    }
-    
-    func removeRecipeFromFavorite() {
-        interactor.removeRecipeFromFavorite()
-    }
-    
     func changeFavoriteStatus() {
         if !isFavorite {
             interactor.addRecipeToFavorite()
