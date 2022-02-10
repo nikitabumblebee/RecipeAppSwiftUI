@@ -40,6 +40,28 @@ struct HomeView: View {
                             }
                             .padding([.top, .leading, .trailing], -10.0)
                         }
+                        VStack {
+                            HStack {
+                                Text("Vegeterian")
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                Spacer()
+                            }
+                            .padding([.top, .leading, .trailing])
+                            
+                            HStack {
+                                ScrollView(.horizontal) {
+                                    HStack(spacing: -30) {
+                                        ForEach(presenter.recipes) { recipe in
+                                            presenter.routeToRecipe(recipe: recipe)
+                                                .frame(width: 210, height: 290)
+                                                .padding(.top, -20.0)
+                                        }
+                                    }
+                                }
+                            }
+                            .padding([.top, .leading, .trailing], -10.0)
+                        }
                     }
                     .navigationTitle("Home")
                     Rectangle()
