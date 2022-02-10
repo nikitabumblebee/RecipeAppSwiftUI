@@ -17,6 +17,7 @@ struct AddRecipeView: View {
     
     @State private var recipeImage = UIImage(systemName: "photo")!
     @State private var showingImagePicker = false
+    @State private var timer = "0"
     
     var body: some View {
         VStack {
@@ -46,6 +47,15 @@ struct AddRecipeView: View {
                         }
                         .pickerStyle(.menu)
                     }
+                    Section(content: {
+                        HStack {
+                            Text("Minutes:")
+                            TextField("", text: $timer)
+                                .keyboardType(.decimalPad)
+                        }
+                    }, header: {
+                        Text("Time")
+                    })
                     Section(header: Text("Description")) {
                         TextEditor(text: $presenter.recipe.description)
                     }

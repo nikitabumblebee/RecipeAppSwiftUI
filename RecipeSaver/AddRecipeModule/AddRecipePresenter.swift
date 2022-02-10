@@ -12,6 +12,7 @@ import Combine
 class AddRecipePresenter: ObservableObject {
     @Published var recipe: Recipe
     @Published var recipeImage: UIImage
+    @Published var time: Int
     
     private let interactor: AddRecipeInteractor
     
@@ -20,6 +21,7 @@ class AddRecipePresenter: ObservableObject {
     init(interactor: AddRecipeInteractor, recipe: Recipe) {
         self.interactor = interactor
         self.recipe = recipe
+        self.time = 10
         let imageLoader = ImageLoader()
         if imageLoader.loadImageFromDiskWith(fileName: recipe.name) != nil {
             self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: recipe.name)!

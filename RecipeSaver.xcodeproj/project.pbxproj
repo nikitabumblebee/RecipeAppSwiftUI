@@ -66,6 +66,7 @@
 		3FF80EC127B0D6E900C434F9 /* NewRecipeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC027B0D6E900C434F9 /* NewRecipeInteractor.swift */; };
 		3FF80EC527B0FFB600C434F9 /* EditSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC427B0FFB600C434F9 /* EditSettingsPresenter.swift */; };
 		3FF80EC727B0FFE700C434F9 /* EditSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC627B0FFE700C434F9 /* EditSettingsInteractor.swift */; };
+		3FFC046327B4FA0B005590D7 /* MultiComponentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC046227B4FA0B005590D7 /* MultiComponentPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +130,7 @@
 		3FF80EC027B0D6E900C434F9 /* NewRecipeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeInteractor.swift; sourceTree = "<group>"; };
 		3FF80EC427B0FFB600C434F9 /* EditSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsPresenter.swift; sourceTree = "<group>"; };
 		3FF80EC627B0FFE700C434F9 /* EditSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsInteractor.swift; sourceTree = "<group>"; };
+		3FFC046227B4FA0B005590D7 /* MultiComponentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiComponentPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,6 +307,7 @@
 				3F14E43C27A8E52300AF8239 /* ProfileImageView.swift */,
 				3F0EECC827B3872600FF184C /* NavigationHeaderView.swift */,
 				3F0EECCA27B38E0900FF184C /* ApplicationBackgroundColor.swift */,
+				3FFC046227B4FA0B005590D7 /* MultiComponentPicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				3F0BDA5E27A97DB40060067D /* EditSettingsView.swift in Sources */,
 				3F0EECD427B4131800FF184C /* MyRecipesPresenter.swift in Sources */,
 				3FF80EBF27B0D43A00C434F9 /* NewRecipeRouter.swift in Sources */,
+				3FFC046327B4FA0B005590D7 /* MultiComponentPicker.swift in Sources */,
 				3FF80E9F27AE71DE00C434F9 /* FavoritesPresenter.swift in Sources */,
 				3F0C7DCD27AD24BC00F23ADF /* SettingsRouter.swift in Sources */,
 				3F0EECCF27B3927700FF184C /* CategoriesRouter.swift in Sources */,
