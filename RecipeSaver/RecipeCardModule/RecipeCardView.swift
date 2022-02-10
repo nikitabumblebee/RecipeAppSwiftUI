@@ -13,12 +13,13 @@ struct RecipeCardView: View {
     
     var body: some View {
         VStack {
-            AsyncImage(url: URL(string: presenter.recipe.image)) { image in
+            AsyncImage(url: URL(string: presenter.imagePath)) { image in
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fill)
             } placeholder: {
-                if presenter.recipe.image != presenter.recipe.name {
+                let imageLoader = ImageLoader()
+                if (presenter.imagePath != presenter.name || imageLoader.loadImageFromDiskWith(fileName: presenter.imagePath) == nil) {
                     Image(systemName: "photo")
                         .resizable()
                         .scaledToFit()
@@ -26,38 +27,22 @@ struct RecipeCardView: View {
                         .foregroundColor(.white.opacity(0.7))
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 } else {
-                    let imageLoader = ImageLoader()
-                    if imageLoader.loadImageFromDiskWith(fileName: presenter.recipe.image) == nil {
-                        Image(systemName: "photo")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 40, height: 40, alignment: .center)
-                            .foregroundColor(.white.opacity(0.7))
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    } else {
-                        Image(uiImage: imageLoader.loadImageFromDiskWith(fileName: presenter.recipe.image)!)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    }
-                    
+                    Image(uiImage: imageLoader.loadImageFromDiskWith(fileName: presenter.imagePath)!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
                 }
             }
             .overlay(alignment: .bottomTrailing) {
-                RecipeTextName(name: presenter.recipe.name)
+                RecipeTextName(name: presenter.name)
             }
             .overlay(alignment: .topTrailing) {
                 Button {
-                    if presenter.recipe.isFavorite {
-                        presenter.removeRecipeFromFavorite()
-                    }
-                    else {
-                        presenter.addRecipeToFavorite()
-                    }
+                    presenter.changeFavoriteStatus()
                 } label: {
                     ZStack {
                         Image(systemName: "heart.fill")
                             .imageScale(.large)
-                            .foregroundColor(presenter.recipe.isFavorite ? Color.red : Color.white.opacity(0.8))
+                            .foregroundColor(presenter.isFavorite ? Color.red : Color.white.opacity(0.8))
                             .font(.system(size: 30))
                         Image(systemName: "heart")
                             .imageScale(.large)

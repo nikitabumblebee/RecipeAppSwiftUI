@@ -41,6 +41,8 @@ final class DataModel {
     func updateRecipe(recipe: Recipe) {
         if let existedRecipeIndex = recipes.firstIndex(where: { $0.name == recipe.name }) {
             recipes[existedRecipeIndex] = recipe
+        }
+        if let existedRecipeIndex = myRecipes.firstIndex(where: { $0.name == recipe.name }) {
             myRecipes[existedRecipeIndex] = recipe
         }
         favoritesRecipes = recipes.filter { $0.isFavorite }
