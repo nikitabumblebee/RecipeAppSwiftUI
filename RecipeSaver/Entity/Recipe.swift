@@ -18,11 +18,10 @@ class Recipe {
     @Published var datePublished: String
     @Published var url: String
     @Published var isFavorite: Bool
-    //@Published var isUserRecipe: Bool
     @Published var cookTime: String
     let id: UUID
     
-    init(name: String, image: String, description: String, ingredients: String, directions: String, category: String, datePublished: String, url: String, cookTime: String, isFavorite: Bool = false/*, isUserRecipe: Bool*/) {
+    init(name: String, image: String, description: String, ingredients: String, directions: String, category: String, datePublished: String, url: String, cookTime: String, isFavorite: Bool = false) {
         id = UUID()
         self.name = name
         self.image = image
@@ -34,7 +33,6 @@ class Recipe {
         self.url = url
         self.cookTime = cookTime
         self.isFavorite = isFavorite
-        //self.isUserRecipe = isUserRecipe
     }
     
     required init(from decoder: Decoder) throws {
@@ -49,7 +47,6 @@ class Recipe {
         url = try container.decode(String.self, forKey: .url)
         cookTime = try container.decode(String.self, forKey: .cookTime)
         isFavorite = try container.decode(Bool.self, forKey: .isFavorite)
-        //isUserRecipe = try container.decode(Bool.self, forKey: .isUserRecipe)
         id = try container.decode(UUID.self, forKey: .id)
     }
 }
