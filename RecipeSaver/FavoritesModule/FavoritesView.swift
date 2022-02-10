@@ -21,7 +21,7 @@ struct FavoritesView: View {
                             RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: model.recipes.filter { $0.isFavorite }, model: model)))
                         }
                         else {
-                            Text("You haven't saved any recipe to your favorites yet.")
+                            Text("You haven't added recipes to your favorites yet.")
                                 .padding()
                         }
                     }

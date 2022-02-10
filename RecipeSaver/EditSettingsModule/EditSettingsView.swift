@@ -18,8 +18,10 @@ struct EditSettingsView: View {
     
     var body: some View {
         ZStack {
-            //ApplicationBackgroundColor()
-            Spacer()
+            VStack {
+                NavigationHeaderView()
+                Spacer()
+            }
             VStack(alignment: .leading) {
                 ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $showingImagePicker, isEditMode: $isEditMode)
                     .padding(-5)
@@ -37,6 +39,7 @@ struct EditSettingsView: View {
                 }
                 Spacer()
             }
+            .navigationTitle("Edit")
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(
                 leading: Button(action: { self.presentationMode.wrappedValue.dismiss() }) { Text("Cancel") },

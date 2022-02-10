@@ -40,10 +40,7 @@ class SettingsPresenter: ObservableObject {
     func routeToEditSettingsView() -> some View {
         let destination = router.editProfile()
         return NavigationLink(destination: destination) {
-            HStack {
-                Spacer()
-                Text("Edit")
-            }
+            Text("Edit")
         }
     }
 }

@@ -23,8 +23,8 @@ struct SettingsView: View {
             ZStack {
                 VStack {
                     NavigationHeaderView()
-                    presenter.routeToEditSettingsView()
-                        .padding(.trailing)
+//                    presenter.routeToEditSettingsView()
+//                        .padding(.trailing)
                     ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $isShowingImagePicker, isEditMode: $isEditMode)
                         .padding(-5)
                     HStack {
@@ -72,6 +72,10 @@ struct SettingsView: View {
                     }
                 }
             }
+            .toolbar {
+                presenter.routeToEditSettingsView()
+                    .padding(.trailing)
+            }
             .navigationTitle("Settings")
             .onAppear {
                 let imageLoader = ImageLoader()
@@ -83,6 +87,7 @@ struct SettingsView: View {
                 self.userName = UserSettings.shared.userName
                 self.userNickName = UserSettings.shared.userNickName
             }
+            
         }
         .navigationViewStyle(.stack)
     }
