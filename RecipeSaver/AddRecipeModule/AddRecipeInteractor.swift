@@ -30,8 +30,6 @@ class AddRecipeInteractor {
             existedRecipe.ingredients = recipe.ingredients
             existedRecipe.directions = recipe.directions
             existedRecipe.category = recipe.category
-            
-            
             existedRecipe.datePublished = createDate()
             model.updateRecipe(recipe: existedRecipe)
             model.recipes[row] = existedRecipe

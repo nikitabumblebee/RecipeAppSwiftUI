@@ -77,7 +77,7 @@ struct RecipeView: View {
                 .onAppear {
                     // TODO: - Refactor
                     if isEdit {
-                        if let existedRecipeIndex = model.myRecipes.firstIndex(where: { $0.id == recipe.id }) {
+                        if let existedRecipeIndex = model.recipes.filter({ $0.isUserRecipe }).firstIndex(where: { $0.id == recipe.id }) {
                             let imageLoader = ImageLoader()
                             self.recipeImage = imageLoader.loadImageFromDiskWith(fileName: model.recipes[existedRecipeIndex].image)
                             self.recipe = model.recipes[existedRecipeIndex]

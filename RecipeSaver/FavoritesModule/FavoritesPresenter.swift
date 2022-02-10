@@ -17,7 +17,10 @@ class FavoritesPresenter: ObservableObject {
     init(interactor: FavoritesInteractor) {
         self.interactor = interactor
         
-        interactor.model.$favoritesRecipes
+        interactor.model.$recipes
+            .map { array in
+                array.filter { $0.isFavorite }
+            }
             .assign(to: \.favoriteRecipes, on: self)
             .store(in: &cancellables)
     }

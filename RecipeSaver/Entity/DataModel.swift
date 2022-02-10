@@ -7,12 +7,11 @@
 
 import Foundation
 import Combine
+import SwiftUI
 
 final class DataModel {
     
     @Published var recipes: [Recipe] = []
-    @Published var favoritesRecipes: [Recipe] = []
-    @Published var myRecipes: [Recipe] = []
     
     private var persistence: Persistence = Persistence()
     private var cancellables = Set<AnyCancellable>()
@@ -35,17 +34,12 @@ final class DataModel {
     
     func addNewRecipe(recipe: Recipe) {
         recipes.insert(recipe, at: 0)
-        myRecipes.insert(recipe, at: 0)
     }
     
     func updateRecipe(recipe: Recipe) {
         if let existedRecipeIndex = recipes.firstIndex(where: { $0.name == recipe.name }) {
             recipes[existedRecipeIndex] = recipe
         }
-        if let existedRecipeIndex = myRecipes.firstIndex(where: { $0.name == recipe.name }) {
-            myRecipes[existedRecipeIndex] = recipe
-        }
-        favoritesRecipes = recipes.filter { $0.isFavorite }
     }
     
     func removeRecipe(recipe: Recipe) {
@@ -53,8 +47,10 @@ final class DataModel {
     }
     
     func resetFavorites() {
-        recipes.indices.forEach { recipes[$0].isFavorite = false }
-        favoritesRecipes = []
+        recipes.indices.forEach {
+            recipes[$0].isFavorite = false
+            recipes[$0] = recipes[$0]
+        }
     }
 }
 
