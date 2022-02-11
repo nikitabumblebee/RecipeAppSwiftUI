@@ -21,13 +21,7 @@ class MyRecipesPresenter: ObservableObject {
         
         interactor.$recipes
             .map { array in
-                array.filter {
-                    if let a = $0 as? UserRecipe {
-                       return true
-                    } else {
-                        return false
-                    }
-                }
+                array.filter { $0 is UserRecipe }
             }
             .assign(to: \.recipes, on: self)
             .store(in: &cancallables)

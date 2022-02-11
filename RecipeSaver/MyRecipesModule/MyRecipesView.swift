@@ -18,18 +18,16 @@ struct MyRecipesView: View {
                     NavigationHeaderView()
                     Spacer()
                 }
-                if model.recipes.filter { ($0 is UserRecipe) }.count > 0 {
+                if presenter.recipes.count > 0 {
                     ScrollView {
                         RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: presenter.recipes, model: model)))
                     }
-                    .padding(.top, 10.0)
+                    .padding(.top, 8)
                     .navigationTitle("My Recipes")
                 } else {
                     Text("You don't have your own recipes")
                         .navigationTitle("My Recipes")
                 }
-                Rectangle()
-                    .frame(height: 0)
             }
             .toolbar {
                 presenter.makeNewRecipe(model: model)
@@ -41,6 +39,9 @@ struct MyRecipesView: View {
 
 struct MyRecipesView_Previews: PreviewProvider {
     static var previews: some View {
-        MyRecipesView(presenter: MyRecipesPresenter(interactor: MyRecipesInteractor(recipes: DataModel.sample.recipes, model: DataModel.sample)))
+        let model = DataModel.sample
+        let interactor = MyRecipesInteractor(recipes: model.recipes as! [UserRecipe], model: model)
+        let presenter = MyRecipesPresenter(interactor: interactor)
+        MyRecipesView(presenter: presenter)
     }
 }
