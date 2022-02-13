@@ -21,7 +21,7 @@ class MyRecipesPresenter: ObservableObject {
         
         interactor.$recipes
             .map { array in
-                array.filter { $0 is UserRecipe }
+                array.filter { $0.recipeType == RecipeType.user.rawValue }
             }
             .assign(to: \.recipes, on: self)
             .store(in: &cancallables)

@@ -23,8 +23,6 @@ struct SettingsView: View {
             ZStack {
                 VStack {
                     NavigationHeaderView()
-//                    presenter.routeToEditSettingsView()
-//                        .padding(.trailing)
                     ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $isShowingImagePicker, isEditMode: $isEditMode)
                         .padding(-5)
                     HStack {

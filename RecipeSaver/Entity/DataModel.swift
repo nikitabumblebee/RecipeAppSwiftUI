@@ -34,6 +34,7 @@ final class DataModel {
     
     func addNewRecipe(recipe: Recipe) {
         recipes.insert(recipe, at: 0)
+        save()
     }
     
     func updateRecipe(recipe: Recipe) {
