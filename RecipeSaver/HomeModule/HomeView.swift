@@ -75,9 +75,6 @@ struct HomeView: View {
                     }
                     .navigationTitle("Home")
                 }
-                
-                Rectangle()
-                    .frame(height: 0)
             }
         }
         .searchable(text: $searchQuery, prompt: "Search By Meal Name")
