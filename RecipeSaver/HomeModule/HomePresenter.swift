@@ -33,4 +33,20 @@ class HomePresenter: ObservableObject {
             RecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: interactor.model, recipe: recipe)))
         }
     }
+    
+    func makeRecipeName(recipe: Recipe, model: DataModel) -> some View {
+        return NavigationLink(destination: RecipeDescriptionView(presenter: RecipeDescriptionPresenter(interactor: RecipeDescriptionInteractor(model: model), recipe: recipe))) {
+            Text(recipe.name)
+        }
+    }
+    
+    func filterRecipes(searchQuery: String, model: DataModel) -> [Recipe] {
+        if searchQuery.isEmpty {
+            return model.recipes
+        } else {
+            return model.recipes.filter {
+                $0.name.localizedCaseInsensitiveContains(searchQuery)
+            }
+        }
+    }
 }
