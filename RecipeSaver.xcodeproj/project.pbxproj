@@ -26,7 +26,6 @@
 		3F0EECD627B4132400FF184C /* MyRecipesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EECD527B4132400FF184C /* MyRecipesInteractor.swift */; };
 		3F0EECD827B4132E00FF184C /* MyRecipesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EECD727B4132E00FF184C /* MyRecipesRouter.swift */; };
 		3F0EECDB27B41FAB00FF184C /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F0EECDA27B41FAB00FF184C /* HomePresenter.swift */; };
-		3F11CAAE27BA4F0000FF2DD7 /* NameSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F11CAAD27BA4F0000FF2DD7 /* NameSuggestionView.swift */; };
 		3F14E43927A82F7900AF8239 /* UtilityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43827A82F7900AF8239 /* UtilityExtensions.swift */; };
 		3F14E43B27A831DE00AF8239 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43A27A831DE00AF8239 /* PhotoPicker.swift */; };
 		3F14E43D27A8E52300AF8239 /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F14E43C27A8E52300AF8239 /* ProfileImageView.swift */; };
@@ -91,7 +90,6 @@
 		3F0EECD527B4132400FF184C /* MyRecipesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesInteractor.swift; sourceTree = "<group>"; };
 		3F0EECD727B4132E00FF184C /* MyRecipesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesRouter.swift; sourceTree = "<group>"; };
 		3F0EECDA27B41FAB00FF184C /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		3F11CAAD27BA4F0000FF2DD7 /* NameSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSuggestionView.swift; sourceTree = "<group>"; };
 		3F14E43827A82F7900AF8239 /* UtilityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityExtensions.swift; sourceTree = "<group>"; };
 		3F14E43A27A831DE00AF8239 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		3F14E43C27A8E52300AF8239 /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
@@ -313,7 +311,6 @@
 				3F0EECC827B3872600FF184C /* NavigationHeaderView.swift */,
 				3F0EECCA27B38E0900FF184C /* ApplicationBackgroundColor.swift */,
 				3FFC046227B4FA0B005590D7 /* MultiComponentPicker.swift */,
-				3F11CAAD27BA4F0000FF2DD7 /* NameSuggestionView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -542,7 +539,6 @@
 				3F17FB48279B170100A6C375 /* HomeView.swift in Sources */,
 				3FFC046B27B52484005590D7 /* UserAppearance.swift in Sources */,
 				3F0C7DCB27AD227300F23ADF /* SettingsInteractor.swift in Sources */,
-				3F11CAAE27BA4F0000FF2DD7 /* NameSuggestionView.swift in Sources */,
 				3F17FB36279B156D00A6C375 /* ContentView.swift in Sources */,
 				3F14E43927A82F7900AF8239 /* UtilityExtensions.swift in Sources */,
 				3FF80EA327AE831200C434F9 /* SceneDelegate.swift in Sources */,

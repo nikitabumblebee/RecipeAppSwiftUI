@@ -22,7 +22,7 @@ struct HomeView: View {
                 if searchQuery != "" {
                     List {
                         ForEach(filteredRecipes) { recipe in
-                            presenter.makeRecipeName(recipe: recipe, model: model)
+                            presenter.makeRecipeSearchNavigation(recipe: recipe, model: model)
                         }
                     }
                     .navigationTitle("Home")

@@ -34,7 +34,7 @@ class HomePresenter: ObservableObject {
         }
     }
     
-    func makeRecipeName(recipe: Recipe, model: DataModel) -> some View {
+    func makeRecipeSearchNavigation(recipe: Recipe, model: DataModel) -> some View {
         return NavigationLink(destination: RecipeDescriptionView(presenter: RecipeDescriptionPresenter(interactor: RecipeDescriptionInteractor(model: model), recipe: recipe))) {
             Text(recipe.name)
         }
