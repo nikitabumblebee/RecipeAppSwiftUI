@@ -45,26 +45,28 @@ struct UserRecipeCardView: View {
                         .padding()
                         
                         Spacer()
-                        
-                        Button {
-                            presenter.changeFavoriteStatus()
-                        } label: {
-                            ZStack {
-                                Image(systemName: "heart.fill")
-                                    .imageScale(.large)
-                                    .foregroundColor(presenter.isFavorite ? Color.red : Color.white.opacity(0.8))
-                                    .font(.system(size: 30))
-                                Image(systemName: "heart")
-                                    .imageScale(.large)
-                                    .foregroundColor(Color.white)
-                                    .font(.system(size: 30))
-                            }
-                        }
-                        .shadow(color: .black, radius: 15, x: 0, y: 0)
-                        .padding()
                     }
                     UserRecipeTextName(name: presenter.name)
+                        .padding(-20)
                 }
+            }
+            .overlay(alignment: .topTrailing) {
+                Button {
+                    presenter.changeFavoriteStatus()
+                } label: {
+                    ZStack {
+                        Image(systemName: "heart.fill")
+                            .imageScale(.large)
+                            .foregroundColor(presenter.isFavorite ? Color.red : Color.white.opacity(0.8))
+                            .font(.system(size: 30))
+                        Image(systemName: "heart")
+                            .imageScale(.large)
+                            .foregroundColor(Color.white)
+                            .font(.system(size: 30))
+                    }
+                }
+                .shadow(color: .black, radius: 15, x: 0, y: 0)
+                .padding()
             }
         }
         .frame(height: 120, alignment: .topTrailing)

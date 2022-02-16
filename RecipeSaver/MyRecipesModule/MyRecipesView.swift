@@ -20,16 +20,39 @@ struct MyRecipesView: View {
                         Spacer()
                     }
                     if presenter.recipes.count > 0 {
-                        List {
-                            ForEach(presenter.recipes) { recipe in
-                                presenter.routeToRecipe(recipe: recipe)
+                        VStack {
+                            HStack {
+                                Text("\(presenter.recipes.count) \(presenter.recipes.count > 1 ? "recipes" : "recipe")")
+                                    .font(.headline)
+                                    .fontWeight(.medium)
+                                    .opacity(0.7)
+                                Spacer()
                             }
-                            .onDelete { indexSet in
-                                presenter.deleteRecipe(at: indexSet)
+                            .padding([.top, .leading])
+                            
+                            List {
+                                ForEach(presenter.recipes) { recipe in
+                                    presenter.routeToRecipe(recipe: recipe)
+                                        .swipeActions(allowsFullSwipe: false) {
+                                            Button {
+                                                presenter.changeFavoriteStatus(recipe: recipe)
+                                            } label: {
+                                                Label("Favorite", systemImage: "heart.fill")
+                                            }
+                                            .tint(Color.indigo)
+                                            
+                                            Button(role: .destructive) {
+                                                presenter.deleteRecipe(recipe: recipe)
+                                            } label: {
+                                                Label("Delete", systemImage: "trash.fill")
+                                            }
+                                        }
+                                }
                             }
+                            .listStyle(.grouped)
+                            .padding(.top, 8)
+                            .navigationTitle("My Recipes")
                         }
-                        .padding(.top, 8)
-                        .navigationTitle("My Recipes")
                     } else {
                         Text("You don't have your own recipes")
                             .navigationTitle("My Recipes")

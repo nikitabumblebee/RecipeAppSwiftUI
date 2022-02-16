@@ -46,4 +46,13 @@ class MyRecipesPresenter: ObservableObject {
         let recipe = recipes.first(where: { $0.id == recipeToDelete })
         interactor.model.removeRecipe(recipe: recipe!)
     }
+    
+    func deleteRecipe(recipe: Recipe) {
+        interactor.model.removeRecipe(recipe: recipe)
+    }
+    
+    func changeFavoriteStatus(recipe: Recipe) {
+        recipe.isFavorite.toggle()
+        interactor.model.updateRecipe(recipe: recipe)
+    }
 }
