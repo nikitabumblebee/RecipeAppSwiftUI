@@ -41,6 +41,7 @@ final class DataModel {
         if let existedRecipeIndex = recipes.firstIndex(where: { $0.name == recipe.name }) {
             recipes[existedRecipeIndex] = recipe
         }
+        save()
     }
     
     func removeRecipe(recipe: Recipe) {
