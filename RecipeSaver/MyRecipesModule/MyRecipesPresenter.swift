@@ -28,9 +28,9 @@ class MyRecipesPresenter: ObservableObject {
     }
     
     func routeToRecipe(recipe: Recipe) -> some View {
-        let destination = router.moveToRecipe(recipe: recipe as! UserRecipe, model: interactor.model)
+        let destination = router.moveToRecipe(recipe: recipe, model: interactor.model)
         return NavigationLink(destination: destination) {
-            RecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: interactor.model, recipe: recipe as! UserRecipe)))
+            RecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: interactor.model, recipe: recipe)))
         }
     }
     
@@ -39,5 +39,11 @@ class MyRecipesPresenter: ObservableObject {
         return NavigationLink(destination: destination) {
             Text("Add")
         }
+    }
+    
+    func deleteRecipe(at offset: IndexSet) {
+        let recipeToDelete = offset.map { recipes[$0].id }.first!
+        let recipe = recipes.first(where: { $0.id == recipeToDelete })
+        interactor.model.removeRecipe(recipe: recipe!)
     }
 }

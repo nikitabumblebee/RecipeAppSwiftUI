@@ -45,6 +45,7 @@ final class DataModel {
     
     func removeRecipe(recipe: Recipe) {
         recipes.removeAll { $0.id == recipe.id }
+        save()
     }
     
     func resetFavorites() {

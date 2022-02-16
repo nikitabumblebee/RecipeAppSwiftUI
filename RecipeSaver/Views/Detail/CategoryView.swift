@@ -19,7 +19,6 @@ struct CategoryView: View {
     
     var body: some View {
         ZStack {
-            //ApplicationBackgroundColor()
             VStack {
                 NavigationHeaderView()
                 Spacer()
@@ -29,7 +28,6 @@ struct CategoryView: View {
             }
             .navigationTitle(category.rawValue + "s")
         }
-        
     }
 }
 

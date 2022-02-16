@@ -13,24 +13,36 @@ struct MyRecipesView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                VStack {
-                    NavigationHeaderView()
-                    Spacer()
-                }
-                if presenter.recipes.count > 0 {
-                    ScrollView {
-                        RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: presenter.recipes, model: model)))
+            VStack {
+                ZStack {
+                    VStack {
+                        NavigationHeaderView()
+                        Spacer()
                     }
-                    .padding(.top, 8)
-                    .navigationTitle("My Recipes")
-                } else {
-                    Text("You don't have your own recipes")
+                    if presenter.recipes.count > 0 {
+                        List {
+                            ForEach(presenter.recipes) { recipe in
+                                presenter.routeToRecipe(recipe: recipe)
+                            }
+                            .onDelete { indexSet in
+                                presenter.deleteRecipe(at: indexSet)
+                            }
+                        }
+                        //                    ScrollView {
+                        //                        RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: presenter.recipes, model: model)))
+                        //                    }
+                        .padding(.top, 8)
                         .navigationTitle("My Recipes")
+                    } else {
+                        Text("You don't have your own recipes")
+                            .navigationTitle("My Recipes")
+                    }
                 }
-            }
-            .toolbar {
-                presenter.makeNewRecipe(model: model)
+                .toolbar {
+                    presenter.makeNewRecipe(model: model)
+                }
+                Rectangle()
+                    .frame(height: 0.0)
             }
         }
         .navigationViewStyle(.stack)

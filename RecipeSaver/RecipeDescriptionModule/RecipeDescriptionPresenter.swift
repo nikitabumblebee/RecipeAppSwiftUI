@@ -26,7 +26,7 @@ class RecipeDescriptionPresenter: ObservableObject {
         self.recipe = recipe
         self.imageName = recipe.image
         self.recipeName = recipe.name
-        if recipe is UserRecipe {
+        if recipe.recipeType == RecipeType.user.rawValue {
             self.isUserRecipe = true
         } else {
             self.isUserRecipe = false
