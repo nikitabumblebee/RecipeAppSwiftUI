@@ -30,7 +30,7 @@ class MyRecipesPresenter: ObservableObject {
     func routeToRecipe(recipe: Recipe) -> some View {
         let destination = router.moveToRecipe(recipe: recipe, model: interactor.model)
         return NavigationLink(destination: destination) {
-            RecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: interactor.model, recipe: recipe)))
+            UserRecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: interactor.model, recipe: recipe)))
         }
     }
     

@@ -28,9 +28,6 @@ struct MyRecipesView: View {
                                 presenter.deleteRecipe(at: indexSet)
                             }
                         }
-                        //                    ScrollView {
-                        //                        RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: presenter.recipes, model: model)))
-                        //                    }
                         .padding(.top, 8)
                         .navigationTitle("My Recipes")
                     } else {
