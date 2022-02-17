@@ -72,6 +72,10 @@ struct HomeView: View {
                             }
                             .padding([.top, .leading, .trailing], -10.0)
                         }
+                        VStack {
+                            Text("Site")
+                            Text(presenter.siteContent)
+                        }
                     }
                     .navigationTitle("Home")
                 }

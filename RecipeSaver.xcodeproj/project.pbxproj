@@ -64,6 +64,7 @@
 		3FF80EC127B0D6E900C434F9 /* NewRecipeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC027B0D6E900C434F9 /* NewRecipeInteractor.swift */; };
 		3FF80EC527B0FFB600C434F9 /* EditSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC427B0FFB600C434F9 /* EditSettingsPresenter.swift */; };
 		3FF80EC727B0FFE700C434F9 /* EditSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC627B0FFE700C434F9 /* EditSettingsInteractor.swift */; };
+		3FFB72AA27BE07C6006837D8 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 3FFB72A927BE07C6006837D8 /* SwiftSoup */; };
 		3FFC046327B4FA0B005590D7 /* MultiComponentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC046227B4FA0B005590D7 /* MultiComponentPicker.swift */; };
 		3FFC046B27B52484005590D7 /* UserAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC046A27B52484005590D7 /* UserAppearance.swift */; };
 		3FFC046D27B52496005590D7 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC046C27B52495005590D7 /* TabBarView.swift */; };
@@ -130,6 +131,7 @@
 		3FF80EC027B0D6E900C434F9 /* NewRecipeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRecipeInteractor.swift; sourceTree = "<group>"; };
 		3FF80EC427B0FFB600C434F9 /* EditSettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsPresenter.swift; sourceTree = "<group>"; };
 		3FF80EC627B0FFE700C434F9 /* EditSettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSettingsInteractor.swift; sourceTree = "<group>"; };
+		3FFB72A727BE07A5006837D8 /* SwiftSoup */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SwiftSoup; sourceTree = "<group>"; };
 		3FFC046227B4FA0B005590D7 /* MultiComponentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiComponentPicker.swift; sourceTree = "<group>"; };
 		3FFC046A27B52484005590D7 /* UserAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAppearance.swift; sourceTree = "<group>"; };
 		3FFC046C27B52495005590D7 /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FFB72AA27BE07C6006837D8 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,9 +232,11 @@
 		3F17FB27279B156D00A6C375 = {
 			isa = PBXGroup;
 			children = (
+				3FFB72A627BE07A5006837D8 /* Packages */,
 				3F17FB32279B156D00A6C375 /* RecipeSaver */,
 				3FF80E9C27AE6EF600C434F9 /* default.json */,
 				3F17FB31279B156D00A6C375 /* Products */,
+				3FFB72A827BE07C6006837D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -269,6 +274,7 @@
 				3F17FB37279B156F00A6C375 /* Assets.xcassets */,
 				3F17FB39279B156F00A6C375 /* Preview Content */,
 				3F17FB33279B156D00A6C375 /* RecipeSaverApp.swift */,
+				3F17FB35279B156D00A6C375 /* ContentView.swift */,
 			);
 			path = RecipeSaver;
 			sourceTree = "<group>";
@@ -294,7 +300,6 @@
 		3F17FB42279B166700A6C375 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				3F17FB35279B156D00A6C375 /* ContentView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -417,6 +422,21 @@
 			path = EditSettingsModule;
 			sourceTree = "<group>";
 		};
+		3FFB72A627BE07A5006837D8 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				3FFB72A727BE07A5006837D8 /* SwiftSoup */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		3FFB72A827BE07C6006837D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3FFECB0627BCAA5800430944 /* UserRecipeCardModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +461,9 @@
 			dependencies = (
 			);
 			name = RecipeSaver;
+			packageProductDependencies = (
+				3FFB72A927BE07C6006837D8 /* SwiftSoup */,
+			);
 			productName = RecipeSaver;
 			productReference = 3F17FB30279B156D00A6C375 /* RecipeSaver.app */;
 			productType = "com.apple.product-type.application";
@@ -759,6 +782,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3FFB72A927BE07C6006837D8 /* SwiftSoup */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftSoup;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F17FB28279B156D00A6C375 /* Project object */;
 }
