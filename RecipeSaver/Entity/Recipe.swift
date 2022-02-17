@@ -20,10 +20,10 @@ class Recipe {
     @Published var url: String
     @Published var isFavorite: Bool
     @Published var cookTime: String
-    @Published var recipeType: RecipeType.RawValue
+    @Published var recipeType: [RecipeType.RawValue]
     let id: UUID
     
-    init(name: String, image: String, description: String, ingredients: String, directions: String, category: String, datePublished: String, url: String, cookTime: String, isFavorite: Bool = false, recipeType: String) {
+    init(name: String, image: String, description: String, ingredients: String, directions: String, category: String, datePublished: String, url: String, cookTime: String, isFavorite: Bool = false, recipeType: [String]) {
         id = UUID()
         self.name = name
         self.image = image
@@ -50,7 +50,7 @@ class Recipe {
         url = try container.decode(String.self, forKey: .url)
         cookTime = try container.decode(String.self, forKey: .cookTime)
         isFavorite = try container.decode(Bool.self, forKey: .isFavorite)
-        recipeType = try container.decode(String.self, forKey: .recipeType)
+        recipeType = try container.decode([String].self, forKey: .recipeType)
         id = try container.decode(UUID.self, forKey: .id)
     }
 }
@@ -109,5 +109,5 @@ enum RecipeType: String, CaseIterable, Identifiable {
     var id: String { self.rawValue }
     case user = "User"
     case new = "New"
-    case vegetarian = "vegetarian"
+    case vegetarian = "Vegetarian"
 }

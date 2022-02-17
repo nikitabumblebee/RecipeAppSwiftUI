@@ -40,7 +40,7 @@ struct HomeView: View {
                             HStack {
                                 ScrollView(.horizontal) {
                                     HStack(spacing: -30) {
-                                        ForEach(presenter.recipes) { recipe in
+                                        ForEach(presenter.newRecipes) { recipe in
                                             presenter.routeToRecipe(recipe: recipe)
                                                 .frame(width: 210, height: 290)
                                                 .padding(.top, -20.0)
@@ -62,7 +62,7 @@ struct HomeView: View {
                             HStack {
                                 ScrollView(.horizontal) {
                                     HStack(spacing: -30) {
-                                        ForEach(presenter.recipes) { recipe in
+                                        ForEach(presenter.vegetarianRecipes) { recipe in
                                             presenter.routeToRecipe(recipe: recipe)
                                                 .frame(width: 210, height: 290)
                                                 .padding(.top, -20.0)
@@ -72,10 +72,10 @@ struct HomeView: View {
                             }
                             .padding([.top, .leading, .trailing], -10.0)
                         }
-                        VStack {
-                            Text("Site")
-                            Text(presenter.siteContent)
-                        }
+//                        VStack {
+//                            Text("Site")
+//                            Text(presenter.siteContent)
+//                        }
                     }
                     .navigationTitle("Home")
                 }
