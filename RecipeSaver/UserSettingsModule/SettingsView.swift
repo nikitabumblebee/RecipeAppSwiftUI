@@ -18,6 +18,8 @@ struct SettingsView: View {
     @State private var userNickName = UserSettings.shared.userNickName
     @State private var isEditMode = false
     
+    @State private var selectedLanguage = "English"
+        
     var body: some View {
         NavigationView {
             ZStack {
@@ -38,15 +40,16 @@ struct SettingsView: View {
                     }
                     Form {
                         Section {
-                            Toggle(isOn: $isDarkModeOn) {
-                                HStack {
-                                    Image(systemName: "paintpalette")
-                                        .foregroundColor(Color.green)
-                                    Text("Dark Mode")
+                            List {
+                                presenter.routeToAppearanceView()
+                                NavigationLink(destination: { }) {
+                                    HStack {
+                                        Text("Language")
+                                        Spacer()
+                                        Text(selectedLanguage)
+                                            .foregroundColor(Color.gray)
+                                    }
                                 }
-                            }
-                            .onChange(of: isDarkModeOn) { value in
-                                presenter.switchDarkMode(isDarkModeEnabled: value)
                             }
                         }
                         HStack {
