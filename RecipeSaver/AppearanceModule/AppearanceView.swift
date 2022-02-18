@@ -16,7 +16,7 @@ struct AppearanceView: View {
     
     var body: some View {
         VStack {
-            NavigationHeaderView()
+            NavigationHeaderView()            
             Form {
                 Section {
                     Toggle(isOn: $isDarkModeOn) {

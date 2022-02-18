@@ -22,7 +22,6 @@ struct SettingsView: View {
         
     var body: some View {
         NavigationView {
-            ZStack {
                 VStack {
                     NavigationHeaderView()
                     ProfileImageView(avatarImage: $avatarImage, isDarkModeOn: $isDarkModeOn, isShowingImagePicker: $isShowingImagePicker, isEditMode: $isEditMode)
@@ -72,7 +71,6 @@ struct SettingsView: View {
                         }
                     }
                 }
-            }
             .toolbar {
                 presenter.routeToEditSettingsView()
                     .padding(.trailing)
