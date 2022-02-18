@@ -16,7 +16,9 @@ struct AppearanceView: View {
     
     var body: some View {
         VStack {
-            NavigationHeaderView()            
+            RadialGradient(colors: [.green.opacity(0.3), .blue.opacity(0.2)], center: .bottomTrailing, startRadius: 0, endRadius: 300)
+                .ignoresSafeArea()
+                .frame(height: 10)
             Form {
                 Section {
                     Toggle(isOn: $isDarkModeOn) {
@@ -30,8 +32,8 @@ struct AppearanceView: View {
                 }
             }
             .padding(.top, -7.0)
+            .navigationBarTitle("Appearance", displayMode: .inline)
         }
-        .navigationBarTitle("Appearance", displayMode: .inline)
     }
 }
 
