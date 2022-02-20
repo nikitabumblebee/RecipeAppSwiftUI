@@ -12,14 +12,17 @@ struct CategoriesView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                NavigationHeaderView()
+            ZStack {
+                VStack {
+                    NavigationHeaderView()
+                    Spacer()
+                }
                 List {
                     ForEach(Category.allCases) { category in
                         presenter.selectCategory(category: category)
                     }
                 }
-                .padding(.top, -7.5)
+                .padding(.top, 1)
                 .navigationTitle("Categories")
             }
         }
