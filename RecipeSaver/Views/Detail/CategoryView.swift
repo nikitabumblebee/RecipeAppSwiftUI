@@ -21,12 +21,11 @@ struct CategoryView: View {
         ZStack {
             VStack {
                 NavigationHeaderView()
-                Spacer()
+                ScrollView {
+                    RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: recipes, model: model)))
+                }
+                .navigationTitle(category.rawValue + "s")
             }
-            ScrollView {
-                RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: recipes, model: model)))
-            }
-            .navigationTitle(category.rawValue + "s")
         }
     }
 }
