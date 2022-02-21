@@ -37,7 +37,7 @@ struct MyRecipesView: View {
                                             Button {
                                                 presenter.changeFavoriteStatus(recipe: recipe)
                                             } label: {
-                                                Label("Favorite", systemImage: "heart.fill")
+                                                Label(recipe.isFavorite ? "Put Away" : "Favorite", systemImage: "heart.fill")
                                             }
                                             .tint(Color.indigo)
                                             
