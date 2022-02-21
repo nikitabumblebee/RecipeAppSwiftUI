@@ -25,14 +25,6 @@ class SettingsPresenter: ObservableObject {
         }
     }
     
-    func switchDarkMode(isDarkModeEnabled: Bool) {
-        if isDarkModeEnabled {
-            interactor.turnOnDarkMode()
-        } else {
-            interactor.turnOffDarkMode()
-        }
-    }
-    
     func resetFavorites() {
         interactor.resetFavorites()
     }
@@ -41,6 +33,17 @@ class SettingsPresenter: ObservableObject {
         let destination = router.editProfile()
         return NavigationLink(destination: destination) {
             Text("Edit")
+        }
+    }
+    
+    func routeToAppearanceView() -> some View {
+        let destination = router.routeToAppearanceView()
+        return NavigationLink(destination: destination) {
+            HStack {
+                Image(systemName: "paintpalette")
+                    .foregroundColor(Color.green)
+                Text("Appearance")
+            }
         }
     }
 }

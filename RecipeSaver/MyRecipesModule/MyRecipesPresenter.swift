@@ -21,7 +21,7 @@ class MyRecipesPresenter: ObservableObject {
         
         interactor.$recipes
             .map { array in
-                array.filter { $0.isUserRecipe }
+                array.filter { $0.recipeType.contains(RecipeType.user.rawValue) }
             }
             .assign(to: \.recipes, on: self)
             .store(in: &cancallables)
@@ -30,7 +30,7 @@ class MyRecipesPresenter: ObservableObject {
     func routeToRecipe(recipe: Recipe) -> some View {
         let destination = router.moveToRecipe(recipe: recipe, model: interactor.model)
         return NavigationLink(destination: destination) {
-            RecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: interactor.model, recipe: recipe)))
+            UserRecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: interactor.model, recipe: recipe)))
         }
     }
     
@@ -39,5 +39,20 @@ class MyRecipesPresenter: ObservableObject {
         return NavigationLink(destination: destination) {
             Text("Add")
         }
+    }
+    
+    func deleteRecipe(at offset: IndexSet) {
+        let recipeToDelete = offset.map { recipes[$0].id }.first!
+        let recipe = recipes.first(where: { $0.id == recipeToDelete })
+        interactor.model.removeRecipe(recipe: recipe!)
+    }
+    
+    func deleteRecipe(recipe: Recipe) {
+        interactor.model.removeRecipe(recipe: recipe)
+    }
+    
+    func changeFavoriteStatus(recipe: Recipe) {
+        recipe.isFavorite.toggle()
+        interactor.model.updateRecipe(recipe: recipe)
     }
 }

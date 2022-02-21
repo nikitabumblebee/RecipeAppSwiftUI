@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import SwiftSoup
 
 class HomePresenter: ObservableObject {
     private let interactor: RecipeListInteractor
@@ -21,7 +22,7 @@ class HomePresenter: ObservableObject {
         
         interactor.$recipes
             .map { array in
-                array.filter { $0.isUserRecipe == false }
+                array.filter { $0.recipeType.contains(RecipeType.new.rawValue) }
             }
             .assign(to: \.recipes, on: self)
             .store(in: &cancallables)
@@ -33,4 +34,58 @@ class HomePresenter: ObservableObject {
             RecipeCardView(presenter: RecipeCardPresenter(interactor: RecipeCardInteractor(model: interactor.model, recipe: recipe)))
         }
     }
+    
+    func makeRecipeSearchNavigation(recipe: Recipe, model: DataModel) -> some View {
+        return NavigationLink(destination: RecipeDescriptionView(presenter: RecipeDescriptionPresenter(interactor: RecipeDescriptionInteractor(model: model), recipe: recipe))) {
+            Text(recipe.name)
+        }
+    }
+    
+    func filterRecipes(searchQuery: String, model: DataModel) -> [Recipe] {
+        if searchQuery.isEmpty {
+            return model.recipes
+        } else {
+            return model.recipes.filter {
+                $0.name.localizedCaseInsensitiveContains(searchQuery)
+            }
+        }
+    }
+    
+    var newRecipes: [Recipe] {
+        get {
+            return recipes.filter { $0.recipeType.contains(RecipeType.new.rawValue) }
+        }
+    }
+    
+    var vegetarianRecipes: [Recipe] {
+        get {
+            return recipes.filter { $0.recipeType.contains(RecipeType.vegetarian.rawValue) }
+        }
+    }
+    
+//    func parse() throws -> String {
+//        do {
+//            let content = try String(contentsOf: URL(string: "https://www.forksoverknives.com/recipes/?type=grid")!)
+//            let doc: Document = try SwiftSoup.parse(content)
+//            let link: Element = try doc.select("a").first()!
+//            let body: Element? = doc.body()
+//            let linkHref: String = try link.attr("href")
+//            print("!!!! \(linkHref)")
+//            guard let body = try body?.text() else {
+//                return ""
+//            }
+//            return body//doc.text()
+//        } catch Exception.Error(let type, let message) {
+//            print(message)
+//        } catch {
+//            print("error")
+//        }
+//        return ""
+//    }
+//
+//    var siteContent: String {
+//        get {
+//            return try! parse()
+//        }
+//    }
 }

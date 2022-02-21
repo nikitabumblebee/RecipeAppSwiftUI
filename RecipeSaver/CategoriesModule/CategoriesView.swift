@@ -15,15 +15,15 @@ struct CategoriesView: View {
             ZStack {
                 VStack {
                     NavigationHeaderView()
-                    List {
-                        ForEach(Category.allCases) { category in
-                            presenter.selectCategory(category: category)
-                        }
-                    }
-                    .padding(.top, -7.5)
-                    .navigationTitle("Categories")
+                    Spacer()
                 }
-                
+                List {
+                    ForEach(Category.allCases) { category in
+                        presenter.selectCategory(category: category)
+                    }
+                }
+                .padding(.top, 1)
+                .navigationTitle("Categories")
             }
         }
         .navigationViewStyle(.stack)

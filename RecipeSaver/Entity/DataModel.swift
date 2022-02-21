@@ -34,16 +34,19 @@ final class DataModel {
     
     func addNewRecipe(recipe: Recipe) {
         recipes.insert(recipe, at: 0)
+        save()
     }
     
     func updateRecipe(recipe: Recipe) {
         if let existedRecipeIndex = recipes.firstIndex(where: { $0.name == recipe.name }) {
             recipes[existedRecipeIndex] = recipe
         }
+        save()
     }
     
     func removeRecipe(recipe: Recipe) {
         recipes.removeAll { $0.id == recipe.id }
+        save()
     }
     
     func resetFavorites() {

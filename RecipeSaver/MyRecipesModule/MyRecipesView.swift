@@ -13,26 +13,56 @@ struct MyRecipesView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                VStack {
-                    NavigationHeaderView()
-                    Spacer()
-                }
-                if model.recipes.filter { $0.isUserRecipe }.count > 0 {
-                    ScrollView {
-                        RecipeListView(presenter: RecipeListPresenter(interactor: RecipeListInteractor(recipes: presenter.recipes, model: model)))
+            VStack {
+                ZStack {
+                    VStack {
+                        NavigationHeaderView()
+                        Spacer()
                     }
-                    .padding(.top, 10.0)
-                    .navigationTitle("My Recipes")
-                } else {
-                    Text("You don't have your own recipes")
-                        .navigationTitle("My Recipes")
+                    if presenter.recipes.count > 0 {
+                        VStack {
+                            HStack {
+                                Text("\(presenter.recipes.count) \(presenter.recipes.count > 1 ? "recipes" : "recipe")")
+                                    .font(.headline)
+                                    .fontWeight(.medium)
+                                    .opacity(0.7)
+                                Spacer()
+                            }
+                            .padding([.top, .leading])
+                            
+                            List {
+                                ForEach(presenter.recipes) { recipe in
+                                    presenter.routeToRecipe(recipe: recipe)
+                                        .swipeActions(allowsFullSwipe: false) {
+                                            Button {
+                                                presenter.changeFavoriteStatus(recipe: recipe)
+                                            } label: {
+                                                Label("Favorite", systemImage: "heart.fill")
+                                            }
+                                            .tint(Color.indigo)
+                                            
+                                            Button(role: .destructive) {
+                                                presenter.deleteRecipe(recipe: recipe)
+                                            } label: {
+                                                Label("Delete", systemImage: "trash.fill")
+                                            }
+                                        }
+                                }
+                            }
+                            .listStyle(.grouped)
+                            .padding(.top, 8)
+                            .navigationTitle("My Recipes")
+                        }
+                    } else {
+                        Text("You don't have your own recipes")
+                            .navigationTitle("My Recipes")
+                    }
+                }
+                .toolbar {
+                    presenter.makeNewRecipe(model: model)
                 }
                 Rectangle()
-                    .frame(height: 0)
-            }
-            .toolbar {
-                presenter.makeNewRecipe(model: model)
+                    .frame(height: 0.0)
             }
         }
         .navigationViewStyle(.stack)
@@ -41,6 +71,9 @@ struct MyRecipesView: View {
 
 struct MyRecipesView_Previews: PreviewProvider {
     static var previews: some View {
-        MyRecipesView(presenter: MyRecipesPresenter(interactor: MyRecipesInteractor(recipes: DataModel.sample.recipes, model: DataModel.sample)))
+        let model = DataModel.sample
+        let interactor = MyRecipesInteractor(recipes: model.recipes as! [UserRecipe], model: model)
+        let presenter = MyRecipesPresenter(interactor: interactor)
+        MyRecipesView(presenter: presenter)
     }
 }

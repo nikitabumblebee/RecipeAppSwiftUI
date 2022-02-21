@@ -7,8 +7,9 @@
 
 import Foundation
 import Combine
+import AudioToolbox
 
-final class Recipe {
+class Recipe {
     @Published var name: String
     @Published var image: String
     @Published var description: String
@@ -18,11 +19,11 @@ final class Recipe {
     @Published var datePublished: String
     @Published var url: String
     @Published var isFavorite: Bool
-    @Published var isUserRecipe: Bool
     @Published var cookTime: String
+    @Published var recipeType: [RecipeType.RawValue]
     let id: UUID
     
-    init(name: String, image: String, description: String, ingredients: String, directions: String, category: String, datePublished: String, url: String, cookTime: String, isFavorite: Bool = false, isUserRecipe: Bool) {
+    init(name: String, image: String, description: String, ingredients: String, directions: String, category: String, datePublished: String, url: String, cookTime: String, isFavorite: Bool = false, recipeType: [String]) {
         id = UUID()
         self.name = name
         self.image = image
@@ -34,7 +35,7 @@ final class Recipe {
         self.url = url
         self.cookTime = cookTime
         self.isFavorite = isFavorite
-        self.isUserRecipe = isUserRecipe
+        self.recipeType = recipeType
     }
     
     required init(from decoder: Decoder) throws {
@@ -49,7 +50,7 @@ final class Recipe {
         url = try container.decode(String.self, forKey: .url)
         cookTime = try container.decode(String.self, forKey: .cookTime)
         isFavorite = try container.decode(Bool.self, forKey: .isFavorite)
-        isUserRecipe = try container.decode(Bool.self, forKey: .isUserRecipe)
+        recipeType = try container.decode([String].self, forKey: .recipeType)
         id = try container.decode(UUID.self, forKey: .id)
     }
 }
@@ -66,7 +67,7 @@ extension Recipe: Codable {
         case url
         case cookTime
         case isFavorite
-        case isUserRecipe
+        case recipeType
         case id
     }
     
@@ -82,7 +83,7 @@ extension Recipe: Codable {
         try container.encode(url, forKey: .url)
         try container.encode(cookTime, forKey: .cookTime)
         try container.encode(isFavorite, forKey: .isFavorite)
-        try container.encode(isUserRecipe, forKey: .isUserRecipe)
+        try container.encode(recipeType, forKey: .recipeType)
         try container.encode(id, forKey: .id)
     }
 }
@@ -102,4 +103,11 @@ enum Category: String, CaseIterable, Identifiable {
     case dessert = "Dessert"
     case snack = "Snack"
     case drink = "Drink"
+}
+
+enum RecipeType: String, CaseIterable, Identifiable {
+    var id: String { self.rawValue }
+    case user = "User"
+    case new = "New"
+    case vegetarian = "Vegetarian"
 }

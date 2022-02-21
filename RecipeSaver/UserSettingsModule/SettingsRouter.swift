@@ -11,4 +11,8 @@ class SettingsRouter {
     func editProfile() -> some View {
         return EditSettingsView(presenter: EditSettingsPresenter(interactor: EditSettingsInteractor()))
     }
+    
+    func routeToAppearanceView() -> some View {
+        return AppearanceView(presenter: AppearancePresenter(interactor: AppearanceInteractor()))
+    }
 }
