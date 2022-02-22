@@ -37,7 +37,7 @@ class MyRecipesPresenter: ObservableObject {
     func makeNewRecipe(model: DataModel) -> some View {
         let destination = router.makeNewRecipe(model: model)
         return NavigationLink(destination: destination) {
-            Text("Add")
+            Text(String(localized: "Add"))
         }
     }
     
