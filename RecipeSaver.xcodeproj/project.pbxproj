@@ -73,6 +73,7 @@
 		3FFC427627BF57A900D6A22C /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC427527BF57A900D6A22C /* AppearanceView.swift */; };
 		3FFC427827BF57BC00D6A22C /* AppearancePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC427727BF57BC00D6A22C /* AppearancePresenter.swift */; };
 		3FFC427A27BF57CB00D6A22C /* AppearanceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC427927BF57CB00D6A22C /* AppearanceInteractor.swift */; };
+		3FFEB12D27C48ED90033D8E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FFEB12B27C48ED90033D8E0 /* Localizable.strings */; };
 		3FFECB0827BCAA7400430944 /* UserRecipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFECB0727BCAA7400430944 /* UserRecipeCardView.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,7 @@
 		3FFC427527BF57A900D6A22C /* AppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceView.swift; sourceTree = "<group>"; };
 		3FFC427727BF57BC00D6A22C /* AppearancePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearancePresenter.swift; sourceTree = "<group>"; };
 		3FFC427927BF57CB00D6A22C /* AppearanceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceInteractor.swift; sourceTree = "<group>"; };
+		3FFEB12C27C48ED90033D8E0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FFECB0727BCAA7400430944 /* UserRecipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecipeCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,6 +241,7 @@
 		3F17FB27279B156D00A6C375 = {
 			isa = PBXGroup;
 			children = (
+				3FFEB12B27C48ED90033D8E0 /* Localizable.strings */,
 				3F17FB32279B156D00A6C375 /* RecipeSaver */,
 				3FF80E9C27AE6EF600C434F9 /* default.json */,
 				3F17FB31279B156D00A6C375 /* Products */,
@@ -500,6 +503,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 3F17FB27279B156D00A6C375;
 			packageReferences = (
@@ -520,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FF80E9D27AE6EF600C434F9 /* default.json in Resources */,
+				3FFEB12D27C48ED90033D8E0 /* Localizable.strings in Resources */,
 				3F17FB3B279B156F00A6C375 /* Preview Assets.xcassets in Resources */,
 				3F17FB38279B156F00A6C375 /* Assets.xcassets in Resources */,
 			);
@@ -598,6 +603,17 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3FFEB12B27C48ED90033D8E0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FFEB12C27C48ED90033D8E0 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3F17FB3C279B156F00A6C375 /* Debug */ = {
