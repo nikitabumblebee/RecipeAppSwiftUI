@@ -4,6 +4,9 @@
 /* No comment provided by engineer. */
 "%lld %@" = "%lld %@";
 
+/* Add new recipe */
+"Add" = " Добавить";
+
 /* No comment provided by engineer. */
 "Add recipe manually" = "Добавить рецепт вручную";
 
@@ -75,6 +78,12 @@
 
 /* No comment provided by engineer. */
 "Put Away" = "Исключить";
+
+/* No comment provided by engineer. */
+"recipe" = "рецепт";
+
+/* No comment provided by engineer. */
+"recipes" = "рецепты";
 
 /* No comment provided by engineer. */
 "Reset" = "Сброс";
