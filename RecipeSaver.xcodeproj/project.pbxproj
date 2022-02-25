@@ -73,6 +73,8 @@
 		3FFC427627BF57A900D6A22C /* AppearanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC427527BF57A900D6A22C /* AppearanceView.swift */; };
 		3FFC427827BF57BC00D6A22C /* AppearancePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC427727BF57BC00D6A22C /* AppearancePresenter.swift */; };
 		3FFC427A27BF57CB00D6A22C /* AppearanceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC427927BF57CB00D6A22C /* AppearanceInteractor.swift */; };
+		3FFCD67527C88195006D2E6C /* AppLanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCD67427C88195006D2E6C /* AppLanguageManager.swift */; };
+		3FFCD67727C88411006D2E6C /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFCD67627C88411006D2E6C /* Localizable.swift */; };
 		3FFEB12D27C48ED90033D8E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FFEB12B27C48ED90033D8E0 /* Localizable.strings */; };
 		3FFEB13027C498840033D8E0 /* RecipeSaver-InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FFEB12E27C498840033D8E0 /* RecipeSaver-InfoPlist.strings */; };
 		3FFECB0827BCAA7400430944 /* UserRecipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFECB0727BCAA7400430944 /* UserRecipeCardView.swift */; };
@@ -144,6 +146,8 @@
 		3FFC427527BF57A900D6A22C /* AppearanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceView.swift; sourceTree = "<group>"; };
 		3FFC427727BF57BC00D6A22C /* AppearancePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearancePresenter.swift; sourceTree = "<group>"; };
 		3FFC427927BF57CB00D6A22C /* AppearanceInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceInteractor.swift; sourceTree = "<group>"; };
+		3FFCD67427C88195006D2E6C /* AppLanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLanguageManager.swift; sourceTree = "<group>"; };
+		3FFCD67627C88411006D2E6C /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		3FFEB12C27C48ED90033D8E0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FFEB12F27C498840033D8E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/RecipeSaver-InfoPlist.strings"; sourceTree = "<group>"; };
 		3FFECB0727BCAA7400430944 /* UserRecipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecipeCardView.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				3F0BDA5B27A9552B0060067D /* AlertWrapper.swift */,
+				3FFCD67627C88411006D2E6C /* Localizable.swift */,
 			);
 			path = Wrappers;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 		3F17FB32279B156D00A6C375 /* RecipeSaver */ = {
 			isa = PBXGroup;
 			children = (
+				3FFCD67327C8816F006D2E6C /* Managers */,
 				3FFC427427BF578B00D6A22C /* AppearanceModule */,
 				3FFECB0627BCAA5800430944 /* UserRecipeCardModule */,
 				3F0EECD927B4138900FF184C /* HomeModule */,
@@ -452,6 +458,14 @@
 			path = AppearanceModule;
 			sourceTree = "<group>";
 		};
+		3FFCD67327C8816F006D2E6C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3FFCD67427C88195006D2E6C /* AppLanguageManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		3FFECB0627BCAA5800430944 /* UserRecipeCardModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,7 +567,9 @@
 				3FF80E8E27AD377700C434F9 /* RecipeListInteractor.swift in Sources */,
 				3F0EECCD27B3925200FF184C /* CategoriesPresenter.swift in Sources */,
 				3FF80EBD27B0D42100C434F9 /* NewRecipePresenter.swift in Sources */,
+				3FFCD67527C88195006D2E6C /* AppLanguageManager.swift in Sources */,
 				3F0EECC927B3872600FF184C /* NavigationHeaderView.swift in Sources */,
+				3FFCD67727C88411006D2E6C /* Localizable.swift in Sources */,
 				3F0EECD627B4132400FF184C /* MyRecipesInteractor.swift in Sources */,
 				3FF80EB927B0C2F500C434F9 /* AddRecipeInteractor.swift in Sources */,
 				3F17FB50279B173C00A6C375 /* SettingsView.swift in Sources */,
