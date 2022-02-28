@@ -43,6 +43,7 @@
 		3F17FB58279B24B800A6C375 /* RecipeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB57279B24B800A6C375 /* RecipeListView.swift */; };
 		3F17FB5A279BAF7400A6C375 /* RecipeDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB59279BAF7400A6C375 /* RecipeDescriptionView.swift */; };
 		3F17FB5C279C10D000A6C375 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F17FB5B279C10D000A6C375 /* CategoryView.swift */; };
+		3F27D7C927CC71C8008A962B /* Languages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27D7C827CC71C8008A962B /* Languages.swift */; };
 		3FF80E8C27AD373B00C434F9 /* RecipeListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80E8B27AD373B00C434F9 /* RecipeListPresenter.swift */; };
 		3FF80E8E27AD377700C434F9 /* RecipeListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80E8D27AD377700C434F9 /* RecipeListInteractor.swift */; };
 		3FF80E9127AD3D0400C434F9 /* RecipeListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80E9027AD3D0400C434F9 /* RecipeListRouter.swift */; };
@@ -118,6 +119,7 @@
 		3F17FB57279B24B800A6C375 /* RecipeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListView.swift; sourceTree = "<group>"; };
 		3F17FB59279BAF7400A6C375 /* RecipeDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDescriptionView.swift; sourceTree = "<group>"; };
 		3F17FB5B279C10D000A6C375 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		3F27D7C827CC71C8008A962B /* Languages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Languages.swift; sourceTree = "<group>"; };
 		3FF80E8B27AD373B00C434F9 /* RecipeListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListPresenter.swift; sourceTree = "<group>"; };
 		3FF80E8D27AD377700C434F9 /* RecipeListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListInteractor.swift; sourceTree = "<group>"; };
 		3FF80E9027AD3D0400C434F9 /* RecipeListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListRouter.swift; sourceTree = "<group>"; };
@@ -268,32 +270,33 @@
 		3F17FB32279B156D00A6C375 /* RecipeSaver */ = {
 			isa = PBXGroup;
 			children = (
-				3FFCD67327C8816F006D2E6C /* Managers */,
-				3FFC427427BF578B00D6A22C /* AppearanceModule */,
-				3FFECB0627BCAA5800430944 /* UserRecipeCardModule */,
-				3F0EECD927B4138900FF184C /* HomeModule */,
-				3F0EECD027B412F800FF184C /* MyRecipesModule */,
-				3F0EECC327B291DC00FF184C /* Uitilities */,
-				3FF80EC327B0FF9100C434F9 /* EditSettingsModule */,
 				3FF80EB327B0BF0400C434F9 /* AddRecipeModule */,
-				3FF80EB227B0BEA900C434F9 /* NewRecipeModule */,
-				3FF80EB127B0BE7A00C434F9 /* CategoriesModule */,
-				3FF80EAC27B0BA9000C434F9 /* RecipeDescriptionModule */,
-				3FF80EA927AE8E8800C434F9 /* RecipeCardModule */,
-				3FF80EA427AE85E700C434F9 /* TabBarModule */,
-				3FF80E9627AE632E00C434F9 /* Data Sources */,
-				3FF80E8F27AD3C8E00C434F9 /* FavoritesModule */,
-				3FF80E8A27AD368D00C434F9 /* RecipesListModule */,
-				3F0C7DC727AD216000F23ADF /* UserSettingsModule */,
-				3F0BDA5A27A9551A0060067D /* Wrappers */,
-				3F14E43E27A8F6E000AF8239 /* Entity */,
-				3F14E43727A82F6400AF8239 /* Extensions */,
-				3F099CFC27A6BBE60079F4BC /* Helpers */,
-				3F17FB41279B165700A6C375 /* Views */,
+				3FFC427427BF578B00D6A22C /* AppearanceModule */,
 				3F17FB37279B156F00A6C375 /* Assets.xcassets */,
-				3F17FB39279B156F00A6C375 /* Preview Content */,
-				3F17FB33279B156D00A6C375 /* RecipeSaverApp.swift */,
+				3FF80EB127B0BE7A00C434F9 /* CategoriesModule */,
 				3F17FB35279B156D00A6C375 /* ContentView.swift */,
+				3FF80E9627AE632E00C434F9 /* Data Sources */,
+				3FF80EC327B0FF9100C434F9 /* EditSettingsModule */,
+				3F14E43E27A8F6E000AF8239 /* Entity */,
+				3F27D7C727CC714B008A962B /* Enums */,
+				3F14E43727A82F6400AF8239 /* Extensions */,
+				3FF80E8F27AD3C8E00C434F9 /* FavoritesModule */,
+				3F099CFC27A6BBE60079F4BC /* Helpers */,
+				3F0EECD927B4138900FF184C /* HomeModule */,
+				3FFCD67327C8816F006D2E6C /* Managers */,
+				3F0EECD027B412F800FF184C /* MyRecipesModule */,
+				3FF80EB227B0BEA900C434F9 /* NewRecipeModule */,
+				3F17FB39279B156F00A6C375 /* Preview Content */,
+				3FF80EA927AE8E8800C434F9 /* RecipeCardModule */,
+				3FF80EAC27B0BA9000C434F9 /* RecipeDescriptionModule */,
+				3F17FB33279B156D00A6C375 /* RecipeSaverApp.swift */,
+				3FF80E8A27AD368D00C434F9 /* RecipesListModule */,
+				3FF80EA427AE85E700C434F9 /* TabBarModule */,
+				3F0EECC327B291DC00FF184C /* Uitilities */,
+				3FFECB0627BCAA5800430944 /* UserRecipeCardModule */,
+				3F0C7DC727AD216000F23ADF /* UserSettingsModule */,
+				3F17FB41279B165700A6C375 /* Views */,
+				3F0BDA5A27A9551A0060067D /* Wrappers */,
 			);
 			path = RecipeSaver;
 			sourceTree = "<group>";
@@ -311,16 +314,8 @@
 			children = (
 				3F17FB44279B167800A6C375 /* Components */,
 				3F17FB43279B167000A6C375 /* Detail */,
-				3F17FB42279B166700A6C375 /* Main */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		3F17FB42279B166700A6C375 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Main;
 			sourceTree = "<group>";
 		};
 		3F17FB43279B167000A6C375 /* Detail */ = {
@@ -340,6 +335,14 @@
 				3FFC046227B4FA0B005590D7 /* MultiComponentPicker.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		3F27D7C727CC714B008A962B /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				3F27D7C827CC71C8008A962B /* Languages.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		3FF80E8A27AD368D00C434F9 /* RecipesListModule */ = {
@@ -604,6 +607,7 @@
 				3FFC047127B5296F005590D7 /* UserRecipe.swift in Sources */,
 				3FF80E9127AD3D0400C434F9 /* RecipeListRouter.swift in Sources */,
 				3F0EECD227B4130B00FF184C /* MyRecipesView.swift in Sources */,
+				3F27D7C927CC71C8008A962B /* Languages.swift in Sources */,
 				3F17FB5C279C10D000A6C375 /* CategoryView.swift in Sources */,
 				3F17FB4E279B173000A6C375 /* FavoritesView.swift in Sources */,
 				3FF80E8C27AD373B00C434F9 /* RecipeListPresenter.swift in Sources */,

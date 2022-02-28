@@ -41,16 +41,19 @@ struct SettingsView: View {
                         Section {
                             List {
                                 presenter.routeToAppearanceView()
-                                NavigationLink(destination: { }) {
-                                    HStack {
-                                        Text("Language")
-                                        Spacer()
-                                        Text(selectedLanguage)
-                                            .foregroundColor(Color.gray)
-                                    }
-                                }
                             }
                         }
+                        
+                        Section(header: Text("Language")) {
+                            Picker("Language", selection: $presenter.userSettings.language) {
+                                ForEach(Languages.allCases) { category in
+                                    Text(category.rawValue)
+                                        .tag(category)
+                                }
+                            }
+                            .pickerStyle(.menu)
+                        }
+                        
                         HStack {
                             Spacer()
                             Button {
