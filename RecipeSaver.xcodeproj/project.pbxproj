@@ -50,7 +50,6 @@
 		3FF80E9527AE62B500C434F9 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80E9427AE62B500C434F9 /* DataModel.swift */; };
 		3FF80E9827AE634C00C434F9 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80E9727AE634C00C434F9 /* Persistence.swift */; };
 		3FF80E9A27AE690F00C434F9 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80E9927AE690F00C434F9 /* Recipe.swift */; };
-		3FF80E9D27AE6EF600C434F9 /* default.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FF80E9C27AE6EF600C434F9 /* default.json */; };
 		3FF80E9F27AE71DE00C434F9 /* FavoritesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80E9E27AE71DE00C434F9 /* FavoritesPresenter.swift */; };
 		3FF80EA127AE721600C434F9 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EA027AE721600C434F9 /* FavoritesInteractor.swift */; };
 		3FF80EA327AE831200C434F9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EA227AE831200C434F9 /* SceneDelegate.swift */; };
@@ -79,6 +78,7 @@
 		3FFEB12D27C48ED90033D8E0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FFEB12B27C48ED90033D8E0 /* Localizable.strings */; };
 		3FFEB13027C498840033D8E0 /* RecipeSaver-InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FFEB12E27C498840033D8E0 /* RecipeSaver-InfoPlist.strings */; };
 		3FFECB0827BCAA7400430944 /* UserRecipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFECB0727BCAA7400430944 /* UserRecipeCardView.swift */; };
+		3FFFE15F27CFBF7B00519536 /* default.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FFFE15E27CFBF7B00519536 /* default.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,7 +126,6 @@
 		3FF80E9427AE62B500C434F9 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		3FF80E9727AE634C00C434F9 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3FF80E9927AE690F00C434F9 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
-		3FF80E9C27AE6EF600C434F9 /* default.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = default.json; path = ../../default.json; sourceTree = "<group>"; };
 		3FF80E9E27AE71DE00C434F9 /* FavoritesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenter.swift; sourceTree = "<group>"; };
 		3FF80EA027AE721600C434F9 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		3FF80EA227AE831200C434F9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,6 +152,7 @@
 		3FFEB12C27C48ED90033D8E0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3FFEB12F27C498840033D8E0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "en.lproj/RecipeSaver-InfoPlist.strings"; sourceTree = "<group>"; };
 		3FFECB0727BCAA7400430944 /* UserRecipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecipeCardView.swift; sourceTree = "<group>"; };
+		3FFFE15E27CFBF7B00519536 /* default.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = default.json; path = RecipeSaver/default.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,7 +253,7 @@
 				3FFEB12E27C498840033D8E0 /* RecipeSaver-InfoPlist.strings */,
 				3FFEB12B27C48ED90033D8E0 /* Localizable.strings */,
 				3F17FB32279B156D00A6C375 /* RecipeSaver */,
-				3FF80E9C27AE6EF600C434F9 /* default.json */,
+				3FFFE15E27CFBF7B00519536 /* default.json */,
 				3F17FB31279B156D00A6C375 /* Products */,
 				3FFB72A827BE07C6006837D8 /* Frameworks */,
 			);
@@ -544,7 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FFEB13027C498840033D8E0 /* RecipeSaver-InfoPlist.strings in Resources */,
-				3FF80E9D27AE6EF600C434F9 /* default.json in Resources */,
+				3FFFE15F27CFBF7B00519536 /* default.json in Resources */,
 				3FFEB12D27C48ED90033D8E0 /* Localizable.strings in Resources */,
 				3F17FB3B279B156F00A6C375 /* Preview Assets.xcassets in Resources */,
 				3F17FB38279B156F00A6C375 /* Assets.xcassets in Resources */,
