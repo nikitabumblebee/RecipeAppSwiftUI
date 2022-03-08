@@ -41,6 +41,20 @@
             "cookTime": "90",
             "isFavorite": false,
             "recipeType": ["New"]
+        },
+        {
+            "id": "1D81D088-D03E-4DB8-8695-58F9A42A2388",
+            "name": "Butternut Cream Farfalle with Black Beans and Pumpkin Seeds",
+            "image": "https://www.forksoverknives.com/wp-content/uploads/fly-images/159989/Butternut-Cream-Farfalle-with-Black-Beans-and-Pumpkin-Seeds-wordpress-1366x566-c.jpg",
+            "description": "Craving a meal that’s creamy, hearty, and crunchy all at the same time? This is the dish for you. Earthy butternut squash is simmered with savory spices and puréed into a velvety sauce that’s made even richer with a dollop of almond butter. Nutrient-dense black beans add substance, while roasted pumpkin seeds serve as a crunchy garnish that makes every bite the perfect combination of textures and flavors. Sprinkle the finished dish with paprika (or cayenne, if you prefer a little more spice), and dig into this delectable and healthy plant-based pasta.",
+            "ingredients": "2 10-oz. bags frozen butternut squash cubes\n1 small onion, quartered\n2 cloves garlic\n1 tablespoon tomato paste\n1 teaspoon curry powder\n½ teaspoon dried oregano\n8 oz. dry whole wheat farfalle or bow tie pasta\n1 15-oz. can black beans, rinsed and drained (1½ cups)\n1 tablespoon almond butter\nSea salt, to taste\nFreshly ground black pepper, to taste\n¼ cup unsalted roasted pumpkin seeds (optional)\nSmoked paprika (optional)",
+            "directions": "In a medium saucepan combine the first six ingredients (through oregano) with 1½ cups water. Cover and bring to boiling. Cook about 10 minutes or until squash is very tender.\nCook farfalle according to package directions for al dente, adding beans the last 1 minute of cooking.\nMeanwhile, transfer squash mixture and almond butter to a food processor. Process to a smooth sauce. Season with salt and pepper.\nDrain pasta and beans; return to pot. Add sauce, stirring to coat. If desired, sprinkle with pumpkin seeds and paprika.",
+            "category": "Main",
+            "datePublished": "2022-03-07",
+            "url": "https://www.forksoverknives.com/recipes/vegan-pasta-noodles/butternut-cream-farfalle-black-beans-pumpkin-seeds/",
+            "cookTime": "20",
+            "isFavorite": false,
+            "recipeType": ["New", "Vegetarian"]
         }
     ]
 }
