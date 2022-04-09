@@ -22,7 +22,7 @@ struct MyRecipesView: View {
                     if presenter.recipes.count > 0 {
                         VStack {
                             HStack {
-                                Text("\(presenter.recipes.count) \(presenter.recipes.count > 1 ? "recipes" : "recipe")")
+                                Text("\(presenter.recipes.count) \(presenter.recipes.count > 1 ? String(localized: "recipes") : String(localized: "recipe"))")
                                     .font(.headline)
                                     .fontWeight(.medium)
                                     .opacity(0.7)
@@ -37,7 +37,7 @@ struct MyRecipesView: View {
                                             Button {
                                                 presenter.changeFavoriteStatus(recipe: recipe)
                                             } label: {
-                                                Label("Favorite", systemImage: "heart.fill")
+                                                Label(recipe.isFavorite ? "Put Away" : "Favorite", systemImage: "heart.fill")
                                             }
                                             .tint(Color.indigo)
                                             

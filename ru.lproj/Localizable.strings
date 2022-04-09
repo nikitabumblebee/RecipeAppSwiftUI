@@ -1,0 +1,120 @@
+/* No comment provided by engineer. */
+"%@ mins" = "%@ минут";
+
+/* No comment provided by engineer. */
+"%lld %@" = "%lld %@";
+
+/* Add new recipe */
+"Add" = " Добавить";
+
+/* No comment provided by engineer. */
+"Add recipe manually" = "Добавить рецепт вручную";
+
+/* No comment provided by engineer. */
+"Appearance" = "Внешний вид";
+
+/* No comment provided by engineer. */
+"Cancel" = "Отменить";
+
+/* No comment provided by engineer. */
+"Categories" = "Категории";
+
+/* No comment provided by engineer. */
+"Category" = "Категория";
+
+/* No comment provided by engineer. */
+"Dark Mode" = "Темная тема";
+
+/* No comment provided by engineer. */
+"Delete" = "Удалить";
+
+/* No comment provided by engineer. */
+"Description" = "Описание";
+
+/* No comment provided by engineer. */
+"Directions" = "Руководство";
+
+/* No comment provided by engineer. */
+"Edit" = "Изменить";
+
+/* No comment provided by engineer. */
+"Favorite" = "Избранное";
+
+/* No comment provided by engineer. */
+"Favorites" = "Избранное";
+
+/* No comment provided by engineer. */
+"Home" = "Стартовая";
+
+/* No comment provided by engineer. */
+"Image" = "Изображение";
+
+/* No comment provided by engineer. */
+"Ingredients" = "Ингредиенты";
+
+/* No comment provided by engineer. */
+"Language" = "Язык";
+
+/* No comment provided by engineer. */
+"Minutes:" = "Минуты";
+
+/* No comment provided by engineer. */
+"My Recipes" = "Мои рецепты";
+
+/* No comment provided by engineer. */
+"Name" = "Имя";
+
+/* No comment provided by engineer. */
+"Name:" = "Имя:";
+
+/* No comment provided by engineer. */
+"New" = "Новинки";
+
+/* No comment provided by engineer. */
+"New Recipe" = "Новый рецент";
+
+/* No comment provided by engineer. */
+"Nickname:" = "Псевдоним";
+
+/* No comment provided by engineer. */
+"Put Away" = "Исключить";
+
+/* No comment provided by engineer. */
+"recipe" = "рецепт";
+
+/* No comment provided by engineer. */
+"recipes" = "рецепты";
+
+/* No comment provided by engineer. */
+"Reset" = "Сброс";
+
+/* No comment provided by engineer. */
+"Reset all favorites?" = "Сбросить все избранные?";
+
+/* No comment provided by engineer. */
+"Reset Favorites" = "Сбросить избранные";
+
+/* No comment provided by engineer. */
+"Save" = "Сохранить";
+
+/* No comment provided by engineer. */
+"Search By Meal Name" = "Искать По Имени Блюда";
+
+/* No comment provided by engineer. */
+"Select Image" = "Выбрать Изображение";
+
+/* No comment provided by engineer. */
+"Settings" = "Настройки";
+
+/* No comment provided by engineer. */
+"Time" = "Время";
+
+/* No comment provided by engineer. */
+"Vegeterian" = "Вегетарианское";
+
+/* No comment provided by engineer. */
+"You don't have your own recipes" = "У вас не добавлены свои рецепты";
+
+/* No comment provided by engineer. */
+"You haven't added recipes to your favorites yet." = "Вы еще не добавили свои избранные рецепты";
+

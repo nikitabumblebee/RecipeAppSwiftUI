@@ -9,9 +9,9 @@ import SwiftUI
 
 class SettingsPresenter: ObservableObject {
     private let interactor: SettingsInteractor
-    
     private let router: SettingsRouter
     
+    @State var userSettings = UserSettings.shared
     @State var avatarImage: UIImage
     
     init(interactor: SettingsInteractor) {

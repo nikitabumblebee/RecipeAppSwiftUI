@@ -18,6 +18,8 @@ final class UserSettings {
     
     var userNickName: String = "@NikitaBumblebee"
     
+    var language: String = "English"
+    
     /// Is user switch on dark mode in the app
     var isDarkModeOn = false
     

@@ -19,9 +19,13 @@ struct RecipeDescriptionView: View {
             VStack {
                 ScrollView(showsIndicators: true) {
                     AsyncImage(url: URL(string: presenter.imageName)) { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
+                        GeometryReader { geometry in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: geometry.size.width)
+                        }
+                        
                     } placeholder: {
                         if presenter.imageName != presenter.recipeName || presenter.recipeImage == nil {
                             Image(systemName: "photo")
