@@ -64,8 +64,6 @@
 		3FF80EC127B0D6E900C434F9 /* NewRecipeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC027B0D6E900C434F9 /* NewRecipeInteractor.swift */; };
 		3FF80EC527B0FFB600C434F9 /* EditSettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC427B0FFB600C434F9 /* EditSettingsPresenter.swift */; };
 		3FF80EC727B0FFE700C434F9 /* EditSettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF80EC627B0FFE700C434F9 /* EditSettingsInteractor.swift */; };
-		3FFB72AA27BE07C6006837D8 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 3FFB72A927BE07C6006837D8 /* SwiftSoup */; };
-		3FFB72AF27BE0AF1006837D8 /* SwiftSoup in Frameworks */ = {isa = PBXBuildFile; productRef = 3FFB72AE27BE0AF1006837D8 /* SwiftSoup */; };
 		3FFC046327B4FA0B005590D7 /* MultiComponentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC046227B4FA0B005590D7 /* MultiComponentPicker.swift */; };
 		3FFC046B27B52484005590D7 /* UserAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC046A27B52484005590D7 /* UserAppearance.swift */; };
 		3FFC046D27B52496005590D7 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FFC046C27B52495005590D7 /* TabBarView.swift */; };
@@ -160,8 +158,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FFB72AA27BE07C6006837D8 /* SwiftSoup in Frameworks */,
-				3FFB72AF27BE0AF1006837D8 /* SwiftSoup in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,8 +490,6 @@
 			);
 			name = RecipeSaver;
 			packageProductDependencies = (
-				3FFB72A927BE07C6006837D8 /* SwiftSoup */,
-				3FFB72AE27BE0AF1006837D8 /* SwiftSoup */,
 			);
 			productName = RecipeSaver;
 			productReference = 3F17FB30279B156D00A6C375 /* RecipeSaver.app */;
@@ -527,7 +521,6 @@
 			);
 			mainGroup = 3F17FB27279B156D00A6C375;
 			packageReferences = (
-				3FFB72AD27BE0AF1006837D8 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
 			);
 			productRefGroup = 3F17FB31279B156D00A6C375 /* Products */;
 			projectDirPath = "";
@@ -846,29 +839,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		3FFB72AD27BE0AF1006837D8 /* XCRemoteSwiftPackageReference "SwiftSoup" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scinfu/SwiftSoup.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		3FFB72A927BE07C6006837D8 /* SwiftSoup */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = SwiftSoup;
-		};
-		3FFB72AE27BE0AF1006837D8 /* SwiftSoup */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3FFB72AD27BE0AF1006837D8 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
-			productName = SwiftSoup;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F17FB28279B156D00A6C375 /* Project object */;
 }
